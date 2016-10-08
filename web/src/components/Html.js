@@ -11,6 +11,7 @@ import React, { PropTypes } from 'react';
 import serialize from 'serialize-javascript';
 import { analytics } from '../config';
 
+
 function Html({ title, description, style, script, state, lang, children }) {
   return (
     <html className="no-js" lang={lang}>

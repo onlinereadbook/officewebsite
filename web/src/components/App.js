@@ -9,7 +9,11 @@
 
 import React, { PropTypes } from 'react';
 import { IntlProvider } from 'react-intl';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+injectTapEventPlugin();
 const ContextType = {
   // Navigation manager, e.g. history.push('/home')
   // https://github.com/mjackson/history
@@ -85,6 +89,7 @@ class App extends React.Component {
     const { initialNow, locale, messages } = this.intl;
     const localeMessages = (messages && messages[locale]) || {};
     return (
+      <MuiThemeProvider>
       <IntlProvider
         initialNow={initialNow}
         locale={locale}
@@ -93,6 +98,8 @@ class App extends React.Component {
       >
         {React.Children.only(this.props.children)}
       </IntlProvider>
+    </MuiThemeProvider>
+
     );
   }
 

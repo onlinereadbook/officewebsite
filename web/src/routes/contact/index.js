@@ -20,6 +20,7 @@ export default {
     return {
       title,
       component: <Contact title={title} />,
+
     };
   },
 
