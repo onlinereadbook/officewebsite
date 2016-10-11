@@ -15,6 +15,7 @@ import Link from '../Link';
 import Navigation from '../Navigation';
 import LanguageSwitcher from '../LanguageSwitcher';
 import logoUrl from './logo-small.png';
+import AppBar from 'material-ui/AppBar';
 
 const messages = defineMessages({
   brand: {
@@ -38,23 +39,14 @@ function Header() {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <Navigation className={s.nav} />
-        <Link className={s.brand} to="/">
-          <img src={logoUrl} width="38" height="38" alt="React" />
-          <span className={s.brandTxt}>
-            <FormattedMessage {...messages.brand} />
-          </span>
-        </Link>
-        <LanguageSwitcher />
-        <div className={s.banner}>
-          <h1 className={s.bannerTitle}>
-            <FormattedMessage {...messages.bannerTitle} />
-          </h1>
-          <FormattedMessage tagName="p" {...messages.bannerDesc} />
-        </div>
+        <AppBar title="My AppBar" />
+
+
       </div>
     </div>
   );
 }
+
+ 
 
 export default injectIntl(withStyles(s)(Header));

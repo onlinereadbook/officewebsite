@@ -9,6 +9,13 @@
 
 import React, { PropTypes } from 'react';
 import { IntlProvider } from 'react-intl';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+
+
+injectTapEventPlugin();
 
 const ContextType = {
   // Enables critical path CSS rendering
@@ -82,6 +89,8 @@ class App extends React.Component {
     const { initialNow, locale, messages } = this.intl;
     const localeMessages = (messages && messages[locale]) || {};
     return (
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+
       <IntlProvider
         initialNow={initialNow}
         locale={locale}
@@ -90,6 +99,8 @@ class App extends React.Component {
       >
         {React.Children.only(this.props.children)}
       </IntlProvider>
+    </MuiThemeProvider>
+
     );
   }
 
