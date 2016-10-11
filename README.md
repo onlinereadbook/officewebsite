@@ -2,14 +2,23 @@
 
 讀書會官方網站製作 v1.0
 
-關於關於線上讀書會
+目前製作項目有
 
-目前有開跑的讀書會項目 mysql crud
+componets中APP.js加入
 
-小額贊助/zoom需要花coco的 要有小額度也要開發票
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
-FB登入要開通知功能
+並包一層
+<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+在<IntlProvider> 之上
 
-聯絡我們
+其次修改header 加入一個 import AppBar from 'material-ui/AppBar';
 
-過往讀書會影片
+但目前不知道要如何使用state 在components 之中
+
+public 底下建立要使用的images/資料夾 當在 npm start 自動會copy到 build資料夾中
+
+實作一個home 使用 material-ui 的card 成功使用 
