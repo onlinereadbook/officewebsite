@@ -17,6 +17,9 @@ import LanguageSwitcher from '../LanguageSwitcher';
 import logoUrl from './logo-small.png';
 import AppBar from 'material-ui/AppBar';
 
+
+
+
 const messages = defineMessages({
   brand: {
     id: 'header.brand',
@@ -36,6 +39,7 @@ const messages = defineMessages({
 });
 
 function Header() {
+
   return (
     <div className={s.root}>
       <div className={s.container}>
@@ -47,6 +51,6 @@ function Header() {
   );
 }
 
- 
+
 
 export default injectIntl(withStyles(s)(Header));

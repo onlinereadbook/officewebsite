@@ -12,28 +12,39 @@ import { FormattedRelative } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './Home.css';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
-function Home({ news }) {
+
+
+function Home( ) {
   return (
     <Layout>
       <div className={s.root}>
         <div className={s.container}>
-          <h1 className={s.title}>React.js News</h1>
-          <ul className={s.news}>
-            {news.map((item, index) => (
-              <li key={index} className={s.newsItem}>
-                <a href={item.link} className={s.newsTitle}>{item.title}</a>
-                {' '}
-                <span className={s.publishedDate}>
-                  <FormattedRelative value={item.publishedDate} />
-                </span>
-                <span
-                  className={s.newsDesc}
-                  dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
+                <Card>
+                <CardHeader
+                  title="URL Avatar"
+                  subtitle="Subtitle"
+                  avatar="images/s1.jpg"
                 />
-              </li>
-            ))}
-          </ul>
+                <CardMedia
+                  overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+                >
+                  <img src="images/1.jpg" />
+                </CardMedia>
+                <CardTitle title="Card title" subtitle="Card subtitle" />
+                <CardText>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                </CardText>
+                <CardActions>
+                  <FlatButton label="Action1" />
+                  <FlatButton label="Action2" />
+                </CardActions>
+              </Card>
         </div>
       </div>
     </Layout>
@@ -41,11 +52,7 @@ function Home({ news }) {
 }
 
 Home.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    contentSnippet: PropTypes.string,
-  })).isRequired,
+ 
 };
 
 export default withStyles(s)(Home);
