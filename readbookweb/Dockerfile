@@ -36,4 +36,4 @@ ADD default /etc/nginx/sites-enabled
 
 EXPOSE 80 3000 5432
 
-CMD service nginx start;node test.js & npm start;
+CMD service nginx start;node test.js & npm start; 
