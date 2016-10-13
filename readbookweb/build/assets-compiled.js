@@ -1,5 +1,5 @@
 "use strict";
 
-module.exports = { "main": { "js": "/assets/main.js?49a6df3119183839c803" }, "polyfills": { "js": "/assets/polyfills.1.js?49a6df3119183839c803" } };
+module.exports = { "main": { "js": "/assets/main.25c0b3f6a248d9290bfa.js" }, "polyfills": { "js": "/assets/polyfills.1.1227cced6c121e3db74d.js" } };
 
 //# sourceMappingURL=assets-compiled.js.map
