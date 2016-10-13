@@ -43,9 +43,7 @@ function Header() {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <AppBar title="My AppBar" />
-
-
+        <AppBar title="Add" />
       </div>
     </div>
   );

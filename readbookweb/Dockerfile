@@ -28,12 +28,14 @@ RUN apt-get install -y nginx zip nodejs
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN npm install
+RUN npm install -g yarn
 
+RUN yarn
 
 RUN cd /etc/nginx/sites-enabled; rm -f default
 ADD default /etc/nginx/sites-enabled
 
-EXPOSE 80 3000 5432
+#EXPOSE 80 3000
+EXPOSE 80
 
-CMD service nginx start;node test.js & npm start; 
+CMD service nginx start; npm start;

@@ -45,11 +45,6 @@ function Layout(_ref) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Good Day'
-    ),
     _react2.default.createElement(_Header2.default, null),
     _react2.default.Children.only(children),
     _react2.default.createElement(_Footer2.default, null)

@@ -17,7 +17,6 @@ import s from './Layout.css';
 function Layout({ children }) {
   return (
     <div>
-        <h1 >Good Day</h1>
       <Header />
       {React.Children.only(children)}
       <Footer/>

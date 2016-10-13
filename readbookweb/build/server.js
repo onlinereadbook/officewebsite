@@ -2961,11 +2961,6 @@ module.exports =
     return _react2.default.createElement(
       'div',
       null,
-      _react2.default.createElement(
-        'h1',
-        null,
-        'Good Day'
-      ),
       _react2.default.createElement(_Header2.default, null),
       _react2.default.Children.only(children),
       _react2.default.createElement(_Footer2.default, null)
@@ -3102,7 +3097,7 @@ module.exports =
       _react2.default.createElement(
         'div',
         { className: _Header2.default.container },
-        _react2.default.createElement(_AppBar2.default, { title: 'My AppBar' })
+        _react2.default.createElement(_AppBar2.default, { title: 'Add' })
       )
     );
   }
