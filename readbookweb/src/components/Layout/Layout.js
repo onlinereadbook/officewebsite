@@ -19,6 +19,7 @@ function Layout({ children }) {
     <div>
       <Header />
       {React.Children.only(children)}
+      <Footer/>
 
     </div>
   );

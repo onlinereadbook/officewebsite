@@ -23,6 +23,21 @@ RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 RUN apt-get update
 RUN apt-get install -y nginx zip nodejs
 
-EXPOSE 80
+#RUN echo 'if [ -f "/.dockerenv" ]; then PS1="[DOCKER ${DOCKER_NAME}] $PS1"; fi' >> /root/.bashrc
 
-CMD echo "nginz & nodejs installed but not config yet"
+MKDIRyarn -v
+
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+#原本直接用 RUN npm install 但套件 sqlite3 不相容 Docker 的 node 6.x ，改用yarn就好了
+RUN npm install -g yarn
+RUN yarn
+
+RUN cd /etc/nginx/sites-enabled; rm -f default
+ADD default.conf /etc/nginx/sites-enabled
+
+EXPOSE 80 3000
+#EXPOSE 80
+
+CMD service nginx start; npm start;
