@@ -23,6 +23,17 @@ RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 RUN apt-get update
 RUN apt-get install -y nginx zip nodejs
 
-EXPOSE 80
+#RUN echo 'if [ -f "/.dockerenv" ]; then PS1="[DOCKER ${DOCKER_NAME}] $PS1"; fi' >> /root/.bashrc
 
-CMD echo "nginz & nodejs installed but not config yet"
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+RUN npm install
+
+
+RUN cd /etc/nginx/sites-enabled; rm -f default
+ADD default /etc/nginx/sites-enabled
+
+EXPOSE 80 3000 5432
+
+CMD service nginx start;node test.js & npm start;

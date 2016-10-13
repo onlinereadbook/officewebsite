@@ -20,6 +20,7 @@ import history from './core/history';
 import App from './components/App';
 import configureStore from './store/configureStore';
 
+// [en, cs].forEach(addLocaleData);
 [en, cs].forEach(addLocaleData);
 
 // Global (context) variables that can be easily accessed from any React component
