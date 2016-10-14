@@ -5,7 +5,6 @@
     "message": "",
     "description": "Description in header",
     "files": [
-      "src/components/Header/Header.js",
       "src/components/Header/Header_old.js"
     ]
   },
@@ -15,7 +14,6 @@
     "message": "",
     "description": "Title in page header",
     "files": [
-      "src/components/Header/Header.js",
       "src/components/Header/Header_old.js"
     ]
   },
@@ -25,7 +23,6 @@
     "message": "",
     "description": "Brand name displayed in header",
     "files": [
-      "src/components/Header/Header.js",
       "src/components/Header/Header_old.js"
     ]
   },

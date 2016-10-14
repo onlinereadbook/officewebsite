@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
+ import React, { Component, PropTypes } from 'react';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
@@ -17,40 +17,72 @@ import LanguageSwitcher from '../LanguageSwitcher';
 import logoUrl from './logo-small.png';
 import AppBar from 'material-ui/AppBar';
 
+import { connect } from 'react-redux';
+import { setTest } from '../../actions/test';
 
 
 
-const messages = defineMessages({
-  brand: {
-    id: 'header.brand',
-    defaultMessage: 'Your Company Brand',
-    description: 'Brand name displayed in header',
-  },
-  bannerTitle: {
-    id: 'header.banner.title',
-    defaultMessage: 'React',
-    description: 'Title in page header',
-  },
-  bannerDesc: {
-    id: 'header.banner.desc',
-    defaultMessage: 'Complex web apps made easy',
-    description: 'Description in header',
-  },
-});
 
-function Header() {
+class Header extends Component {
+    render() {
+        const { test } = this.props;
 
-  return (
-    <div className={s.root}>
-      <div className={s.container}>
-        <AppBar title="My AppBar" />
-
-
-      </div>
-    </div>
-  );
+        return (
+            <div>
+                <h2>{  this.props.test }</h2>
+                <button onClick={ this.handleChange.bind(this) }>change</button>
+            </div>
+        )
+    }
+    handleChange() {
+        const { setTest } = this.props;
+        setTest({
+            name: 'polo'
+        })
+    }
 }
 
 
+//
+// const messages = defineMessages({
+//   brand: {
+//     id: 'header.brand',
+//     defaultMessage: 'Your Company Brand',
+//     description: 'Brand name displayed in header',
+//   },
+//   bannerTitle: {
+//     id: 'header.banner.title',
+//     defaultMessage: 'React',
+//     description: 'Title in page header',
+//   },
+//   bannerDesc: {
+//     id: 'header.banner.desc',
+//     defaultMessage: 'Complex web apps made easy',
+//     description: 'Description in header',
+//   },
+// });
+//
+// function Header() {
+//
+//   return (
+//     <div className={s.root}>
+//       <div className={s.container}>
+//         <AppBar title="My AppBar" />
+//
+//
+//       </div>
+//     </div>
+//   );
+// }
+//
 
-export default injectIntl(withStyles(s)(Header));
+const mapState = (state) => ({
+  test: state.test
+});
+const mapDispatch = {
+  setTest
+};
+
+
+
+export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(Header)));

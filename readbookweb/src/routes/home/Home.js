@@ -17,9 +17,9 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 
-function Home( ) {
+function Home({news}) {
   return (
-    <Layout>
+    <Layout name="polo">
       <div className={s.root}>
         <div className={s.container}>
                 <Card>
@@ -52,7 +52,7 @@ function Home( ) {
 }
 
 Home.propTypes = {
- 
+
 };
 
 export default withStyles(s)(Home);

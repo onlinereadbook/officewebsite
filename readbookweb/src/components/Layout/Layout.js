@@ -15,6 +15,7 @@ import s from './Layout.css';
  import Footer from '../Footer';
 
 function Layout({ children }) {
+  
   return (
     <div>
       <Header />

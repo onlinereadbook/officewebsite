@@ -15,7 +15,7 @@ import s from './Home.css';
 
 function Home({ news }) {
   return (
-    <Layout>
+    <Layout name="polo">
       <div className={s.root}>
         <div className={s.container}>
           <h1 className={s.title}>React.js News</h1>

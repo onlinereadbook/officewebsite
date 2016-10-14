@@ -103,6 +103,10 @@ app.use('/graphql', expressGraphQL(req => ({
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
 app.get('*', async (req, res, next) => {
+
+  global.navigator = global.navigator || {};
+  global.navigator.userAgent = req.headers['user-agent'] || 'all';
+
   try {
     const store = configureStore({
       user: req.user || null,

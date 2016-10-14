@@ -29,7 +29,15 @@ const ContextType = {
     getState: PropTypes.func.isRequired,
   }).isRequired,
 };
-
+const muiTheme = getMuiTheme({
+          palette: {
+              textColor: 'cyan500',
+          },
+          appBar: {
+              height: 50,
+          },
+    });
+    
 /**
  * The top-level React component setting context (global) variables
  * that can be accessed from all the child components.

@@ -21,4 +21,16 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 public 底下建立要使用的images/資料夾 當在 npm start 自動會copy到 build資料夾中
 
-實作一個home 使用 material-ui 的card 成功使用 
+實作一個home 使用 material-ui 的card 成功使用
+
+因為server-render 後端在render的時候會自動補上
+
+須在
+// Register server-side rendering middleware
+// -----------------------------------------------------------------------------
+
+app.get('*', async (req, res, next) => {
+中加入以下兩行
+
+global.navigator = global.navigator || {};
+global.navigator.userAgent = req.headers['user-agent'] || 'all';
