@@ -34,3 +34,6 @@ app.get('*', async (req, res, next) => {
 
 global.navigator = global.navigator || {};
 global.navigator.userAgent = req.headers['user-agent'] || 'all';
+
+
+// 加入nightwatch e2e 功能
