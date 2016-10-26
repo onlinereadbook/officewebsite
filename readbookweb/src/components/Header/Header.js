@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
- import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
@@ -23,14 +23,20 @@ import { setTest } from '../../actions/test';
 
 
 
+
 class Header extends Component {
     render() {
         const { test } = this.props;
 
         return (
+
+            // <AppBar
+            //     title="Title"
+            //     iconClassNameRight="muidocs-icon-navigation-expand-more"
+            //     />
             <div>
-                <h2>{  this.props.test }</h2>
-                <button onClick={ this.handleChange.bind(this) }>change</button>
+                <h2>{this.props.test}</h2>
+                <button onClick={this.handleChange.bind(this)}>change</button>
             </div>
         )
     }
@@ -77,10 +83,10 @@ class Header extends Component {
 //
 
 const mapState = (state) => ({
-  test: state.test
+    test: state.test
 });
 const mapDispatch = {
-  setTest
+    setTest
 };
 
 
