@@ -12,7 +12,8 @@ import { IntlProvider } from 'react-intl';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+//import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 
 injectTapEventPlugin();
@@ -30,14 +31,14 @@ const ContextType = {
   }).isRequired,
 };
 const muiTheme = getMuiTheme({
-          palette: {
-              textColor: 'cyan500',
-          },
-          appBar: {
-              height: 50,
-          },
-    });
-    
+  palette: {
+    textColor: 'cyan500',
+  },
+  appBar: {
+    height: 50,
+  },
+});
+
 /**
  * The top-level React component setting context (global) variables
  * that can be accessed from all the child components.
@@ -97,17 +98,17 @@ class App extends React.Component {
     const { initialNow, locale, messages } = this.intl;
     const localeMessages = (messages && messages[locale]) || {};
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
 
-      <IntlProvider
-        initialNow={initialNow}
-        locale={locale}
-        messages={localeMessages}
-        defaultLocale="en-US"
-      >
-        {React.Children.only(this.props.children)}
-      </IntlProvider>
-    </MuiThemeProvider>
+        <IntlProvider
+          initialNow={initialNow}
+          locale={locale}
+          messages={localeMessages}
+          defaultLocale="en-US"
+          >
+          {React.Children.only(this.props.children)}
+        </IntlProvider>
+      </MuiThemeProvider>
 
     );
   }

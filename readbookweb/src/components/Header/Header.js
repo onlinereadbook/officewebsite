@@ -19,7 +19,7 @@ import AppBar from 'material-ui/AppBar';
 
 import { connect } from 'react-redux';
 import { setTest } from '../../actions/test';
-
+import IconMenuExampleSimple from "./iconmenu";
 
 
 
@@ -29,15 +29,16 @@ class Header extends Component {
         const { test } = this.props;
 
         return (
+            <IconMenuExampleSimple />
 
             // <AppBar
             //     title="Title"
             //     iconClassNameRight="muidocs-icon-navigation-expand-more"
             //     />
-            <div>
-                <h2>{this.props.test}</h2>
-                <button onClick={this.handleChange.bind(this)}>change</button>
-            </div>
+            // <div>
+            //     <h2>{this.props.test}</h2>
+            //     <button onClick={this.handleChange.bind(this)}>change</button>
+            // </div>
         )
     }
     handleChange() {

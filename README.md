@@ -37,3 +37,9 @@ global.navigator.userAgent = req.headers['user-agent'] || 'all';
 
 
 // 加入nightwatch e2e 功能
+
+
+//加入除錯 在layout css 中加入這段
+span[type=button] {
+  appearance: none;
+}
