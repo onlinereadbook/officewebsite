@@ -802,10 +802,10 @@ module.exports =
         var store = this.props.context && this.props.context.store;
         var state = store && store.getState();
         this.intl = state && state.intl || {};
-        var _intl = this.intl;
-        var initialNow = _intl.initialNow;
-        var locale = _intl.locale;
-        var messages = _intl.messages;
+        var _intl = this.intl,
+            initialNow = _intl.initialNow,
+            locale = _intl.locale,
+            messages = _intl.messages;
   
         var localeMessages = messages && messages[locale] || {};
         return _react2.default.createElement(
@@ -911,13 +911,13 @@ module.exports =
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   function Html(_ref) {
-    var title = _ref.title;
-    var description = _ref.description;
-    var style = _ref.style;
-    var script = _ref.script;
-    var state = _ref.state;
-    var lang = _ref.lang;
-    var children = _ref.children;
+    var title = _ref.title,
+        description = _ref.description,
+        style = _ref.style,
+        script = _ref.script,
+        state = _ref.state,
+        lang = _ref.lang,
+        children = _ref.children;
   
     return _react2.default.createElement(
       'html',
@@ -3326,10 +3326,10 @@ module.exports =
     (0, _createClass3.default)(Link, [{
       key: 'render',
       value: function render() {
-        var _props = this.props;
-        var to = _props.to;
-        var children = _props.children;
-        var props = (0, _objectWithoutProperties3.default)(_props, ['to', 'children']);
+        var _props = this.props,
+            to = _props.to,
+            children = _props.children,
+            props = (0, _objectWithoutProperties3.default)(_props, ['to', 'children']);
   
         return _react2.default.createElement(
           'a',
@@ -3571,9 +3571,9 @@ module.exports =
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   function LanguageSwitcher(_ref) {
-    var currentLocale = _ref.currentLocale;
-    var availableLocales = _ref.availableLocales;
-    var setLocale = _ref.setLocale;
+    var currentLocale = _ref.currentLocale,
+        availableLocales = _ref.availableLocales,
+        setLocale = _ref.setLocale;
   
     var isSelected = function isSelected(locale) {
       return locale === currentLocale;
@@ -5076,9 +5076,9 @@ module.exports =
    */
   
   function Content(_ref) {
-    var path = _ref.path;
-    var title = _ref.title;
-    var content = _ref.content;
+    var path = _ref.path,
+        title = _ref.title,
+        content = _ref.content;
   
     return _react2.default.createElement(
       _Layout2.default,
@@ -5745,8 +5745,8 @@ module.exports =
   var _constants = __webpack_require__(93);
   
   function setRuntimeVariable(_ref) {
-    var name = _ref.name;
-    var value = _ref.value;
+    var name = _ref.name,
+        value = _ref.value;
   
     return {
       type: _constants.SET_RUNTIME_VARIABLE,

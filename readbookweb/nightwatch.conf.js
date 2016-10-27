@@ -5,7 +5,6 @@ var config = {
     "src_folders": [
         "test" // Where you are storing your Nightwatch e2e tests
     ],
-    'page_objects_path': ['test/pages'],
     "output_folder": "./reports", // reports (test outcome) output by nightwatch
     "selenium": { // downloaded by selenium-download module (see readme)
         "start_process": true, // tells nightwatch to start/stop the selenium process

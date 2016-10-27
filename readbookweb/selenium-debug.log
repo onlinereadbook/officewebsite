@@ -1,100 +1,27 @@
-12:47:58.963 INFO - Launching a standalone Selenium Server
-12:47:59.022 INFO - Java: Oracle Corporation 25.25-b02
-12:47:59.022 INFO - OS: Mac OS X 10.12.1 x86_64
-12:47:59.051 INFO - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
-12:47:59.162 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+11:55:28.372 INFO - Launching a standalone Selenium Server
+11:55:28.415 INFO - Java: Oracle Corporation 25.25-b02
+11:55:28.415 INFO - OS: Mac OS X 10.12.1 x86_64
+11:55:28.427 INFO - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
+11:55:28.509 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
 registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
-12:47:59.162 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+11:55:28.509 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
 registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
-12:47:59.162 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-12:47:59.163 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-12:47:59.165 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
-12:47:59.166 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
-12:47:59.279 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-12:47:59.280 INFO - Selenium Server is up and running
-12:47:59.689 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
-12:47:59.707 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]
-Starting ChromeDriver 2.23.409710 (0c4084804897ac45b5ff65a690ec6583b97225c0) on port 46726
+11:55:28.509 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+11:55:28.509 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+11:55:28.511 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+11:55:28.511 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+11:55:28.576 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+11:55:28.576 INFO - Selenium Server is up and running
+11:55:29.050 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+11:55:29.079 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.25.426935 (820a95b0b81d33e42712f9198c215f703412e1a1) on port 10037
 Only local connections are allowed.
-12:48:01.479 WARN - Exception thrown
-java.util.concurrent.ExecutionException: org.openqa.selenium.WebDriverException: java.lang.reflect.InvocationTargetException
-Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:37:03'
-System info: host: '118-232-201-47.dynamic.kbronet.com.tw', ip: '118.232.201.47', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.1', java.version: '1.8.0_25'
-Driver info: driver.version: unknown
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at org.openqa.selenium.remote.server.DefaultSession.execute(DefaultSession.java:183)
-	at org.openqa.selenium.remote.server.DefaultSession.<init>(DefaultSession.java:119)
-	at org.openqa.selenium.remote.server.DefaultSession.createSession(DefaultSession.java:95)
-	at org.openqa.selenium.remote.server.DefaultDriverSessions.newSession(DefaultDriverSessions.java:124)
-	at org.openqa.selenium.remote.server.handler.NewSession.handle(NewSession.java:59)
-	at org.openqa.selenium.remote.server.handler.NewSession.handle(NewSession.java:1)
-	at org.openqa.selenium.remote.server.rest.ResultConfig.handle(ResultConfig.java:111)
-	at org.openqa.selenium.remote.server.JsonHttpCommandHandler.handleRequest(JsonHttpCommandHandler.java:79)
-	at org.openqa.selenium.remote.server.DriverServlet.handleRequest(DriverServlet.java:204)
-	at org.openqa.selenium.remote.server.DriverServlet.doPost(DriverServlet.java:166)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
-	at org.openqa.selenium.remote.server.DriverServlet.service(DriverServlet.java:132)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
-	at org.openqa.jetty.jetty.servlet.ServletHolder.handle(ServletHolder.java:428)
-	at org.openqa.jetty.jetty.servlet.ServletHandler.dispatch(ServletHandler.java:680)
-	at org.openqa.jetty.jetty.servlet.ServletHandler.handle(ServletHandler.java:571)
-	at org.openqa.jetty.http.HttpContext.handle(HttpContext.java:1526)
-	at org.openqa.jetty.http.HttpContext.handle(HttpContext.java:1479)
-	at org.openqa.jetty.http.HttpServer.service(HttpServer.java:920)
-	at org.openqa.jetty.http.HttpConnection.service(HttpConnection.java:820)
-	at org.openqa.jetty.http.HttpConnection.handleNext(HttpConnection.java:986)
-	at org.openqa.jetty.http.HttpConnection.handle(HttpConnection.java:837)
-	at org.openqa.jetty.http.SocketListener.handleConnection(SocketListener.java:243)
-	at org.openqa.jetty.util.ThreadedServer.handle(ThreadedServer.java:358)
-	at org.openqa.jetty.util.ThreadPool$PoolThread.run(ThreadPool.java:537)
-Caused by: org.openqa.selenium.WebDriverException: java.lang.reflect.InvocationTargetException
-Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:37:03'
-System info: host: '118-232-201-47.dynamic.kbronet.com.tw', ip: '118.232.201.47', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.1', java.version: '1.8.0_25'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.remote.server.DefaultDriverProvider.callConstructor(DefaultDriverProvider.java:113)
-	at org.openqa.selenium.remote.server.DefaultDriverProvider.newInstance(DefaultDriverProvider.java:97)
-	at org.openqa.selenium.remote.server.DefaultDriverFactory.newInstance(DefaultDriverFactory.java:60)
-	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:222)
-	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:1)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.reflect.InvocationTargetException
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
-	at org.openqa.selenium.remote.server.DefaultDriverProvider.callConstructor(DefaultDriverProvider.java:103)
-	... 9 more
-Caused by: org.openqa.selenium.SessionNotCreatedException: session not created exception
-from unknown error: Runtime.evaluate missing 'wasThrown'
-  (Session info: chrome=54.0.2840.71)
-  (Driver info: chromedriver=2.23.409710 (0c4084804897ac45b5ff65a690ec6583b97225c0),platform=Mac OS X 10.12.1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 1.18 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:37:03'
-System info: host: '118-232-201-47.dynamic.kbronet.com.tw', ip: '118.232.201.47', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:249)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:144)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:170)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:138)
-	... 14 more
-12:48:01.487 WARN - Exception: session not created exception
-from unknown error: Runtime.evaluate missing 'wasThrown'
-  (Session info: chrome=54.0.2840.71)
-  (Driver info: chromedriver=2.23.409710 (0c4084804897ac45b5ff65a690ec6583b97225c0),platform=Mac OS X 10.12.1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 1.18 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1', time: '2016-06-30 17:37:03'
-System info: host: '118-232-201-47.dynamic.kbronet.com.tw', ip: '118.232.201.47', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
+11:55:30.670 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+11:55:30.693 INFO - Executing: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW])
+11:55:33.858 INFO - Done: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW]
+11:55:33.869 INFO - Executing: [find elements: By.cssSelector: body])
+11:55:33.924 INFO - Done: [find elements: By.cssSelector: body]
+11:55:33.934 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (d2fb9be50926e41ac5cfe07c0949ce3f)] -> css selector: body]])
+11:55:33.952 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (d2fb9be50926e41ac5cfe07c0949ce3f)] -> css selector: body]]
+11:55:33.960 INFO - Executing: [delete session: 3c6d920a-7ac3-4c35-a503-9cc738f61510])
+11:55:34.044 INFO - Done: [delete session: 3c6d920a-7ac3-4c35-a503-9cc738f61510]
