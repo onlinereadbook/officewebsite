@@ -16,29 +16,20 @@ import Navigation from '../Navigation';
 import LanguageSwitcher from '../LanguageSwitcher';
 import logoUrl from './logo-small.png';
 import AppBar from 'material-ui/AppBar';
-
 import { connect } from 'react-redux';
 import { setTest } from '../../actions/test';
-import IconMenuExampleSimple from "./iconmenu";
-
-
-
+import AppBarExampleComposition from './AppBar'
 
 class Header extends Component {
     render() {
         const { test } = this.props;
-
         return (
-            <IconMenuExampleSimple />
+            <div style={{
+                marginBottom: '2vh'
+            }}>
+                <AppBarExampleComposition />
 
-            // <AppBar
-            //     title="Title"
-            //     iconClassNameRight="muidocs-icon-navigation-expand-more"
-            //     />
-            // <div>
-            //     <h2>{this.props.test}</h2>
-            //     <button onClick={this.handleChange.bind(this)}>change</button>
-            // </div>
+            </div>
         )
     }
     handleChange() {
@@ -49,6 +40,8 @@ class Header extends Component {
     }
 }
 
+// <h2>{this.props.test}</h2>
+// <button onClick={this.handleChange.bind(this)}>change</button>
 
 //
 // const messages = defineMessages({

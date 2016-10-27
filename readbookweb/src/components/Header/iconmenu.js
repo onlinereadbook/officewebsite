@@ -55,30 +55,6 @@ export default class IconMenuExampleControlled extends Component {
                     <MenuItem value="4" primaryText="Help" />
                     <MenuItem value="5" primaryText="Sign out" />
                 </IconMenu>
-                <IconMenu
-                    iconButtonElement={<IconButton><ContentFilter /></IconButton>}
-                    onChange={this.handleChangeMultiple}
-                    value={this.state.valueMultiple}
-                    multiple={true}
-                    >
-                    <MenuItem value="1" primaryText="Blu-ray" />
-                    <MenuItem value="2" primaryText="Cassette" />
-                    <MenuItem value="3" primaryText="CD" />
-                    <MenuItem value="4" primaryText="DVD Audio" />
-                    <MenuItem value="5" primaryText="Hybrid SACD" />
-                    <MenuItem value="6" primaryText="Vinyl" />
-                </IconMenu>
-                <IconMenu
-                    iconButtonElement={<IconButton><FileFileDownload /></IconButton>}
-                    open={this.state.openMenu}
-                    onRequestChange={this.handleOnRequestChange}
-                    >
-                    <MenuItem value="1" primaryText="Windows App" />
-                    <MenuItem value="2" primaryText="Mac App" />
-                    <MenuItem value="3" primaryText="Android App" />
-                    <MenuItem value="4" primaryText="iOS App" />
-                </IconMenu>
-                <RaisedButton onTouchTap={this.handleOpenMenu} label="Downloads" />
             </div>
         );
     }

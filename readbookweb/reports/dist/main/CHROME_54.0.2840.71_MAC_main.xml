@@ -5,9 +5,9 @@
 
   <testsuite name="main"
     errors="0" failures="0" hostname="" id="" package="main" skipped="0"
-    tests="1" time="5.329" timestamp="Thu, 27 Oct 2016 03:55:28 GMT">
+    tests="1" time="6.127" timestamp="Thu, 27 Oct 2016 07:46:37 GMT">
   
-    <testcase name="抓取虎航的資料" time="5.329" assertions="1">
+    <testcase name="抓取虎航的資料" time="6.127" assertions="1">
 
     
     </testcase>

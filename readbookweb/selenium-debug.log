@@ -1,27 +1,27 @@
-11:55:28.372 INFO - Launching a standalone Selenium Server
-11:55:28.415 INFO - Java: Oracle Corporation 25.25-b02
-11:55:28.415 INFO - OS: Mac OS X 10.12.1 x86_64
-11:55:28.427 INFO - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
-11:55:28.509 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+15:46:36.724 INFO - Launching a standalone Selenium Server
+15:46:36.786 INFO - Java: Oracle Corporation 25.25-b02
+15:46:36.786 INFO - OS: Mac OS X 10.12.1 x86_64
+15:46:36.812 INFO - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
+15:46:36.957 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
 registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
-11:55:28.509 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+15:46:36.958 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
 registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
-11:55:28.509 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-11:55:28.509 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-11:55:28.511 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
-11:55:28.511 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
-11:55:28.576 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-11:55:28.576 INFO - Selenium Server is up and running
-11:55:29.050 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
-11:55:29.079 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]
-Starting ChromeDriver 2.25.426935 (820a95b0b81d33e42712f9198c215f703412e1a1) on port 10037
+15:46:36.958 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+15:46:36.958 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+15:46:36.961 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+15:46:36.961 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+15:46:37.085 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+15:46:37.085 INFO - Selenium Server is up and running
+15:46:37.670 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+15:46:37.689 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.25.426935 (820a95b0b81d33e42712f9198c215f703412e1a1) on port 6129
 Only local connections are allowed.
-11:55:30.670 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
-11:55:30.693 INFO - Executing: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW])
-11:55:33.858 INFO - Done: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW]
-11:55:33.869 INFO - Executing: [find elements: By.cssSelector: body])
-11:55:33.924 INFO - Done: [find elements: By.cssSelector: body]
-11:55:33.934 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (d2fb9be50926e41ac5cfe07c0949ce3f)] -> css selector: body]])
-11:55:33.952 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (d2fb9be50926e41ac5cfe07c0949ce3f)] -> css selector: body]]
-11:55:33.960 INFO - Executing: [delete session: 3c6d920a-7ac3-4c35-a503-9cc738f61510])
-11:55:34.044 INFO - Done: [delete session: 3c6d920a-7ac3-4c35-a503-9cc738f61510]
+15:46:39.440 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Dist / Main / Main, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+15:46:39.458 INFO - Executing: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW])
+15:46:43.141 INFO - Done: [get: https://booking.tigerair.com/Search.aspx?culture=zh-TW]
+15:46:43.154 INFO - Executing: [find elements: By.cssSelector: body])
+15:46:43.205 INFO - Done: [find elements: By.cssSelector: body]
+15:46:43.213 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (6a14319a12ad567a406a113b4b7a22ce)] -> css selector: body]])
+15:46:43.242 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (6a14319a12ad567a406a113b4b7a22ce)] -> css selector: body]]
+15:46:43.252 INFO - Executing: [delete session: 31a2bf91-dee0-4a5b-8f57-49c1864b1a80])
+15:46:43.340 INFO - Done: [delete session: 31a2bf91-dee0-4a5b-8f57-49c1864b1a80]
