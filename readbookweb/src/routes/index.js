@@ -16,12 +16,12 @@ export default {
 
   // Keep in mind, routes are evaluated in order
   children: [
+    require('./livemap').default,
     require('./home').default,
     require('./contact').default,
     require('./login').default,
     require('./register').default,
     require('./admin').default,
-
     // place new routes before...
     require('./content').default,
     require('./notFound').default,

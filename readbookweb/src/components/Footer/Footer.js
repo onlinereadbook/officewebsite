@@ -16,15 +16,15 @@ function Footer() {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <span className={s.text}>© Your Company</span>
+        <span className={s.text}>© 線上讀書會</span>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/">Home</Link>
+        <Link className={s.link} to="/">首頁</Link>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/admin">Admin</Link>
+        <Link className={s.link} to="/admin">線上</Link>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/privacy">Privacy</Link>
+        <Link className={s.link} to="/privacy">隱私權政策</Link>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/not-found">Not Found</Link>
+        <Link className={s.link} to="/livemap">Livemap</Link>
       </div>
     </div>
   );

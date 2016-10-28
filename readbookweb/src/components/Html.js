@@ -21,7 +21,7 @@ function Html({ title, description, style, script, state, lang, children }) {
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-        
+
         {style && <style id="css" dangerouslySetInnerHTML={{ __html: style }} />}
       </head>
       <body>
@@ -30,14 +30,16 @@ function Html({ title, description, style, script, state, lang, children }) {
           dangerouslySetInnerHTML={{
             __html: `window.APP_STATE=${serialize(state, { isJSON: true })}`,
           }}
-        />}
+          />}
         {script && <script src={script} />}
         {analytics.google.trackingId && (
           <script
-            dangerouslySetInnerHTML={{ __html:
-            'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
-            `ga('create','${analytics.google.trackingId}','auto');ga('send','pageview')` }}
-          />
+            dangerouslySetInnerHTML={{
+              __html:
+              'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
+              `ga('create','${analytics.google.trackingId}','auto');ga('send','pageview')`
+            }}
+            />
         )}
         {analytics.google.trackingId && (
           <script src="https://www.google-analytics.com/analytics.js" async defer />

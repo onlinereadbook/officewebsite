@@ -156,15 +156,15 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(139);
+  var _assets = __webpack_require__(144);
   
   var _assets2 = _interopRequireDefault(_assets);
   
-  var _configureStore = __webpack_require__(140);
+  var _configureStore = __webpack_require__(145);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(151);
+  var _runtime = __webpack_require__(156);
   
   var _intl = __webpack_require__(92);
   
@@ -950,7 +950,9 @@ module.exports =
         }),
         script && _react2.default.createElement('script', { src: script }),
         _config.analytics.google.trackingId && _react2.default.createElement('script', {
-          dangerouslySetInnerHTML: { __html: 'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' + ('ga(\'create\',\'' + _config.analytics.google.trackingId + '\',\'auto\');ga(\'send\',\'pageview\')') }
+          dangerouslySetInnerHTML: {
+            __html: 'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' + ('ga(\'create\',\'' + _config.analytics.google.trackingId + '\',\'auto\');ga(\'send\',\'pageview\')')
+          }
         }),
         _config.analytics.google.trackingId && _react2.default.createElement('script', { src: 'https://www.google-analytics.com/analytics.js', async: true, defer: true })
       )
@@ -2689,10 +2691,9 @@ module.exports =
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(74).default, __webpack_require__(115).default, __webpack_require__(119).default, __webpack_require__(123).default, __webpack_require__(127).default,
-  
+    children: [__webpack_require__(132).default, __webpack_require__(74).default, __webpack_require__(116).default, __webpack_require__(120).default, __webpack_require__(124).default, __webpack_require__(128).default,
     // place new routes before...
-    __webpack_require__(131).default, __webpack_require__(135).default],
+    __webpack_require__(136).default, __webpack_require__(140).default],
   
     action: function action(_ref) {
       var _this = this;
@@ -2820,13 +2821,13 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Home = __webpack_require__(111);
+  var _Home = __webpack_require__(113);
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _Card = __webpack_require__(113);
+  var _Card = __webpack_require__(115);
   
-  var _FlatButton = __webpack_require__(114);
+  var _FlatButton = __webpack_require__(101);
   
   var _FlatButton2 = _interopRequireDefault(_FlatButton);
   
@@ -2914,11 +2915,11 @@ module.exports =
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Feedback = __webpack_require__(105);
+  var _Feedback = __webpack_require__(107);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
-  var _Footer = __webpack_require__(108);
+  var _Footer = __webpack_require__(110);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
@@ -2941,7 +2942,8 @@ module.exports =
       'div',
       null,
       _react2.default.createElement(_Header2.default, null),
-      _react2.default.Children.only(children)
+      _react2.default.Children.only(children),
+      _react2.default.createElement(_Footer2.default, null)
     );
   }
   
@@ -3067,7 +3069,7 @@ module.exports =
   
   var _test = __webpack_require__(96);
   
-  var _AppBar3 = __webpack_require__(152);
+  var _AppBar3 = __webpack_require__(97);
   
   var _AppBar4 = _interopRequireDefault(_AppBar3);
   
@@ -3789,35 +3791,232 @@ module.exports =
   }
 
 /***/ },
-/* 97 */,
+/* 97 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _extends2 = __webpack_require__(4);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  var _getPrototypeOf = __webpack_require__(26);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(27);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(28);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(29);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(30);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _AppBar = __webpack_require__(95);
+  
+  var _AppBar2 = _interopRequireDefault(_AppBar);
+  
+  var _IconButton = __webpack_require__(98);
+  
+  var _IconButton2 = _interopRequireDefault(_IconButton);
+  
+  var _IconMenu = __webpack_require__(99);
+  
+  var _IconMenu2 = _interopRequireDefault(_IconMenu);
+  
+  var _MenuItem = __webpack_require__(100);
+  
+  var _MenuItem2 = _interopRequireDefault(_MenuItem);
+  
+  var _FlatButton = __webpack_require__(101);
+  
+  var _FlatButton2 = _interopRequireDefault(_FlatButton);
+  
+  var _Toggle = __webpack_require__(102);
+  
+  var _Toggle2 = _interopRequireDefault(_Toggle);
+  
+  var _moreVert = __webpack_require__(103);
+  
+  var _moreVert2 = _interopRequireDefault(_moreVert);
+  
+  var _close = __webpack_require__(104);
+  
+  var _close2 = _interopRequireDefault(_close);
+  
+  var _Badge = __webpack_require__(105);
+  
+  var _Badge2 = _interopRequireDefault(_Badge);
+  
+  var _notifications = __webpack_require__(106);
+  
+  var _notifications2 = _interopRequireDefault(_notifications);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var Login = function (_Component) {
+      (0, _inherits3.default)(Login, _Component);
+  
+      function Login() {
+          (0, _classCallCheck3.default)(this, Login);
+          return (0, _possibleConstructorReturn3.default)(this, (Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).apply(this, arguments));
+      }
+  
+      (0, _createClass3.default)(Login, [{
+          key: 'render',
+          value: function render() {
+              return _react2.default.createElement(_FlatButton2.default, (0, _extends3.default)({}, this.props, { label: 'Login' }));
+          }
+      }]);
+      return Login;
+  }(_react.Component);
+  
+  Login.muiName = 'FlatButton';
+  
+  
+  var Logged = function Logged(props) {
+      return _react2.default.createElement(
+          _IconMenu2.default,
+          (0, _extends3.default)({}, props, {
+              iconButtonElement: _react2.default.createElement(
+                  _IconButton2.default,
+                  null,
+                  _react2.default.createElement(_moreVert2.default, null)
+              ),
+              targetOrigin: { horizontal: 'right', vertical: 'top' },
+              anchorOrigin: { horizontal: 'right', vertical: 'top' }
+          }),
+          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Refresh' }),
+          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
+          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
+      );
+  };
+  
+  Logged.muiName = 'IconMenu';
+  
+  /**
+   * This example is taking advantage of the composability of the `AppBar`
+   * to render different components depending on the application state.
+   */
+  
+  var AppBarExampleComposition = function (_Component2) {
+      (0, _inherits3.default)(AppBarExampleComposition, _Component2);
+  
+      function AppBarExampleComposition() {
+          var _ref;
+  
+          var _temp, _this2, _ret;
+  
+          (0, _classCallCheck3.default)(this, AppBarExampleComposition);
+  
+          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+              args[_key] = arguments[_key];
+          }
+  
+          return _ret = (_temp = (_this2 = (0, _possibleConstructorReturn3.default)(this, (_ref = AppBarExampleComposition.__proto__ || (0, _getPrototypeOf2.default)(AppBarExampleComposition)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {
+              logged: true
+          }, _this2.handleChange = function (event, logged) {
+              _this2.setState({ logged: logged });
+          }, _temp), (0, _possibleConstructorReturn3.default)(_this2, _ret);
+      }
+  
+      (0, _createClass3.default)(AppBarExampleComposition, [{
+          key: 'render',
+          value: function render() {
+              return _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(_Toggle2.default, {
+                      label: 'Logged',
+                      defaultToggled: true,
+                      onToggle: this.handleChange,
+                      labelPosition: 'right',
+                      style: { margin: 20 }
+                  }),
+                  _react2.default.createElement(_AppBar2.default, {
+                      title: '\u6B61\u8FCE\u4F86\u5230\u7DDA\u4E0A\u8B80\u66F8\u6703',
+                      iconElementRight: this.state.logged ? _react2.default.createElement(Logged, null) : _react2.default.createElement(Login, null)
+                  })
+              );
+          }
+      }]);
+      return AppBarExampleComposition;
+  }(_react.Component);
+  
+  exports.default = AppBarExampleComposition;
+
+/***/ },
 /* 98 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/IconMenu");
-
-/***/ },
-/* 99 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/MenuItem");
-
-/***/ },
-/* 100 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/IconButton");
 
 /***/ },
-/* 101 */,
+/* 99 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/IconMenu");
+
+/***/ },
+/* 100 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/MenuItem");
+
+/***/ },
+/* 101 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/FlatButton");
+
+/***/ },
 /* 102 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Toggle");
+
+/***/ },
+/* 103 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/navigation/more-vert");
 
 /***/ },
-/* 103 */,
-/* 104 */,
+/* 104 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/svg-icons/navigation/close");
+
+/***/ },
 /* 105 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Badge");
+
+/***/ },
+/* 106 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/svg-icons/social/notifications");
+
+/***/ },
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3834,7 +4033,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Feedback = __webpack_require__(106);
+  var _Feedback = __webpack_require__(108);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
@@ -3882,11 +4081,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Feedback2.default)(Feedback);
 
 /***/ },
-/* 106 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(107);
+      var content = __webpack_require__(109);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -3916,7 +4115,7 @@ module.exports =
     
 
 /***/ },
-/* 107 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -3935,7 +4134,7 @@ module.exports =
   };
 
 /***/ },
-/* 108 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3952,7 +4151,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Footer = __webpack_require__(109);
+  var _Footer = __webpack_require__(111);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
@@ -3981,7 +4180,7 @@ module.exports =
         _react2.default.createElement(
           'span',
           { className: _Footer2.default.text },
-          '\xA9 Your Company'
+          '\xA9 \u7DDA\u4E0A\u8B80\u66F8\u6703'
         ),
         _react2.default.createElement(
           'span',
@@ -3991,7 +4190,7 @@ module.exports =
         _react2.default.createElement(
           _Link2.default,
           { className: _Footer2.default.link, to: '/' },
-          'Home'
+          '\u9996\u9801'
         ),
         _react2.default.createElement(
           'span',
@@ -4001,7 +4200,7 @@ module.exports =
         _react2.default.createElement(
           _Link2.default,
           { className: _Footer2.default.link, to: '/admin' },
-          'Admin'
+          '\u7DDA\u4E0A'
         ),
         _react2.default.createElement(
           'span',
@@ -4011,7 +4210,7 @@ module.exports =
         _react2.default.createElement(
           _Link2.default,
           { className: _Footer2.default.link, to: '/privacy' },
-          'Privacy'
+          '\u96B1\u79C1\u6B0A\u653F\u7B56'
         ),
         _react2.default.createElement(
           'span',
@@ -4020,8 +4219,8 @@ module.exports =
         ),
         _react2.default.createElement(
           _Link2.default,
-          { className: _Footer2.default.link, to: '/not-found' },
-          'Not Found'
+          { className: _Footer2.default.link, to: '/livemap' },
+          'Livemap'
         )
       )
     );
@@ -4030,11 +4229,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Footer2.default)(Footer);
 
 /***/ },
-/* 109 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(110);
+      var content = __webpack_require__(112);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4064,7 +4263,7 @@ module.exports =
     
 
 /***/ },
-/* 110 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4072,7 +4271,7 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Footer_root_3Ji {\n  background: #333;\n  color: #fff;\n}\n\n.Footer_container_n1b {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center;\n}\n\n.Footer_text_2mr {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.Footer_textMuted_9iT {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_spacer_3HO {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_text_2mr,\n.Footer_link_1sU {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.Footer_link_1sU,\n.Footer_link_1sU:active,\n.Footer_link_1sU:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.Footer_link_1sU:hover {\n  color: rgba(255, 255, 255, 1);\n}\n", "", {"version":3,"sources":["/./components/Footer/Footer.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;ADnBD;EACE,iBAAiB;EACjB,YAAY;CACb;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAoC;EACpC,mBAAmB;CACpB;;AAED;EACE,gCAAgC;CACjC;;AAED;EAEE,gCAAgC;CACjC;;AAED;EACE,gCAAgC;CACjC;;AAED;;EAEE,iBAAiB;EACjB,eAAe;CAChB;;AAED;;;EAGE,gCAAgC;EAChC,sBAAsB;CACvB;;AAED;EACE,8BAA8B;CAC/B","file":"Footer.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n\n.root {\n  background: #333;\n  color: #fff;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: var(--max-content-width);\n  text-align: center;\n}\n\n.text {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.textMuted {\n  composes: text;\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.text,\n.link {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.link:hover {\n  color: rgba(255, 255, 255, 1);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Footer_root_3Ji {\n  background: #333;\n  color: #fff;\n}\n\n.Footer_container_n1b {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center;\n}\n\n.Footer_text_2mr {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.Footer_textMuted_9iT {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_spacer_3HO {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.Footer_text_2mr,\n.Footer_link_1sU {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.Footer_link_1sU,\n.Footer_link_1sU:active,\n.Footer_link_1sU:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.Footer_link_1sU:hover {\n  color: rgba(255, 255, 255, 1);\n}\n", "", {"version":3,"sources":["/./components/Footer/Footer.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;ADpBD;EACE,iBAAiB;EACjB,YAAY;CACb;;AAED;EACE,eAAe;EACf,mBAAmB;EACnB,kBAAoC;EACpC,mBAAmB;CACpB;;AAED;EACE,gCAAgC;CACjC;;AAED;EAEE,gCAAgC;CACjC;;AAED;EACE,gCAAgC;CACjC;;AAED;;EAEE,iBAAiB;EACjB,eAAe;CAChB;;AAED;;;EAGE,gCAAgC;EAChC,sBAAsB;CACvB;;AAED;EACE,8BAA8B;CAC/B","file":"Footer.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n.root {\n  background: #333;\n  color: #fff;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: var(--max-content-width);\n  text-align: center;\n}\n\n.text {\n  color: rgba(255, 255, 255, 0.5);\n}\n\n.textMuted {\n  composes: text;\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.spacer {\n  color: rgba(255, 255, 255, 0.3);\n}\n\n.text,\n.link {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.link,\n.link:active,\n.link:visited {\n  color: rgba(255, 255, 255, 0.6);\n  text-decoration: none;\n}\n\n.link:hover {\n  color: rgba(255, 255, 255, 1);\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
@@ -4085,11 +4284,11 @@ module.exports =
   };
 
 /***/ },
-/* 111 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(112);
+      var content = __webpack_require__(114);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4119,7 +4318,7 @@ module.exports =
     
 
 /***/ },
-/* 112 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4141,19 +4340,13 @@ module.exports =
   };
 
 /***/ },
-/* 113 */
+/* 115 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Card");
 
 /***/ },
-/* 114 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/FlatButton");
-
-/***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4166,7 +4359,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(116);
+  var _Contact = __webpack_require__(117);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -4196,7 +4389,7 @@ module.exports =
   };
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4217,7 +4410,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Contact = __webpack_require__(117);
+  var _Contact = __webpack_require__(118);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -4266,11 +4459,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(118);
+      var content = __webpack_require__(119);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4300,7 +4493,7 @@ module.exports =
     
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4317,7 +4510,7 @@ module.exports =
   };
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4330,7 +4523,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(120);
+  var _Login = __webpack_require__(121);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -4360,7 +4553,7 @@ module.exports =
   };
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4381,7 +4574,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Login = __webpack_require__(121);
+  var _Login = __webpack_require__(122);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -4557,11 +4750,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(122);
+      var content = __webpack_require__(123);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4591,7 +4784,7 @@ module.exports =
     
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4618,7 +4811,7 @@ module.exports =
   };
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4631,7 +4824,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(124);
+  var _Register = __webpack_require__(125);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4661,7 +4854,7 @@ module.exports =
   };
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4682,7 +4875,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Register = __webpack_require__(125);
+  var _Register = __webpack_require__(126);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -4729,11 +4922,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(126);
+      var content = __webpack_require__(127);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4763,7 +4956,7 @@ module.exports =
     
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4780,7 +4973,7 @@ module.exports =
   };
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4793,7 +4986,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Admin = __webpack_require__(128);
+  var _Admin = __webpack_require__(129);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -4828,7 +5021,7 @@ module.exports =
   };
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4849,7 +5042,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Admin = __webpack_require__(129);
+  var _Admin = __webpack_require__(130);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -4898,11 +5091,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Admin2.default)(Admin);
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(130);
+      var content = __webpack_require__(131);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4932,7 +5125,7 @@ module.exports =
     
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4949,7 +5142,178 @@ module.exports =
   };
 
 /***/ },
-/* 131 */
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _livemap = __webpack_require__(133);
+  
+  var _livemap2 = _interopRequireDefault(_livemap);
+  
+  var _fetch = __webpack_require__(68);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+      path: '/livemap',
+  
+      action: function action() {
+          // const resp = await fetch('/graphql', {
+          //   method: 'post',
+          //   headers: {
+          //     Accept: 'application/json',
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify({
+          //     query: '{news{title,link,publishedDate,contentSnippet}}',
+          //   }),
+          //   credentials: 'include',
+          // });
+          // const { data } = await resp.json();
+          //  if (!data || !data.news) throw new Error('Failed to load the news feed.');
+          return {
+              title: 'React Starter Kit',
+              component: _react2.default.createElement(_livemap2.default, null)
+          };
+      }
+  }; /**
+      * React Starter Kit (https://www.reactstarterkit.com/)
+      *
+      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+      *
+      * This source code is licensed under the MIT license found in the
+      * LICENSE.txt file in the root directory of this source tree.
+      */
+
+/***/ },
+/* 133 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactIntl = __webpack_require__(20);
+  
+  var _withStyles = __webpack_require__(38);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Layout = __webpack_require__(76);
+  
+  var _Layout2 = _interopRequireDefault(_Layout);
+  
+  var _Livemap = __webpack_require__(134);
+  
+  var _Livemap2 = _interopRequireDefault(_Livemap);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function Livemap(_ref) {
+      var news = _ref.news;
+  
+      return _react2.default.createElement(
+          _Layout2.default,
+          null,
+          _react2.default.createElement(
+              'div',
+              { className: _Livemap2.default.root },
+              _react2.default.createElement(
+                  'div',
+                  { className: _Livemap2.default.container },
+                  _react2.default.createElement('div', { id: 'map' })
+              )
+          )
+      );
+  } /**
+     * React Starter Kit (https://www.reactstarterkit.com/)
+     *
+     * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE.txt file in the root directory of this source tree.
+     */
+  
+  Livemap.propTypes = {};
+  
+  exports.default = (0, _withStyles2.default)(_Livemap2.default)(Livemap);
+
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(135);
+      var insertCss = __webpack_require__(42);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Livemap.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Livemap.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(41)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n}\n\n.Livemap_root_1oQ {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n.Livemap_container_1Pd {\n    margin: 0 auto;\n    padding: 0 0 40px;\n    max-width: 1000px;\n}\n\n.Livemap_news_3FW {\n    padding: 0;\n}\n\n.Livemap_newsItem_3CX {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.Livemap_newsTitle_2xS {\n    font-size: 1.125em;\n}\n\n.Livemap_newsTitle_2xS,\n.Livemap_newsDesc_29v {\n    display: block;\n}\n\n.Livemap_publishedDate_sYM {\n    font-size: 0.8em;\n    color: #777;\n}\n", "", {"version":3,"sources":["/./routes/livemap/Livemap.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;;EAI9E;;gFAE8E;;EAI9E;;gFAE8E,EAErD,gCAAgC,EAChC,2BAA2B,EAC3B,6BAA6B,CAC7B,iCAAiC;CAC3D;;ADpBD;IACI,mBAAmB;IACnB,oBAAoB;CACvB;;AAED;IACI,eAAe;IACf,kBAAkB;IAClB,kBAAoC;CACvC;;AAED;IACI,WAAW;CACd;;AAED;IACI,sBAAsB;IACtB,oBAAoB;CACvB;;AAED;IACI,mBAAmB;CACtB;;AAED;;IAEI,eAAe;CAClB;;AAED;IACI,iBAAiB;IACjB,YAAY;CACf","file":"Livemap.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n.container {\n    margin: 0 auto;\n    padding: 0 0 40px;\n    max-width: var(--max-content-width);\n}\n\n.news {\n    padding: 0;\n}\n\n.newsItem {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.newsTitle {\n    font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n    display: block;\n}\n\n.publishedDate {\n    font-size: 0.8em;\n    color: #777;\n}\n","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  --max-content-width: 1000px;\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n\n  --screen-xs-min: 480px;  /* Extra small screen / phone */\n  --screen-sm-min: 768px;  /* Small screen / tablet */\n  --screen-md-min: 992px;  /* Medium screen / desktop */\n  --screen-lg-min: 1200px; /* Large screen / wide desktop */\n}\n"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Livemap_root_1oQ",
+  	"container": "Livemap_container_1Pd",
+  	"news": "Livemap_news_3FW",
+  	"newsItem": "Livemap_newsItem_3CX",
+  	"newsTitle": "Livemap_newsTitle_2xS",
+  	"newsDesc": "Livemap_newsDesc_29v",
+  	"publishedDate": "Livemap_publishedDate_sYM"
+  };
+
+/***/ },
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4974,7 +5338,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(132);
+  var _Content = __webpack_require__(137);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -5061,7 +5425,7 @@ module.exports =
       */
 
 /***/ },
-/* 132 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5082,7 +5446,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Content = __webpack_require__(133);
+  var _Content = __webpack_require__(138);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -5131,11 +5495,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 133 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(134);
+      var content = __webpack_require__(139);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5165,7 +5529,7 @@ module.exports =
     
 
 /***/ },
-/* 134 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5182,7 +5546,7 @@ module.exports =
   };
 
 /***/ },
-/* 135 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5195,7 +5559,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _NotFound = __webpack_require__(136);
+  var _NotFound = __webpack_require__(141);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -5226,7 +5590,7 @@ module.exports =
   };
 
 /***/ },
-/* 136 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5247,7 +5611,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _NotFound = __webpack_require__(137);
+  var _NotFound = __webpack_require__(142);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -5296,11 +5660,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_NotFound2.default)(NotFound);
 
 /***/ },
-/* 137 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(138);
+      var content = __webpack_require__(143);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5330,7 +5694,7 @@ module.exports =
     
 
 /***/ },
-/* 138 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5347,13 +5711,13 @@ module.exports =
   };
 
 /***/ },
-/* 139 */
+/* 144 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 140 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5363,21 +5727,21 @@ module.exports =
   });
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(141);
+  var _redux = __webpack_require__(146);
   
-  var _reduxThunk = __webpack_require__(142);
+  var _reduxThunk = __webpack_require__(147);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(143);
+  var _reducers = __webpack_require__(148);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(148);
+  var _createHelpers = __webpack_require__(153);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
-  var _logger = __webpack_require__(149);
+  var _logger = __webpack_require__(154);
   
   var _logger2 = _interopRequireDefault(_logger);
   
@@ -5420,19 +5784,19 @@ module.exports =
   }
 
 /***/ },
-/* 141 */
+/* 146 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 142 */
+/* 147 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
 
 /***/ },
-/* 143 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5441,17 +5805,17 @@ module.exports =
     value: true
   });
   
-  var _redux = __webpack_require__(141);
+  var _redux = __webpack_require__(146);
   
-  var _runtime = __webpack_require__(144);
+  var _runtime = __webpack_require__(149);
   
   var _runtime2 = _interopRequireDefault(_runtime);
   
-  var _intl = __webpack_require__(146);
+  var _intl = __webpack_require__(151);
   
   var _intl2 = _interopRequireDefault(_intl);
   
-  var _test = __webpack_require__(147);
+  var _test = __webpack_require__(152);
   
   var _test2 = _interopRequireDefault(_test);
   
@@ -5464,7 +5828,7 @@ module.exports =
   });
 
 /***/ },
-/* 144 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5473,7 +5837,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(145);
+  var _defineProperty2 = __webpack_require__(150);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -5500,13 +5864,13 @@ module.exports =
   }
 
 /***/ },
-/* 145 */
+/* 150 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
-/* 146 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5515,7 +5879,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(145);
+  var _defineProperty2 = __webpack_require__(150);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -5573,7 +5937,7 @@ module.exports =
   }
 
 /***/ },
-/* 147 */
+/* 152 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -5596,7 +5960,7 @@ module.exports =
   }
 
 /***/ },
-/* 148 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5719,7 +6083,7 @@ module.exports =
   }
 
 /***/ },
-/* 149 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5729,7 +6093,7 @@ module.exports =
   });
   exports.default = createLogger;
   
-  var _util = __webpack_require__(150);
+  var _util = __webpack_require__(155);
   
   // Server side redux action logger
   function createLogger() {
@@ -5748,13 +6112,13 @@ module.exports =
   }
 
 /***/ },
-/* 150 */
+/* 155 */
 /***/ function(module, exports) {
 
   module.exports = require("util");
 
 /***/ },
-/* 151 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5778,201 +6142,6 @@ module.exports =
       }
     };
   } /* eslint-disable import/prefer-default-export */
-
-/***/ },
-/* 152 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-      value: true
-  });
-  
-  var _extends2 = __webpack_require__(4);
-  
-  var _extends3 = _interopRequireDefault(_extends2);
-  
-  var _getPrototypeOf = __webpack_require__(26);
-  
-  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-  
-  var _classCallCheck2 = __webpack_require__(27);
-  
-  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-  
-  var _createClass2 = __webpack_require__(28);
-  
-  var _createClass3 = _interopRequireDefault(_createClass2);
-  
-  var _possibleConstructorReturn2 = __webpack_require__(29);
-  
-  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-  
-  var _inherits2 = __webpack_require__(30);
-  
-  var _inherits3 = _interopRequireDefault(_inherits2);
-  
-  var _react = __webpack_require__(16);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _AppBar = __webpack_require__(95);
-  
-  var _AppBar2 = _interopRequireDefault(_AppBar);
-  
-  var _IconButton = __webpack_require__(100);
-  
-  var _IconButton2 = _interopRequireDefault(_IconButton);
-  
-  var _IconMenu = __webpack_require__(98);
-  
-  var _IconMenu2 = _interopRequireDefault(_IconMenu);
-  
-  var _MenuItem = __webpack_require__(99);
-  
-  var _MenuItem2 = _interopRequireDefault(_MenuItem);
-  
-  var _FlatButton = __webpack_require__(114);
-  
-  var _FlatButton2 = _interopRequireDefault(_FlatButton);
-  
-  var _Toggle = __webpack_require__(153);
-  
-  var _Toggle2 = _interopRequireDefault(_Toggle);
-  
-  var _moreVert = __webpack_require__(102);
-  
-  var _moreVert2 = _interopRequireDefault(_moreVert);
-  
-  var _close = __webpack_require__(154);
-  
-  var _close2 = _interopRequireDefault(_close);
-  
-  var _Badge = __webpack_require__(155);
-  
-  var _Badge2 = _interopRequireDefault(_Badge);
-  
-  var _notifications = __webpack_require__(156);
-  
-  var _notifications2 = _interopRequireDefault(_notifications);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var Login = function (_Component) {
-      (0, _inherits3.default)(Login, _Component);
-  
-      function Login() {
-          (0, _classCallCheck3.default)(this, Login);
-          return (0, _possibleConstructorReturn3.default)(this, (Login.__proto__ || (0, _getPrototypeOf2.default)(Login)).apply(this, arguments));
-      }
-  
-      (0, _createClass3.default)(Login, [{
-          key: 'render',
-          value: function render() {
-              return _react2.default.createElement(_FlatButton2.default, (0, _extends3.default)({}, this.props, { label: 'Login' }));
-          }
-      }]);
-      return Login;
-  }(_react.Component);
-  
-  Login.muiName = 'FlatButton';
-  
-  
-  var Logged = function Logged(props) {
-      return _react2.default.createElement(
-          _IconMenu2.default,
-          (0, _extends3.default)({}, props, {
-              iconButtonElement: _react2.default.createElement(
-                  _IconButton2.default,
-                  null,
-                  _react2.default.createElement(_moreVert2.default, null)
-              ),
-              targetOrigin: { horizontal: 'right', vertical: 'top' },
-              anchorOrigin: { horizontal: 'right', vertical: 'top' }
-          }),
-          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Refresh' }),
-          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
-          _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
-      );
-  };
-  
-  Logged.muiName = 'IconMenu';
-  
-  /**
-   * This example is taking advantage of the composability of the `AppBar`
-   * to render different components depending on the application state.
-   */
-  
-  var AppBarExampleComposition = function (_Component2) {
-      (0, _inherits3.default)(AppBarExampleComposition, _Component2);
-  
-      function AppBarExampleComposition() {
-          var _ref;
-  
-          var _temp, _this2, _ret;
-  
-          (0, _classCallCheck3.default)(this, AppBarExampleComposition);
-  
-          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-              args[_key] = arguments[_key];
-          }
-  
-          return _ret = (_temp = (_this2 = (0, _possibleConstructorReturn3.default)(this, (_ref = AppBarExampleComposition.__proto__ || (0, _getPrototypeOf2.default)(AppBarExampleComposition)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {
-              logged: true
-          }, _this2.handleChange = function (event, logged) {
-              _this2.setState({ logged: logged });
-          }, _temp), (0, _possibleConstructorReturn3.default)(_this2, _ret);
-      }
-  
-      (0, _createClass3.default)(AppBarExampleComposition, [{
-          key: 'render',
-          value: function render() {
-              return _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(_Toggle2.default, {
-                      label: 'Logged',
-                      defaultToggled: true,
-                      onToggle: this.handleChange,
-                      labelPosition: 'right',
-                      style: { margin: 20 }
-                  }),
-                  _react2.default.createElement(_AppBar2.default, {
-                      title: '\u6B61\u8FCE\u4F86\u5230\u7DDA\u4E0A\u8B80\u66F8\u6703',
-                      iconElementRight: this.state.logged ? _react2.default.createElement(Logged, null) : _react2.default.createElement(Login, null)
-                  })
-              );
-          }
-      }]);
-      return AppBarExampleComposition;
-  }(_react.Component);
-  
-  exports.default = AppBarExampleComposition;
-
-/***/ },
-/* 153 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Toggle");
-
-/***/ },
-/* 154 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/svg-icons/navigation/close");
-
-/***/ },
-/* 155 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Badge");
-
-/***/ },
-/* 156 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/svg-icons/social/notifications");
 
 /***/ }
 /******/ ]);
