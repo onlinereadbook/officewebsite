@@ -7,12 +7,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-
 import Badge from 'material-ui/Badge';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
-
-
-
 
 class Login extends Component {
     static muiName = 'FlatButton';
@@ -40,25 +36,19 @@ const Logged = (props) => (
 );
 
 
-
-
-
-
 Logged.muiName = 'IconMenu';
 
 /**
  * This example is taking advantage of the composability of the `AppBar`
  * to render different components depending on the application state.
  */
-class AppBarExampleComposition extends Component {
+class TitleBar extends Component {
     state = {
         logged: true,
     };
-
     handleChange = (event, logged) => {
         this.setState({ logged: logged });
     };
-
     render() {
         return (
             <div>
@@ -69,10 +59,6 @@ class AppBarExampleComposition extends Component {
                     labelPosition="right"
                     style={{ margin: 20 }}
                     />
-
-
-
-
                 <AppBar
                     title="歡迎來到線上讀書會"
                     iconElementRight={this.state.logged ? <Logged /> : <Login />}
@@ -82,4 +68,4 @@ class AppBarExampleComposition extends Component {
     }
 }
 
-export default AppBarExampleComposition;
+export default TitleBar;

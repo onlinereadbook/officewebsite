@@ -8,18 +8,18 @@
  */
 
 import React from 'react';
-import Login from './Login';
+import MatchWork from './MatchWork';
 
-const title = '登入後可以使用更多讀書會的功能歐';
+const title = 'MatchWork';
 
 export default {
 
-    path: '/login',
+    path: '/matchwork',
 
     action() {
         return {
             title,
-            component: <Login title={title} />,
+            component: <MatchWork title={title} />,
         };
     },
 

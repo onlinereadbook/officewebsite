@@ -18,16 +18,16 @@ import logoUrl from './logo-small.png';
 import AppBar from 'material-ui/AppBar';
 import { connect } from 'react-redux';
 import { setTest } from '../../actions/test';
-import AppBarExampleComposition from './AppBar'
+import TitleBar from './AppBar'
 
 class Header extends Component {
     render() {
         const { test } = this.props;
         return (
             <div style={{
-                marginBottom: '2vh'
+                marginBottom: '2vh', width: '100%'
             }}>
-                <AppBarExampleComposition />
+                <AppBar />
 
             </div>
         )

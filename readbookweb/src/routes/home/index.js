@@ -11,11 +11,20 @@ import React from 'react';
 import Home from './Home';
 import fetch from '../../core/fetch';
 
+
+let IsOpenAbout = 'false';
 export default {
 
   path: '/',
 
-    action() {
+  action() {
+
+    // function OpenAbout() {
+    //   IsOpenAbout = (IsOpenAbout == 'false') ? 'true' : 'false';
+    //   console.log(IsOpenAbout);
+
+    //   return IsOpenAbout
+    // }
     // const resp = await fetch('/graphql', {
     //   method: 'post',
     //   headers: {
@@ -28,10 +37,10 @@ export default {
     //   credentials: 'include',
     // });
     // const { data } = await resp.json();
-  //  if (!data || !data.news) throw new Error('Failed to load the news feed.');
+    //  if (!data || !data.news) throw new Error('Failed to load the news feed.');
     return {
       title: 'React Starter Kit',
-      component: <Home   />,
+      component: <Home />,
     };
   },
 

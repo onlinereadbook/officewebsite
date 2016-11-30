@@ -20,11 +20,13 @@ function Footer() {
         <span className={s.spacer}>·</span>
         <Link className={s.link} to="/">首頁</Link>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/admin">線上</Link>
+        <Link className={s.link} to="/admin">登入讀書會</Link>
         <span className={s.spacer}>·</span>
         <Link className={s.link} to="/privacy">隱私權政策</Link>
         <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/livemap">Livemap</Link>
+        <Link className={s.link} to="/support">贊助讀書會</Link>
+        <span className={s.spacer}>·</span>
+        <Link className={s.link} to="/matchwork">線上媒合</Link>
       </div>
     </div>
   );

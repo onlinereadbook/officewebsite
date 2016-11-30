@@ -8,29 +8,27 @@
  */
 
 import React, { PropTypes } from 'react';
-import { FormattedRelative } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
-import s from './Livemap.css';
+import s from './MatchWork.css';
 
-
-
-
-
-function Livemap({news}) {
+function MatchWork({ path, title, content }) {
     return (
-        <Layout  >
+        <Layout>
             <div className={s.root}>
                 <div className={s.container}>
-                    <div id="map">123</div>
+                    {title && path !== '/' && <h1>{title}</h1>}
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
             </div>
-        </Layout >
+        </Layout>
     );
 }
 
-Livemap.propTypes = {
-
+MatchWork.propTypes = {
+    // path: PropTypes.string.isRequired,
+    // content: PropTypes.string.isRequired,
+    // title: PropTypes.string,
 };
 
-export default withStyles(s)(Livemap);
+export default withStyles(s)(MatchWork);
