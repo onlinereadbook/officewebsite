@@ -156,15 +156,15 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(152);
+  var _assets = __webpack_require__(153);
   
   var _assets2 = _interopRequireDefault(_assets);
   
-  var _configureStore = __webpack_require__(153);
+  var _configureStore = __webpack_require__(154);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(164);
+  var _runtime = __webpack_require__(165);
   
   var _intl = __webpack_require__(92);
   
@@ -2691,10 +2691,10 @@ module.exports =
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(74).default, __webpack_require__(115).default, __webpack_require__(119).default, __webpack_require__(128).default, __webpack_require__(132).default, __webpack_require__(136).default, __webpack_require__(140).default,
+    children: [__webpack_require__(74).default, __webpack_require__(115).default, __webpack_require__(119).default, __webpack_require__(129).default, __webpack_require__(133).default, __webpack_require__(137).default, __webpack_require__(141).default,
   
     // place new routes before...
-    __webpack_require__(144).default, __webpack_require__(148).default],
+    __webpack_require__(145).default, __webpack_require__(149).default],
   
     action: function action(_ref) {
       var _this = this;
@@ -4492,7 +4492,7 @@ module.exports =
   'use strict';
   
   Object.defineProperty(exports, "__esModule", {
-    value: true
+      value: true
   });
   
   var _react = __webpack_require__(16);
@@ -4509,46 +4509,155 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var IsOpenAbout = 'false'; /**
-                              * React Starter Kit (https://www.reactstarterkit.com/)
-                              *
-                              * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                              *
-                              * This source code is licensed under the MIT license found in the
-                              * LICENSE.txt file in the root directory of this source tree.
-                              */
-  
   exports.default = {
   
-    path: '/',
+      path: '/',
   
-    action: function action() {
+      action: function action() {
+          var programdata = [{
+              "id": 1,
+              "title": "線上 react 讀書會",
+              "subtitle": "歡迎來到線上讀書會",
+              "weblink": "https://www.facebook.com/groups/906048196159262/",
+              "memo": "可以學到 react reactnatvice redux ....",
+              "icon": "images/react.png",
+              "mainphoto": "images/react.png"
+          }, {
+              "id": 2,
+              "title": "線上 nodejs 讀書會",
+              "subtitle": "關於nodejs23事",
   
-      // function OpenAbout() {
-      //   IsOpenAbout = (IsOpenAbout == 'false') ? 'true' : 'false';
-      //   console.log(IsOpenAbout);
+              "weblink": "https://www.facebook.com/groups/207139586323090/",
+              "memo": "",
+              "icon": "images/nodejs.png"
   
-      //   return IsOpenAbout
-      // }
-      // const resp = await fetch('/graphql', {
-      //   method: 'post',
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     query: '{news{title,link,publishedDate,contentSnippet}}',
-      //   }),
-      //   credentials: 'include',
-      // });
-      // const { data } = await resp.json();
-      //  if (!data || !data.news) throw new Error('Failed to load the news feed.');
-      return {
-        title: 'React Starter Kit',
-        component: _react2.default.createElement(_Home2.default, null)
-      };
-    }
-  };
+          },, {
+              "id": 3,
+              "title": "線上 docker 讀書會",
+              "weblink": "https://www.facebook.com/groups/750311598438135/",
+              "memo": ""
+          }, {
+              "id": 4,
+              "title": "線上 swift 讀書會",
+              "weblink": "https://www.facebook.com/groups/238948643131478/",
+              "memo": ""
+          }, {
+              "id": 5,
+              "title": "線上 laravel 讀書會",
+              "weblink": "https://www.facebook.com/groups/956973084383781/",
+              "memo": ""
+          }, {
+              "id": 6,
+              "title": "線上 unity 讀書會",
+              "weblink": "https://www.facebook.com/groups/1606498833013546/",
+              "memo": ""
+          }, {
+              "id": 7,
+              "title": "線上 strongloop 讀書會",
+              "weblink": "https://www.facebook.com/groups/568032146690485/",
+              "memo": ""
+          }, {
+              "id": 8,
+              "title": "線上 vue.js 讀書會",
+              "weblink": "https://www.facebook.com/groups/616281401885574/",
+              "memo": ""
+          }, {
+              "id": 9,
+              "title": "線上 maker 讀書會",
+              "weblink": "https://www.facebook.com/groups/842415582524882/",
+              "memo": ""
+          }, {
+              "id": 10,
+              "title": "線上讀書會-迷你黑客松",
+              "weblink": "https://www.facebook.com/groups/1274976625880806/",
+              "memo": ""
+          }, {
+              "id": 11,
+              "title": "線上 maker 讀書會",
+              "weblink": "https://www.facebook.com/groups/1113446758690591/",
+              "memo": ""
+          }, {
+              "id": 12,
+              "title": "線上 ui/ux art 讀書會",
+              "weblink": "https://www.facebook.com/groups/670166459806094/",
+              "memo": ""
+          }, {
+              "id": 13,
+              "title": "線上 chatbot 讀書會",
+              "weblink": "https://www.facebook.com/groups/148210218987647/",
+              "memo": ""
+          }, {
+              "id": 14,
+              "title": "線上 meteor 讀書會",
+              "weblink": "https://www.facebook.com/groups/930921220347797/",
+              "memo": ""
+          }, {
+              "id": 15,
+              "title": "線上 xamarin & C# 讀書會",
+              "weblink": "https://www.facebook.com/groups/611143505736213/",
+              "memo": ""
+          }, {
+              "id": 16,
+              "title": "線上 go 讀書會",
+              "weblink": "https://www.facebook.com/groups/1288435607857868/",
+              "memo": ""
+          }];
+  
+          var otherdata = [{
+              "title": "線上 創業 讀書會",
+              "weblink": "https://www.facebook.com/groups/1746983635561623/",
+              "memo": ""
+          }];
+  
+          var languagedata = [{
+              "title": "線上 韓語 讀書會",
+              "weblink": "https://www.facebook.com/groups/583103035208789/",
+              "memo": ""
+          }, {
+              "title": "線上 越南語 讀書會",
+              "weblink": "https://www.facebook.com/groups/683209238508614/",
+              "memo": ""
+          }, {
+              "title": "線上 日語 讀書會",
+              "weblink": "https://www.facebook.com/groups/1113446758690591/",
+              "memo": ""
+          }, {
+              "title": "線上 英文 讀書會",
+              "weblink": "https://www.facebook.com/groups/1781798848754929/",
+              "memo": ""
+          }];
+          // function OpenAbout() {
+          //   IsOpenAbout = (IsOpenAbout == 'false') ? 'true' : 'false';
+          //   console.log(IsOpenAbout);
+  
+          //   return IsOpenAbout
+          // }
+          // const resp = await fetch('/graphql', {
+          //   method: 'post',
+          //   headers: {
+          //     Accept: 'application/json',
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify({
+          //     query: '{news{title,link,publishedDate,contentSnippet}}',
+          //   }),
+          //   credentials: 'include',
+          // });
+          // const { data } = await resp.json();
+          //  if (!data || !data.news) throw new Error('Failed to load the news feed.');
+          return {
+              title: 'React Starter Kit',
+              component: _react2.default.createElement(_Home2.default, { programdata: programdata, otherdata: otherdata, languagedata: languagedata })
+          };
+      }
+  }; /**
+      * React Starter Kit (https://www.reactstarterkit.com/)
+      *
+      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+      *
+      * This source code is licensed under the MIT license found in the
+      * LICENSE.txt file in the root directory of this source tree.
+      */
 
 /***/ },
 /* 120 */
@@ -4624,16 +4733,11 @@ module.exports =
   
   var _MenuItem2 = _interopRequireDefault(_MenuItem);
   
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  var _Divider = __webpack_require__(128);
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
+  var _Divider2 = _interopRequireDefault(_Divider);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   var styles = {
       button: {
@@ -4649,7 +4753,14 @@ module.exports =
           width: '100%',
           opacity: 0
       }
-  };
+  }; /**
+      * React Starter Kit (https://www.reactstarterkit.com/)
+      *
+      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+      *
+      * This source code is licensed under the MIT license found in the
+      * LICENSE.txt file in the root directory of this source tree.
+      */
   
   var Home = function (_Component) {
       (0, _inherits3.default)(Home, _Component);
@@ -4659,23 +4770,60 @@ module.exports =
   
           var _this = (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call(this, props));
   
-          _this.state = {
-              IsOpenData: 'false'
+          _this.OpenAbout = function () {
+              _this.setState({
+                  IsOpenData: !_this.state.IsOpenData,
+                  IsOpenInfo: false
+              });
+              //console.log('button');
           };
+  
+          _this.ClickBookTopic = function (result) {
+              console.log(result);
+  
+              _this.setState({
+                  IsOpenData: !_this.state.IsOpenData,
+                  IsOpenInfo: true,
+                  AssignData: result
+              });
+  
+              //  console.log('this.state');
+          };
+  
+          _this.ClickCloseInfo = function () {
+              _this.setState({
+                  IsOpenInfo: false
+              });
+              console.log(_this.state.IsOpenInfo);
+              console.log('ooo');
+          };
+  
+          _this.state = {
+              IsOpenData: false,
+              IsOpenInfo: false,
+              AssignData: {
+                  "id": 1,
+                  "title": "線上讀書會",
+                  "subtitle": "歡迎來到線上讀書會",
+                  "連結網址": "https://www.facebook.com/groups/906048196159262/",
+                  "介紹": "可以學到 react reactnatvice redux ....",
+                  "icon": "images/react.png",
+                  "mainphoto": "images/interior-of-library.jpg"
+  
+              }
+  
+          };
+          _this.props = props;
+          //        console.log(this.props);
           return _this;
       }
   
       (0, _createClass3.default)(Home, [{
-          key: 'OpenAbout',
-          value: function OpenAbout() {
-              this.setState({
-                  IsOpenData: this.state.IsOpenData == 'false' ? 'true' : 'false'
-              });
-              console.log(this.state);
-          }
-      }, {
           key: 'render',
           value: function render() {
+              var ClickBookTopic = this.ClickBookTopic;
+  
+  
               return _react2.default.createElement(
                   'div',
                   null,
@@ -4693,16 +4841,16 @@ module.exports =
                                   _Card.Card,
                                   null,
                                   _react2.default.createElement(_Card.CardHeader, {
-                                      title: 'URL Avatar',
-                                      subtitle: 'Subtitle',
-                                      avatar: 'images/s1.jpg'
+                                      title: this.state.AssignData.title,
+                                      subtitle: this.state.AssignData.subtitle,
+                                      avatar: this.state.AssignData.icon
                                   }),
                                   _react2.default.createElement(
                                       _Card.CardMedia,
                                       {
                                           overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
                                       },
-                                      _react2.default.createElement('img', { src: 'images/interior-of-library.jpg' })
+                                      _react2.default.createElement('img', { src: this.state.AssignData.mainphoto })
                                   ),
                                   _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
                                   _react2.default.createElement(_Card.CardText, null),
@@ -4723,9 +4871,52 @@ module.exports =
                                           icon: _react2.default.createElement(_search2.default, null),
                                           style: styles.button,
   
-                                          onTouchTap: this.OpenAbout.bind(this)
+                                          onTouchTap: this.OpenAbout
                                       })
                                   )
+                              ),
+                              _react2.default.createElement(
+                                  _Drawer2.default,
+                                  { open: this.state.IsOpenData },
+                                  this.props.programdata.map(function (result, index) {
+                                      return _react2.default.createElement(
+                                          _MenuItem2.default,
+                                          { key: index, onTouchTap: function onTouchTap() {
+                                                  return ClickBookTopic(result);
+                                              } },
+                                          result.title,
+                                          ' '
+                                      );
+                                  }),
+                                  _react2.default.createElement(_Divider2.default, null),
+                                  this.props.languagedata.map(function (result, index) {
+                                      return _react2.default.createElement(
+                                          _MenuItem2.default,
+                                          { key: index },
+                                          ' ',
+                                          result.title,
+                                          ' '
+                                      );
+                                  }),
+                                  _react2.default.createElement(_Divider2.default, null),
+                                  this.props.otherdata.map(function (result, index) {
+                                      return _react2.default.createElement(
+                                          _MenuItem2.default,
+                                          { key: index },
+                                          ' ',
+                                          result.title,
+                                          ' '
+                                      );
+                                  }),
+                                  _react2.default.createElement(_RaisedButton2.default, {
+                                      label: '\u95DC\u9589',
+                                      labelPosition: 'before',
+                                      primary: true,
+                                      icon: _react2.default.createElement(_search2.default, null),
+                                      style: styles.button,
+  
+                                      onTouchTap: this.OpenAbout
+                                  })
                               )
                           )
                       )
@@ -4785,12 +4976,11 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Home_container_2Ye {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n\n.Home_news_oTy {\n  padding: 0;\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n}\n\n.Home_publishedDate_2Mw {\n  font-size: 0.8em;\n  color: #777;\n}", "", {"version":3,"sources":["/./routes/home/Home.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAAoC;CACrC;;AAED;EACE,WAAW;CACZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;CACrB;;AAED;EACE,mBAAmB;CACpB;;AAED;;EAEE,eAAe;CAChB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}\n\n.news {\n  padding: 0;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n}\n\n.publishedDate {\n  font-size: 0.8em;\n  color: #777;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.Home_news_oTy {\n  padding: 0;\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n}\n\n.Home_publishedDate_2Mw {\n  font-size: 0.8em;\n  color: #777;\n}", "", {"version":3,"sources":["/./routes/home/Home.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAGD;;;;GAIG;;AAEH;EACE,WAAW;CACZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;CACrB;;AAED;EACE,mBAAmB;CACpB;;AAED;;EAEE,eAAe;CAChB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.news {\n  padding: 0;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n}\n\n.publishedDate {\n  font-size: 0.8em;\n  color: #777;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
   	"root": "Home_root_2IM",
-  	"container": "Home_container_2Ye",
   	"news": "Home_news_oTy",
   	"newsItem": "Home_newsItem_3Ob",
   	"newsTitle": "Home_newsTitle_1yW",
@@ -4830,6 +5020,12 @@ module.exports =
 
 /***/ },
 /* 128 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Divider");
+
+/***/ },
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4842,7 +5038,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(129);
+  var _Contact = __webpack_require__(130);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -4872,7 +5068,7 @@ module.exports =
   };
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4893,7 +5089,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Contact = __webpack_require__(130);
+  var _Contact = __webpack_require__(131);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -4942,11 +5138,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(131);
+      var content = __webpack_require__(132);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -4976,7 +5172,7 @@ module.exports =
     
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -4993,7 +5189,7 @@ module.exports =
   };
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5006,7 +5202,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(133);
+  var _Login = __webpack_require__(134);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -5036,7 +5232,7 @@ module.exports =
   };
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5057,7 +5253,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Login = __webpack_require__(134);
+  var _Login = __webpack_require__(135);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -5132,11 +5328,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(135);
+      var content = __webpack_require__(136);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5166,7 +5362,7 @@ module.exports =
     
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5193,7 +5389,7 @@ module.exports =
   };
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5206,7 +5402,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(137);
+  var _Register = __webpack_require__(138);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -5236,7 +5432,7 @@ module.exports =
   };
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5257,7 +5453,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Register = __webpack_require__(138);
+  var _Register = __webpack_require__(139);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -5304,11 +5500,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(139);
+      var content = __webpack_require__(140);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5338,7 +5534,7 @@ module.exports =
     
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5355,7 +5551,7 @@ module.exports =
   };
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5368,7 +5564,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Admin = __webpack_require__(141);
+  var _Admin = __webpack_require__(142);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -5403,7 +5599,7 @@ module.exports =
   };
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5424,7 +5620,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Admin = __webpack_require__(142);
+  var _Admin = __webpack_require__(143);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -5473,11 +5669,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Admin2.default)(Admin);
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(143);
+      var content = __webpack_require__(144);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5507,7 +5703,7 @@ module.exports =
     
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5524,7 +5720,7 @@ module.exports =
   };
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5549,7 +5745,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(145);
+  var _Content = __webpack_require__(146);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -5636,7 +5832,7 @@ module.exports =
       */
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5657,7 +5853,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Content = __webpack_require__(146);
+  var _Content = __webpack_require__(147);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -5706,11 +5902,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(147);
+      var content = __webpack_require__(148);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5740,7 +5936,7 @@ module.exports =
     
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5757,7 +5953,7 @@ module.exports =
   };
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5770,7 +5966,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _NotFound = __webpack_require__(149);
+  var _NotFound = __webpack_require__(150);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -5801,7 +5997,7 @@ module.exports =
   };
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5822,7 +6018,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _NotFound = __webpack_require__(150);
+  var _NotFound = __webpack_require__(151);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -5871,11 +6067,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_NotFound2.default)(NotFound);
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(151);
+      var content = __webpack_require__(152);
       var insertCss = __webpack_require__(42);
   
       if (typeof content === 'string') {
@@ -5905,7 +6101,7 @@ module.exports =
     
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(41)();
@@ -5922,13 +6118,13 @@ module.exports =
   };
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5938,21 +6134,21 @@ module.exports =
   });
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(154);
+  var _redux = __webpack_require__(155);
   
-  var _reduxThunk = __webpack_require__(155);
+  var _reduxThunk = __webpack_require__(156);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(156);
+  var _reducers = __webpack_require__(157);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(161);
+  var _createHelpers = __webpack_require__(162);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
-  var _logger = __webpack_require__(162);
+  var _logger = __webpack_require__(163);
   
   var _logger2 = _interopRequireDefault(_logger);
   
@@ -5995,19 +6191,19 @@ module.exports =
   }
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6016,17 +6212,17 @@ module.exports =
     value: true
   });
   
-  var _redux = __webpack_require__(154);
+  var _redux = __webpack_require__(155);
   
-  var _runtime = __webpack_require__(157);
+  var _runtime = __webpack_require__(158);
   
   var _runtime2 = _interopRequireDefault(_runtime);
   
-  var _intl = __webpack_require__(159);
+  var _intl = __webpack_require__(160);
   
   var _intl2 = _interopRequireDefault(_intl);
   
-  var _test = __webpack_require__(160);
+  var _test = __webpack_require__(161);
   
   var _test2 = _interopRequireDefault(_test);
   
@@ -6039,7 +6235,7 @@ module.exports =
   });
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6048,7 +6244,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(158);
+  var _defineProperty2 = __webpack_require__(159);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -6075,13 +6271,13 @@ module.exports =
   }
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6090,7 +6286,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(158);
+  var _defineProperty2 = __webpack_require__(159);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -6148,7 +6344,7 @@ module.exports =
   }
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -6171,7 +6367,7 @@ module.exports =
   }
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6294,7 +6490,7 @@ module.exports =
   }
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6304,7 +6500,7 @@ module.exports =
   });
   exports.default = createLogger;
   
-  var _util = __webpack_require__(163);
+  var _util = __webpack_require__(164);
   
   // Server side redux action logger
   function createLogger() {
@@ -6323,13 +6519,13 @@ module.exports =
   }
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports) {
 
   module.exports = require("util");
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
