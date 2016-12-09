@@ -26,8 +26,8 @@ export default {
                 "subtitle": "歡迎來到線上讀書會",
                 "weblink": "https://www.facebook.com/groups/906048196159262/",
                 "memo": "可以學到 react reactnatvice redux ....",
-                "icon": "images/react.png",
-                "mainphoto": "images/react.png"
+                "icon": "images/icons/reactjs.png",
+                "mainphoto": "images/mainphoto/a1.jpg"
             }, {
                 "id": 2,
                 "title": "線上 nodejs 讀書會",
@@ -35,14 +35,18 @@ export default {
 
                 "weblink": "https://www.facebook.com/groups/207139586323090/",
                 "memo": "",
-                "icon": "images/nodejs.png"
+                "icon": "images/icons/nodejs.png",
+                "mainphoto": "images/mainphoto/a2.jpg"
 
             },
             , {
                 "id": 3,
                 "title": "線上 docker 讀書會",
                 "weblink": "https://www.facebook.com/groups/750311598438135/",
-                "memo": ""
+                "memo": "",
+                "icon": "images/icons/docker.png",
+                "mainphoto": "images/mainphoto/a3.jpg"
+
             }, {
                 "id": 4,
                 "title": "線上 swift 讀書會",

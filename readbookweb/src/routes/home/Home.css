@@ -42,3 +42,21 @@
   font-size: 0.8em;
   color: #777;
 }
+
+.example-enter {
+  opacity: 0;
+}
+
+.example-enter-active {
+  opacity: 1;
+  transition: opacity 1300ms ease-in;
+}
+
+.example-leave {
+  opacity: 0;
+}
+
+.example-leave-active {
+  opacity: 1;
+  transition: opacity 1300ms ease-in;
+}
