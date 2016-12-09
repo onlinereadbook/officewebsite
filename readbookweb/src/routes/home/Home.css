@@ -43,20 +43,26 @@
   color: #777;
 }
 
-.example-enter {
+:global (.example-enter) {
   opacity: 0;
 }
 
-.example-enter-active {
+:global(.example-enter-active) {
   opacity: 1;
   transition: opacity 1300ms ease-in;
 }
 
-.example-leave {
+:global(.example-leave) {
   opacity: 0;
 }
 
-.example-leave-active {
+:global(.example-leave-active) {
   opacity: 1;
   transition: opacity 1300ms ease-in;
+}
+
+:global(.exampleAppear) {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+  -webkit-transition: opacity 0.3s ease-in;
 }

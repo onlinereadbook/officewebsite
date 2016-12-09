@@ -43,3 +43,6 @@ global.navigator.userAgent = req.headers['user-agent'] || 'all';
 span[type=button] {
   appearance: none;
 }
+npm package 版本衝突 需要加上^
+
+使用:global(）處理 react universal ReactCSSTransitionGroup 的 withStyle 自動加上唯一的問題

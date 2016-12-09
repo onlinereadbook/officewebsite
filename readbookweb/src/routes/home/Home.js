@@ -21,6 +21,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
+import Avatar from 'material-ui/Avatar';
 
 
 
@@ -37,6 +38,9 @@ const styles = {
         left: 0,
         width: '100%',
         opacity: 0,
+    },
+    avatar: {
+        margin: 5
     }
 };
 
@@ -125,8 +129,9 @@ class Home extends Component {
                             <ReactCSSTransitionGroup
                                 className={s.example}
                                 transitionName="example"
-                                transitionEnterTimeout={500}
-                                transitionLeaveTimeout={300}>
+                                transitionEnterTimeout={9000}
+                                transitionLeaveTimeout={9000}
+                                >
                                 {items}
                             </ReactCSSTransitionGroup>
 
@@ -173,12 +178,24 @@ class Home extends Component {
                                 {this.props.programdata.map(function (result, index) {
                                     return <MenuItem key={index} onTouchTap={() => ClickBookTopic(result)} >
 
+                                        <Avatar
+                                            src={result.icon}
+                                            size={30}
+                                            style={styles.avatar}
 
+                                            />
                                         {result.title} </MenuItem >;
+
                                 })}
                                 <Divider />
                                 {this.props.languagedata.map(function (result, index) {
-                                    return <MenuItem key={index}> {result.title} </MenuItem >;
+                                    return <MenuItem key={index}>
+                                        <Avatar
+                                            src={result.icon}
+                                            size={30}
+                                            style={styles.avatar}
+                                            />
+                                        {result.title} </MenuItem >;
                                 })}
                                 <Divider />
                                 {this.props.otherdata.map(function (result, index) {
