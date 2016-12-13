@@ -52,16 +52,10 @@ class TitleBar extends Component {
     render() {
         return (
             <div>
-                <Toggle
-                    label="Logged"
-                    defaultToggled={true}
-                    onToggle={this.handleChange}
-                    labelPosition="right"
-                    style={{ margin: 20 }}
-                    />
+
                 <AppBar
                     title="歡迎來到線上讀書會"
-                    iconElementRight={this.state.logged ? <Logged /> : <Login />}
+
                     />
             </div>
         );

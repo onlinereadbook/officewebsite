@@ -18,20 +18,62 @@ import logoUrl from './logo-small.png';
 import AppBar from 'material-ui/AppBar';
 import { connect } from 'react-redux';
 import { setTest } from '../../actions/test';
-import TitleBar from './AppBar'
+import { setLeftmenu } from '../../actions/common';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import TopicIcon from 'material-ui/svg-icons/action/toc';
+import ChromeIcon from 'material-ui/svg-icons/action/chrome-reader-mode';
+
+import DateIcon from 'material-ui/svg-icons/action/date-range';
+import PeopleIcon from 'material-ui/svg-icons/action/assignment-ind';
+import { bindActionCreators } from 'redux'
+
+
+
+
+
 
 class Header extends Component {
+
     render() {
         const { test } = this.props;
+        const {OpenAbout } = this;
+        const MenuList = (props) => (
+            <IconMenu
+                {...props}
+                iconButtonElement={
+                    <IconButton >
+                        <TopicIcon color="#fff" />  </IconButton>
+                }
+                targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+                >
+                <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={this.OpenAbout} />
+                <MenuItem primaryText="觀看活動清單" leftIcon={<DateIcon />} />
+                <MenuItem primaryText="主講介紹" leftIcon={<PeopleIcon />} />
+            </IconMenu>
+        );
         return (
             <div style={{
                 marginBottom: '2vh', width: '100%'
             }}>
-                <AppBar />
+                <AppBar iconElementLeft={<MenuList />} title="線上讀書會" />
 
             </div>
         )
     }
+
+    OpenAbout() {
+
+        //let temp = this;
+        console.log(this);
+        // setLeftmenu{
+
+
+        // }
+    }
+
     handleChange() {
         const { setTest } = this.props;
         setTest({
@@ -77,10 +119,13 @@ class Header extends Component {
 //
 
 const mapState = (state) => ({
-    test: state.test
+    test: state.test,
+    common: state.common
+
 });
 const mapDispatch = {
-    setTest
+    setTest,
+    setLeftmenu
 };
 
 
