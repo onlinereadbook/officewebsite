@@ -12,9 +12,12 @@ import { FormattedRelative } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './Home.css';
+
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+
 import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import Drawer from 'material-ui/Drawer';
@@ -22,8 +25,8 @@ import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
 import Avatar from 'material-ui/Avatar';
-
-
+import { setLeftmenu } from '../../actions/common';
+import { connect } from 'react-redux';
 
 const styles = {
     button: {
@@ -71,15 +74,15 @@ class Home extends Component {
     }
 
     OpenAbout = () => {
-        this.setState({
-            IsOpenData: !this.state.IsOpenData,
-            IsOpenInfo: false
-        })
-        //console.log('button');
+        // console.log(this.props);
+        const { setLeftmenu } = this.props;
+        setLeftmenu({
+            openstate: !this.props.common.openstate
+        });
+
     }
     ClickBookTopic = (result) => {
-        console.log(result);
-
+        //console.log(result);
 
         this.setState({
             IsOpenData: !this.state.IsOpenData,
@@ -87,15 +90,28 @@ class Home extends Component {
             AssignData: result
         })
 
-        //  console.log('this.state');
+        const { setLeftmenu } = this.props;
+        //console.log(this.props);
+
+        setLeftmenu({
+            openstate: !this.props.common.openstate
+        });
+
+        console.log('this.state');
     }
     ClickCloseInfo = () => {
-        this.setState({
-            IsOpenInfo: false
-        })
-        console.log(this.state.IsOpenInfo);
+        // this.setState({
+        //     IsOpenInfo: false
+        // })
+        // console.log(this.state.IsOpenInfo);
         console.log('ooo');
+        const { setLeftmenu } = this.props;
+        setLeftmenu({
+            openstate: this.props.common.openstate ? false : true
+        });
+        console.log(this.props.common.openstate);
     }
+
 
 
 
@@ -106,6 +122,8 @@ class Home extends Component {
                 {item}
             </div>
         ));
+        const { common } = this.props;
+        console.log(common);
         return (
             <div>
                 <Layout name="polo">
@@ -118,9 +136,6 @@ class Home extends Component {
                                 transitionEnterTimeout={1000}
                                 transitionLeaveTimeout={1000}
                                 >
-
-
-
                                 <Card key={this.state.AssignData.mainphoto}>
                                     <CardHeader
                                         title={this.state.AssignData.title}
@@ -159,7 +174,7 @@ class Home extends Component {
                                 </Card>
 
                             </ReactCSSTransitionGroup>
-                            <Drawer open={this.state.IsOpenData} >
+                            <Drawer open={common.openstate} >
                                 {this.props.programdata.map(function (result, index) {
                                     return <MenuItem key={index} onTouchTap={() => ClickBookTopic(result)} >
 
@@ -221,4 +236,16 @@ class Home extends Component {
 
 // };
 
-export default withStyles(s)(Home);
+
+const mapState = (state) => ({
+
+    common: state.common
+
+});
+const mapDispatch = {
+    setLeftmenu
+};
+
+
+
+export default connect(mapState, mapDispatch)(withStyles(s)(Home));

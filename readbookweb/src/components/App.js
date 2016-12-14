@@ -14,6 +14,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 //import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import grayBlue from './mui-themes/grayBlue'
+
 
 
 injectTapEventPlugin();
@@ -98,7 +100,7 @@ class App extends React.Component {
     const { initialNow, locale, messages } = this.intl;
     const localeMessages = (messages && messages[locale]) || {};
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme(grayBlue)}>
 
         <IntlProvider
           initialNow={initialNow}

@@ -35,9 +35,14 @@ import { bindActionCreators } from 'redux'
 
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
 
+        this.props = props;
+        //console.log(this.props);
+    }
     render() {
-        const { test } = this.props;
+        const { common, test } = this.props;
         const {OpenAbout } = this;
         const MenuList = (props) => (
             <IconMenu
@@ -49,7 +54,7 @@ class Header extends Component {
                 targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
                 >
-                <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={this.OpenAbout} />
+                <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={OpenAbout} />
                 <MenuItem primaryText="觀看活動清單" leftIcon={<DateIcon />} />
                 <MenuItem primaryText="主講介紹" leftIcon={<PeopleIcon />} />
             </IconMenu>
@@ -59,21 +64,20 @@ class Header extends Component {
                 marginBottom: '2vh', width: '100%'
             }}>
                 <AppBar iconElementLeft={<MenuList />} title="線上讀書會" />
-
+                {common.openstate}
             </div>
         )
     }
+    //這邊要很注意作用域的關系
+    OpenAbout = () => {
+        const { setLeftmenu } = this.props;
 
-    OpenAbout() {
+        setLeftmenu({
 
-        //const { setLeftmenu } = this.props;
+            openstate: this.props.common.openstate ? false : true
 
-        //let temp = this;
-        console.log(this.state.common);
-        // setLeftmenu{
+        });
 
-
-        // }
     }
 
     handleChange() {
