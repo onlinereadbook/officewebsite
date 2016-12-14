@@ -3131,7 +3131,7 @@ module.exports =
               //const { setLeftmenu } = this.props;
   
               //let temp = this;
-              console.log(this.state);
+              console.log(this.state.common);
               // setLeftmenu{
   
   
