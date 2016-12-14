@@ -66,8 +66,10 @@ class Header extends Component {
 
     OpenAbout() {
 
+        //const { setLeftmenu } = this.props;
+
         //let temp = this;
-        console.log(this);
+        console.log(this.state);
         // setLeftmenu{
 
 
@@ -82,41 +84,6 @@ class Header extends Component {
     }
 }
 
-// <h2>{this.props.test}</h2>
-// <button onClick={this.handleChange.bind(this)}>change</button>
-
-//
-// const messages = defineMessages({
-//   brand: {
-//     id: 'header.brand',
-//     defaultMessage: 'Your Company Brand',
-//     description: 'Brand name displayed in header',
-//   },
-//   bannerTitle: {
-//     id: 'header.banner.title',
-//     defaultMessage: 'React',
-//     description: 'Title in page header',
-//   },
-//   bannerDesc: {
-//     id: 'header.banner.desc',
-//     defaultMessage: 'Complex web apps made easy',
-//     description: 'Description in header',
-//   },
-// });
-//
-// function Header() {
-//
-//   return (
-//     <div className={s.root}>
-//       <div className={s.container}>
-//         <AppBar title="My AppBar" />
-//
-//
-//       </div>
-//     </div>
-//   );
-// }
-//
 
 const mapState = (state) => ({
     test: state.test,

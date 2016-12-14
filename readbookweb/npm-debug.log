@@ -9,7 +9,7 @@
 6 silly lifecycle @~prestart: no script for prestart, continuing
 7 info lifecycle @~start: @
 8 verbose lifecycle @~start: unsafe-perm in lifecycle true
-9 verbose lifecycle @~start: PATH: /Users/user/.nvm/versions/node/v7.2.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/user/Sites/onlinereadbook/officewebsite/readbookweb/node_modules/.bin:/Users/user/.rvm/gems/ruby-2.3.0/bin:/Users/user/.rvm/gems/ruby-2.3.0@global/bin:/Users/user/.rvm/rubies/ruby-2.3.0/bin:/Users/user/.nvm/versions/node/v7.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/user/.rvm/bin
+9 verbose lifecycle @~start: PATH: /Users/user/.nvm/versions/node/v7.2.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/user/Sites/onlinereadbook/officewebsite/readbookweb/node_modules/.bin:/Users/user/.nvm/versions/node/v7.2.0/bin:/Users/user/.rvm/gems/ruby-2.3.0/bin:/Users/user/.rvm/gems/ruby-2.3.0@global/bin:/Users/user/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/user/.rvm/bin
 10 verbose lifecycle @~start: CWD: /Users/user/Sites/onlinereadbook/officewebsite/readbookweb
 11 silly lifecycle @~start: Args: [ '-c', 'babel-node tools/run start' ]
 12 silly lifecycle @~start: Returned: code: 1  signal: null
