@@ -65,6 +65,8 @@ class Header extends Component {
             }}>
                 <AppBar iconElementLeft={<MenuList />} title="線上讀書會" />
                 {common.openstate}
+
+
             </div>
         )
     }

@@ -11,12 +11,14 @@ import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './Content.css';
-
+import Menu from '../../components/Menu'
 function Content({ path, title, content }) {
   return (
     <Layout>
       <div className={s.root}>
         <div className={s.container}>
+          <Menu />
+
           {title && path !== '/' && <h1>{title}</h1>}
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
