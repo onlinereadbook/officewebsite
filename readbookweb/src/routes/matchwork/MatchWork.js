@@ -12,10 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './MatchWork.css';
 import Menu from '../../components/Menu'
-import RaisedButton from 'material-ui/RaisedButton';
-import Avatar from 'material-ui/Avatar';
-import { setLeftmenu } from '../../actions/common';
-import { connect } from 'react-redux';
+
 
 
 function MatchWork({ path, title, content }) {

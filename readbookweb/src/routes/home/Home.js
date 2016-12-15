@@ -36,7 +36,11 @@ class Home extends Component {
                     <div className={s.root}>
                         <div className={s.container}>
 
-                            <MenuEvent></MenuEvent>
+                            {this.props.common.openMenuEvent &&
+                                <MenuEvent></MenuEvent>}
+
+
+
                             {!this.props.common.openMenuEvent &&
                                 <Menu></Menu>}
 
