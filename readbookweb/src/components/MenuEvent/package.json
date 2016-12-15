@@ -1,0 +1,6 @@
+{
+    "name": "MenuEvent",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./MenuEvent.js"
+}

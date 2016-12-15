@@ -228,7 +228,8 @@ class Menu extends Component {
         // console.log(this.props);
         const { setLeftmenu } = this.props;
         setLeftmenu({
-            openstate: !this.props.common.openstate
+            openMenu: !this.props.common.openMenu,
+            openMenuEvent: false
         });
 
     }
@@ -245,7 +246,7 @@ class Menu extends Component {
         //console.log(this.props);
 
         setLeftmenu({
-            openstate: !this.props.common.openstate
+            openMenu: !this.props.common.openMenu
         });
 
         console.log('this.state');
@@ -258,9 +259,9 @@ class Menu extends Component {
         console.log('ooo');
         const { setLeftmenu } = this.props;
         setLeftmenu({
-            openstate: this.props.common.openstate ? false : true
+            openMenu: this.props.common.openMenu ? false : true
         });
-        console.log(this.props.common.openstate);
+        console.log(this.props.common.openMenu);
     }
     render() {
         let {ClickBookTopic} = this;
@@ -312,7 +313,7 @@ class Menu extends Component {
 
                         </CardActions></Card>
 
-                    <Drawer open={common.openstate} >
+                    <Drawer open={common.openMenu} >
                         {programdata.map(function (result, index) {
                             return <MenuItem key={index} onTouchTap={() => ClickBookTopic(result)} >
 

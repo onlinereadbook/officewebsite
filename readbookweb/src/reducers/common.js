@@ -1,4 +1,7 @@
-const initialState = { openstate: false };
+const initialState = {
+    openMenu: false,
+    openMenuEvent: false
+};
 
 export default function common(state = initialState, action) {
 
@@ -6,8 +9,10 @@ export default function common(state = initialState, action) {
     switch (action.type) {
         case 'SET_LEFTMENU':
             return {
-                     ...state,
-                openstate: action.payload.openstate
+                ...state,
+                openMenu: action.payload.openMenu,
+                openMenuEvent: action.payload.openMenuEvent
+
             };
         //  return action.payload.common
 

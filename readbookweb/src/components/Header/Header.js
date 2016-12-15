@@ -43,7 +43,8 @@ class Header extends Component {
     }
     render() {
         const { common, test } = this.props;
-        const {OpenAbout } = this;
+        const {OpenMenu, OpenMenuEvent } = this;
+
         const MenuList = (props) => (
             <IconMenu
                 {...props}
@@ -54,8 +55,8 @@ class Header extends Component {
                 targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
                 >
-                <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={OpenAbout} />
-                <MenuItem primaryText="觀看活動清單" leftIcon={<DateIcon />} />
+                <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={OpenMenu} />
+                <MenuItem primaryText="觀看活動清單" leftIcon={<DateIcon />} onTouchTap={OpenMenuEvent} />
                 <MenuItem primaryText="主講介紹" leftIcon={<PeopleIcon />} />
             </IconMenu>
         );
@@ -71,16 +72,29 @@ class Header extends Component {
         )
     }
     //這邊要很注意作用域的關系
-    OpenAbout = () => {
+    OpenMenu = () => {
         const { setLeftmenu } = this.props;
 
         setLeftmenu({
 
-            openstate: this.props.common.openstate ? false : true
+            openMenu: !this.props.common.openstate,
+            openMenuEvent: false
 
         });
-
     }
+
+    OpenMenuEvent = () => {
+
+        const { setLeftmenu } = this.props;
+
+        setLeftmenu({
+
+            openMenu: false,
+            openMenuEvent: true
+
+        });
+    }
+
 
     handleChange() {
         const { setTest } = this.props;

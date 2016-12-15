@@ -1,10 +1,11 @@
 import { SET_LEFTMENU } from '../constants';
 
-export function setLeftmenu({ openstate }) {
+export function setLeftmenu({ openMenu, openMenuEvent }) {
     return {
         type: SET_LEFTMENU,
         payload: {
-            openstate
+            openMenu,
+            openMenuEvent
         }
     }
 }
