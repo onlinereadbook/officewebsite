@@ -19,11 +19,12 @@ export default {
             component: <ReadBook />,
         }
     },
-    path: '/readbook/laravel',
-    action() {
+    path: '/readbook/:bookname',
+    action({ params }) {
         return {
+
             title: 'React Starter Kit',
-            component: <ReadBook />,
+            component: <ReadBook  />,
         }
     },
 

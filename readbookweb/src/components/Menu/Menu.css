@@ -20,6 +20,10 @@
     max-width: var(--max-content-width);
 }
 
+.link {
+    text-decoration: none;
+}
+
 .brand {
     color: color(var(--brand-color) lightness(+10%));
     text-decoration: none;
@@ -53,4 +57,22 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 1.25em;
     margin: 0;
+}
+
+:global(.example-enter) {
+    opacity: 0.01;
+}
+
+:global(.example-enter.example-enter-active) {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+:global(.example-leave) {
+    opacity: 1;
+}
+
+:global(.example-leave.example-leave-active) {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
 }

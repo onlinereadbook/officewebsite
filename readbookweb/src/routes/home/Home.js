@@ -14,7 +14,6 @@ import Layout from '../../components/Layout';
 import s from './Home.css';
 //import MenuData from './MenuData';
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
 
 import { connect } from 'react-redux';
 

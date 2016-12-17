@@ -2752,7 +2752,7 @@ module.exports =
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(77).default, __webpack_require__(135).default, __webpack_require__(140).default, __webpack_require__(144).default, __webpack_require__(148).default, __webpack_require__(152).default, __webpack_require__(156).default, __webpack_require__(160).default,
+    children: [__webpack_require__(77).default, __webpack_require__(136).default, __webpack_require__(140).default, __webpack_require__(144).default, __webpack_require__(148).default, __webpack_require__(152).default, __webpack_require__(156).default, __webpack_require__(160).default,
   
     // place new routes before...
     __webpack_require__(164).default, __webpack_require__(168).default],
@@ -2868,7 +2868,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _MatchWork = __webpack_require__(133);
+  var _MatchWork = __webpack_require__(134);
   
   var _MatchWork2 = _interopRequireDefault(_MatchWork);
   
@@ -2976,7 +2976,7 @@ module.exports =
   
   var _Menu2 = _interopRequireDefault(_Menu);
   
-  var _MenuEvent = __webpack_require__(126);
+  var _MenuEvent = __webpack_require__(127);
   
   var _MenuEvent2 = _interopRequireDefault(_MenuEvent);
   
@@ -4337,7 +4337,7 @@ module.exports =
   //import MenuData from '../MenuData';
   
   //import MenuData from './MenuData';
-  
+  // ES6
   
   var _react = __webpack_require__(16);
   
@@ -4387,6 +4387,14 @@ module.exports =
   
   var _Divider2 = _interopRequireDefault(_Divider);
   
+  var _reactAddonsCssTransitionGroup = __webpack_require__(126);
+  
+  var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+  
+  var _Link = __webpack_require__(85);
+  
+  var _Link2 = _interopRequireDefault(_Link);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   var styles = {
@@ -4410,6 +4418,7 @@ module.exports =
   var programdata = [{
       "id": 1,
       "title": "線上 react 讀書會",
+      "bookname": "react",
       "subtitle": "Reactjs 為目前主流框架之一,好維護強調 Learn Once Use Everywhere",
       "weblink": "https://www.facebook.com/groups/906048196159262/",
       "memo": "react 讀書會 攻略項目 目前包含 react ,reactnatvice ,redux ,webpack ,add-ons ,未來會攻略 ReactVr  ....",
@@ -4418,6 +4427,7 @@ module.exports =
   }, {
       "id": 2,
       "title": "線上 nodejs 讀書會",
+      "bookname": "nodejs",
       "subtitle": "nodejs在這幾年很火紅,目前已經支援最新的es6,es7語法,模組套件非常多,也常用於Iot開發語言",
       "weblink": "https://www.facebook.com/groups/207139586323090/",
       "memo": "目前nodejs攻略 有 後端開發express,strongloop或是 Iot物聯網使用也有 雲端 node-red ",
@@ -4427,6 +4437,7 @@ module.exports =
   },, {
       "id": 3,
       "title": "線上 docker 讀書會",
+      "bookname": "docker",
       "subtitle": "docker是虛擬化技術很重要的一個技術,也常用在CI/CD 或是 devops中",
       "weblink": "https://www.facebook.com/groups/750311598438135/",
       "memo": "docker 可以很快速的建立一個環境,並可以資料與系統分離 ",
@@ -4652,40 +4663,49 @@ module.exports =
                       'div',
                       { className: _Menu2.default.container },
                       _react2.default.createElement(
-                          _Card.Card,
-                          null,
-                          _react2.default.createElement(_Card.CardHeader, {
-                              title: this.state.AssignData.title,
-                              subtitle: this.state.AssignData.subtitle,
-                              avatar: this.state.AssignData.icon
-                          }),
+                          _reactAddonsCssTransitionGroup2.default,
+                          {
+                              transitionName: 'example',
+                              transitionEnterTimeout: 500,
+                              transitionLeaveTimeout: 300,
+                              transitionAppear: true
+                          },
                           _react2.default.createElement(
-                              _Card.CardMedia,
-                              {
-                                  overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
-                              },
-                              _react2.default.createElement('img', { src: '{this.state.AssignData.mainphoto}', key: this.state.AssignData.mainphoto })
-                          ),
-                          _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
-                          _react2.default.createElement(_Card.CardText, null),
-                          _react2.default.createElement(
-                              _Card.CardActions,
+                              _Card.Card,
                               null,
-                              _react2.default.createElement(_RaisedButton2.default, {
-                                  label: '\u66F4\u4E86\u89E3\u7DDA\u4E0A\u8B80\u66F8\u6703',
-                                  labelPosition: 'before',
-                                  primary: true,
-                                  icon: _react2.default.createElement(_store2.default, null),
-                                  style: styles.button
+                              _react2.default.createElement(_Card.CardHeader, {
+                                  title: this.state.AssignData.title,
+                                  subtitle: this.state.AssignData.subtitle,
+                                  avatar: "/" + this.state.AssignData.icon
                               }),
-                              _react2.default.createElement(_RaisedButton2.default, {
-                                  label: '\u60F3\u8981\u518D\u63A2\u7D22\u770B\u770B\u9084\u6709\u4EC0\u9EBC\u8B80\u66F8\u6703',
-                                  labelPosition: 'before',
-                                  primary: true,
-                                  icon: _react2.default.createElement(_search2.default, null),
-                                  style: styles.button,
-                                  onTouchTap: this.OpenAbout
-                              })
+                              _react2.default.createElement(
+                                  _Card.CardMedia,
+                                  {
+                                      overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
+                                  },
+                                  _react2.default.createElement('img', { src: "/" + this.state.AssignData.mainphoto, key: this.state.AssignData.mainphoto })
+                              ),
+                              _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
+                              _react2.default.createElement(_Card.CardText, null),
+                              _react2.default.createElement(
+                                  _Card.CardActions,
+                                  null,
+                                  _react2.default.createElement(_RaisedButton2.default, {
+                                      label: '\u66F4\u4E86\u89E3\u7DDA\u4E0A\u8B80\u66F8\u6703',
+                                      labelPosition: 'before',
+                                      primary: true,
+                                      icon: _react2.default.createElement(_store2.default, null),
+                                      style: styles.button
+                                  }),
+                                  _react2.default.createElement(_RaisedButton2.default, {
+                                      label: '\u60F3\u8981\u518D\u63A2\u7D22\u770B\u770B\u9084\u6709\u4EC0\u9EBC\u8B80\u66F8\u6703',
+                                      labelPosition: 'before',
+                                      primary: true,
+                                      icon: _react2.default.createElement(_search2.default, null),
+                                      style: styles.button,
+                                      onTouchTap: this.OpenAbout
+                                  })
+                              )
                           )
                       ),
                       _react2.default.createElement(
@@ -4698,13 +4718,18 @@ module.exports =
                                           return ClickBookTopic(result);
                                       } },
                                   _react2.default.createElement(_Avatar2.default, {
-                                      src: result.icon,
+                                      src: "/" + result.icon,
                                       size: 30,
                                       style: styles.avatar
   
                                   }),
-                                  result.title,
-                                  ' '
+                                  _react2.default.createElement(
+                                      _Link2.default,
+                                      { className: _Menu2.default.link, to: "/readbook/" + result.bookname },
+                                      ' ',
+                                      result.title,
+                                      ' '
+                                  )
                               );
                           }),
                           _react2.default.createElement(_Divider2.default, null),
@@ -4713,7 +4738,7 @@ module.exports =
                                   _MenuItem2.default,
                                   { key: index },
                                   _react2.default.createElement(_Avatar2.default, {
-                                      src: result.icon,
+                                      src: "/" + result.icon,
                                       size: 30,
                                       style: styles.avatar
                                   }),
@@ -4727,7 +4752,7 @@ module.exports =
                                   _MenuItem2.default,
                                   { key: index },
                                   _react2.default.createElement(_Avatar2.default, {
-                                      src: result.icon,
+                                      src: "/" + result.icon,
                                       size: 30,
                                       style: styles.avatar
                                   }),
@@ -4812,12 +4837,13 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Menu_root_2Jd {}\n\n.Menu_container_2wE {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: 1000px;\n}\n\n.Menu_brand_1Dh {\n    color: rgb(146, 229, 252);\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.Menu_brandTxt_3hK {\n    margin-left: 10px;\n}\n\n.Menu_nav_2YJ {\n    float: right;\n    margin-top: 6px;\n}\n\n.Menu_banner_3LH {\n    text-align: center;\n}\n\n.Menu_bannerTitle_2pr {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.Menu_bannerDesc_3dD {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}", "", {"version":3,"sources":["/./components/Menu/Menu.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADfD,iBAAQ;;AAER;IACI,eAAe;IACf,gBAAgB;IAChB,kBAAoC;CACvC;;AAED;IACI,0BAAiD;IACjD,sBAAsB;IACtB,kBAAkB;IAClB,WAAW;CACd;;AAED;IACI,kBAAkB;CACrB;;AAED;IACI,aAAa;IACb,gBAAgB;CACnB;;AAED;IACI,mBAAmB;CACtB;;AAED;IACI,UAAU;IACV,cAAc;IACd,oBAAoB;IACpB,eAAe;IACf,iBAAiB;CACpB;;AAED;IACI,WAAW;IACX,gCAAgC;IAChC,kBAAkB;IAClB,UAAU;CACb","file":"Menu.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n:root {\n    --brand-color: #61dafb;\n}\n\n.root {}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: var(--max-content-width);\n}\n\n.brand {\n    color: color(var(--brand-color) lightness(+10%));\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.brandTxt {\n    margin-left: 10px;\n}\n\n.nav {\n    float: right;\n    margin-top: 6px;\n}\n\n.banner {\n    text-align: center;\n}\n\n.bannerTitle {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.bannerDesc {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Menu_root_2Jd {}\n\n.Menu_container_2wE {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: 1000px;\n}\n\n.Menu_link_11S {\n    text-decoration: none;\n}\n\n.Menu_brand_1Dh {\n    color: rgb(146, 229, 252);\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.Menu_brandTxt_3hK {\n    margin-left: 10px;\n}\n\n.Menu_nav_2YJ {\n    float: right;\n    margin-top: 6px;\n}\n\n.Menu_banner_3LH {\n    text-align: center;\n}\n\n.Menu_bannerTitle_2pr {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.Menu_bannerDesc_3dD {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n.example-enter {\n    opacity: 0.01;\n}\n\n.example-enter.example-enter-active {\n    opacity: 1;\n    -webkit-transition: opacity 500ms ease-in;\n    -o-transition: opacity 500ms ease-in;\n    transition: opacity 500ms ease-in;\n}\n\n.example-leave {\n    opacity: 1;\n}\n\n.example-leave.example-leave-active {\n    opacity: 0.01;\n    -webkit-transition: opacity 300ms ease-in;\n    -o-transition: opacity 300ms ease-in;\n    transition: opacity 300ms ease-in;\n}", "", {"version":3,"sources":["/./components/Menu/Menu.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADfD,iBAAQ;;AAER;IACI,eAAe;IACf,gBAAgB;IAChB,kBAAoC;CACvC;;AAED;IACI,sBAAsB;CACzB;;AAED;IACI,0BAAiD;IACjD,sBAAsB;IACtB,kBAAkB;IAClB,WAAW;CACd;;AAED;IACI,kBAAkB;CACrB;;AAED;IACI,aAAa;IACb,gBAAgB;CACnB;;AAED;IACI,mBAAmB;CACtB;;AAED;IACI,UAAU;IACV,cAAc;IACd,oBAAoB;IACpB,eAAe;IACf,iBAAiB;CACpB;;AAED;IACI,WAAW;IACX,gCAAgC;IAChC,kBAAkB;IAClB,UAAU;CACb;;AAED;IACI,cAAc;CACjB;;AAED;IACI,WAAW;IACX,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC;;AAED;IACI,WAAW;CACd;;AAED;IACI,cAAc;IACd,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC","file":"Menu.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n:root {\n    --brand-color: #61dafb;\n}\n\n.root {}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: var(--max-content-width);\n}\n\n.link {\n    text-decoration: none;\n}\n\n.brand {\n    color: color(var(--brand-color) lightness(+10%));\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.brandTxt {\n    margin-left: 10px;\n}\n\n.nav {\n    float: right;\n    margin-top: 6px;\n}\n\n.banner {\n    text-align: center;\n}\n\n.bannerTitle {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.bannerDesc {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n:global(.example-enter) {\n    opacity: 0.01;\n}\n\n:global(.example-enter.example-enter-active) {\n    opacity: 1;\n    transition: opacity 500ms ease-in;\n}\n\n:global(.example-leave) {\n    opacity: 1;\n}\n\n:global(.example-leave.example-leave-active) {\n    opacity: 0.01;\n    transition: opacity 300ms ease-in;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
   	"root": "Menu_root_2Jd",
   	"container": "Menu_container_2wE",
+  	"link": "Menu_link_11S",
   	"brand": "Menu_brand_1Dh",
   	"brandTxt": "Menu_brandTxt_3hK",
   	"nav": "Menu_nav_2YJ",
@@ -4870,6 +4896,12 @@ module.exports =
 
 /***/ },
 /* 126 */
+/***/ function(module, exports) {
+
+  module.exports = require("react-addons-css-transition-group");
+
+/***/ },
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4910,13 +4942,13 @@ module.exports =
   
   var _reactRedux = __webpack_require__(94);
   
-  var _MenuEvent = __webpack_require__(127);
+  var _MenuEvent = __webpack_require__(128);
   
   var _MenuEvent2 = _interopRequireDefault(_MenuEvent);
   
   var _common = __webpack_require__(100);
   
-  var _TableCs = __webpack_require__(129);
+  var _TableCs = __webpack_require__(130);
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
@@ -4985,11 +5017,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_MenuEvent2.default)(MenuEvent)));
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(128);
+      var content = __webpack_require__(129);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5019,7 +5051,7 @@ module.exports =
     
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5033,7 +5065,7 @@ module.exports =
 
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5072,13 +5104,13 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _TableCs = __webpack_require__(130);
+  var _TableCs = __webpack_require__(131);
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
   var _reactRedux = __webpack_require__(94);
   
-  var _Table = __webpack_require__(132);
+  var _Table = __webpack_require__(133);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -5197,11 +5229,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_TableCs2.default)(TableCs)));
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(131);
+      var content = __webpack_require__(132);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5231,7 +5263,7 @@ module.exports =
     
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5245,17 +5277,17 @@ module.exports =
 
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Table");
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(134);
+      var content = __webpack_require__(135);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5285,7 +5317,7 @@ module.exports =
     
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5302,7 +5334,7 @@ module.exports =
   };
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5328,7 +5360,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _readBook = __webpack_require__(136);
+  var _readBook = __webpack_require__(137);
   
   var _readBook2 = _interopRequireDefault(_readBook);
   
@@ -5346,15 +5378,18 @@ module.exports =
               component: _react2.default.createElement(_readBook2.default, null)
           };
       }
-  }, (0, _defineProperty3.default)(_path$action$path$act, 'path', '/readbook/laravel'), (0, _defineProperty3.default)(_path$action$path$act, 'action', function action() {
+  }, (0, _defineProperty3.default)(_path$action$path$act, 'path', '/readbook/:bookname'), (0, _defineProperty3.default)(_path$action$path$act, 'action', function action(_ref) {
+      var params = _ref.params;
+  
       return {
+  
           title: 'React Starter Kit',
           component: _react2.default.createElement(_readBook2.default, null)
       };
   }), _path$action$path$act);
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5397,11 +5432,11 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _ReadBook = __webpack_require__(137);
+  var _ReadBook = __webpack_require__(138);
   
   var _ReadBook2 = _interopRequireDefault(_ReadBook);
   
-  var _reactAddonsCssTransitionGroup = __webpack_require__(139);
+  var _reactAddonsCssTransitionGroup = __webpack_require__(126);
   
   var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
   
@@ -5437,11 +5472,7 @@ module.exports =
                       _react2.default.createElement(
                           'div',
                           { className: _ReadBook2.default.root },
-                          _react2.default.createElement(
-                              'div',
-                              { className: _ReadBook2.default.container },
-                              'Larval'
-                          )
+                          _react2.default.createElement('div', { className: _ReadBook2.default.container })
                       )
                   )
               );
@@ -5474,11 +5505,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_ReadBook2.default)(ReadBook));
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(138);
+      var content = __webpack_require__(139);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5508,7 +5539,7 @@ module.exports =
     
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5520,12 +5551,6 @@ module.exports =
   
   // exports
 
-
-/***/ },
-/* 139 */
-/***/ function(module, exports) {
-
-  module.exports = require("react-addons-css-transition-group");
 
 /***/ },
 /* 140 */
@@ -5963,15 +5988,18 @@ module.exports =
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _reactAddonsCssTransitionGroup = __webpack_require__(139);
-  
-  var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-  
   var _reactRedux = __webpack_require__(94);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  //import MenuData from './MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
   var Home = function (_Component) {
       (0, _inherits3.default)(Home, _Component);
@@ -6015,16 +6043,8 @@ module.exports =
   // };
   
   
-  // ES6
+  //import MenuData from './MenuData';
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
   
   var mapState = function mapState(state) {
       return {

@@ -32,8 +32,7 @@ class ReadBook extends Component {
                 <Layout name="polo">
                     <div className={s.root}>
                         <div className={s.container}>
-                            Larval
-
+ 
                         </div>
                     </div>
                 </Layout>

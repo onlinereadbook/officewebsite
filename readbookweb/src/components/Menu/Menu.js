@@ -23,7 +23,9 @@ import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
 
+import Link from '../Link';
 
 
 
@@ -50,6 +52,7 @@ const programdata = [
     {
         "id": 1,
         "title": "線上 react 讀書會",
+        "bookname": "react",
         "subtitle": "Reactjs 為目前主流框架之一,好維護強調 Learn Once Use Everywhere",
         "weblink": "https://www.facebook.com/groups/906048196159262/",
         "memo": "react 讀書會 攻略項目 目前包含 react ,reactnatvice ,redux ,webpack ,add-ons ,未來會攻略 ReactVr  ....",
@@ -58,6 +61,7 @@ const programdata = [
     }, {
         "id": 2,
         "title": "線上 nodejs 讀書會",
+        "bookname": "nodejs",
         "subtitle": "nodejs在這幾年很火紅,目前已經支援最新的es6,es7語法,模組套件非常多,也常用於Iot開發語言",
         "weblink": "https://www.facebook.com/groups/207139586323090/",
         "memo": "目前nodejs攻略 有 後端開發express,strongloop或是 Iot物聯網使用也有 雲端 node-red ",
@@ -68,6 +72,7 @@ const programdata = [
     , {
         "id": 3,
         "title": "線上 docker 讀書會",
+        "bookname": "docker",
         "subtitle": "docker是虛擬化技術很重要的一個技術,也常用在CI/CD 或是 devops中",
         "weblink": "https://www.facebook.com/groups/750311598438135/",
         "memo": "docker 可以很快速的建立一個環境,並可以資料與系統分離 ",
@@ -275,21 +280,28 @@ class Menu extends Component {
         ));
         const { common } = this.props;
         // console.log(common);
+         
         return (
             <div className={s.root}>
                 <div className={s.container}>
 
-
+    <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+                transitionAppear={true}
+>
+         
                     <Card>
                         <CardHeader
                             title={this.state.AssignData.title}
                             subtitle={this.state.AssignData.subtitle}
-                            avatar={this.state.AssignData.icon}
+                            avatar={"/" + this.state.AssignData.icon}
                             />
                         <CardMedia
                             overlay={<CardTitle title="這不是一個實體的讀書會,但你會愛上他" subtitle="是透過Zoom線上會議軟體所進行的讀書會,而你可以在任何地點,只要可以上網有安裝Zoom軟體,都可以一起來享受學習的樂趣" />}
                             >
-                            <img src="{this.state.AssignData.mainphoto}" key={this.state.AssignData.mainphoto} />
+                            <img src={"/" + this.state.AssignData.mainphoto} key={this.state.AssignData.mainphoto} />
                         </CardMedia>
                         <CardTitle title="再也不是一個人讀書" subtitle="線上讀書會 讓在學習知識的路上不孤單,可以快速攻略並藉由線上會議交談與主題探索發現,原來學習只要找對同好 一切是如此的順暢" />
 
@@ -314,26 +326,29 @@ class Menu extends Component {
                                 />
 
 
-                        </CardActions></Card>
-
+                        </CardActions>
+                        </Card>
+   </ReactCSSTransitionGroup>
                     <Drawer open={common.openMenu} >
                         {programdata.map(function (result, index) {
                             return <MenuItem key={index} onTouchTap={() => ClickBookTopic(result)} >
 
                                 <Avatar
-                                    src={result.icon}
+                                    src={"/" + result.icon}
                                     size={30}
                                     style={styles.avatar}
 
                                     />
-                                {result.title} </MenuItem >;
+                                            <Link className={s.link} to={"/readbook/"+  result.bookname  }> {result.title} </Link>
+
+                               </MenuItem >;
 
                         })}
                         <Divider />
                         {languagedata.map(function (result, index) {
                             return <MenuItem key={index}>
                                 <Avatar
-                                    src={result.icon}
+                                    src={"/" + result.icon}
                                     size={30}
                                     style={styles.avatar}
                                     />
@@ -343,7 +358,7 @@ class Menu extends Component {
                         {otherdata.map(function (result, index) {
                             return <MenuItem key={index}>
                                 <Avatar
-                                    src={result.icon}
+                                    src={"/" + result.icon}
                                     size={30}
                                     style={styles.avatar}
                                     />
