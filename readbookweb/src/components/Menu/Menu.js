@@ -25,6 +25,9 @@ import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 
 
+
+
+
 const styles = {
     button: {
         margin: 12,
@@ -249,19 +252,19 @@ class Menu extends Component {
             openMenu: !this.props.common.openMenu
         });
 
-        console.log('this.state');
+        //   console.log('this.state');
     }
     ClickCloseInfo = () => {
         // this.setState({
         //     IsOpenInfo: false
         // })
         // console.log(this.state.IsOpenInfo);
-        console.log('ooo');
+        //  console.log('ooo');
         const { setLeftmenu } = this.props;
         setLeftmenu({
             openMenu: this.props.common.openMenu ? false : true
         });
-        console.log(this.props.common.openMenu);
+        // console.log(this.props.common.openMenu);
     }
     render() {
         let {ClickBookTopic} = this;
@@ -271,7 +274,7 @@ class Menu extends Component {
             </div>
         ));
         const { common } = this.props;
-        console.log(common);
+        // console.log(common);
         return (
             <div className={s.root}>
                 <div className={s.container}>
@@ -286,7 +289,7 @@ class Menu extends Component {
                         <CardMedia
                             overlay={<CardTitle title="這不是一個實體的讀書會,但你會愛上他" subtitle="是透過Zoom線上會議軟體所進行的讀書會,而你可以在任何地點,只要可以上網有安裝Zoom軟體,都可以一起來享受學習的樂趣" />}
                             >
-                            <img src={this.state.AssignData.mainphoto} key={this.state.AssignData.mainphoto} />
+                            <img src="{this.state.AssignData.mainphoto}" key={this.state.AssignData.mainphoto} />
                         </CardMedia>
                         <CardTitle title="再也不是一個人讀書" subtitle="線上讀書會 讓在學習知識的路上不孤單,可以快速攻略並藉由線上會議交談與主題探索發現,原來學習只要找對同好 一切是如此的順暢" />
 

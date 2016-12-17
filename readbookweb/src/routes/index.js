@@ -17,6 +17,7 @@ export default {
   // Keep in mind, routes are evaluated in order
   children: [
     require('./matchwork').default,
+    require('./readBook').default,
     require('./livemap').default,
     require('./home').default,
     require('./contact').default,
