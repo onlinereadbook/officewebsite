@@ -27,8 +27,6 @@ function Footer() {
         <Link className={s.link} to="/support">贊助讀書會</Link>
         <span className={s.spacer}>·</span>
         <Link className={s.link} to="/matchwork">線上媒合</Link>
-        <span className={s.spacer}>·</span>
-        <Link className={s.link} to="/readbook/laravel">readbook</Link>
 
 
       </div>

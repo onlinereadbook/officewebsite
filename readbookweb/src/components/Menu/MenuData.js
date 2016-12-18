@@ -1,7 +1,8 @@
-const programdata = [
+export const programdata = [
     {
         "id": 1,
         "title": "線上 react 讀書會",
+        "bookname": "react",
         "subtitle": "Reactjs 為目前主流框架之一,好維護強調 Learn Once Use Everywhere",
         "weblink": "https://www.facebook.com/groups/906048196159262/",
         "memo": "react 讀書會 攻略項目 目前包含 react ,reactnatvice ,redux ,webpack ,add-ons ,未來會攻略 ReactVr  ....",
@@ -10,6 +11,7 @@ const programdata = [
     }, {
         "id": 2,
         "title": "線上 nodejs 讀書會",
+        "bookname": "nodejs",
         "subtitle": "nodejs在這幾年很火紅,目前已經支援最新的es6,es7語法,模組套件非常多,也常用於Iot開發語言",
         "weblink": "https://www.facebook.com/groups/207139586323090/",
         "memo": "目前nodejs攻略 有 後端開發express,strongloop或是 Iot物聯網使用也有 雲端 node-red ",
@@ -20,6 +22,7 @@ const programdata = [
     , {
         "id": 3,
         "title": "線上 docker 讀書會",
+        "bookname": "docker",
         "subtitle": "docker是虛擬化技術很重要的一個技術,也常用在CI/CD 或是 devops中",
         "weblink": "https://www.facebook.com/groups/750311598438135/",
         "memo": "docker 可以很快速的建立一個環境,並可以資料與系統分離 ",
@@ -118,12 +121,8 @@ const programdata = [
         "memo": "",
         "icon": "images/icons/go.png",
 
-    }
-];
-
-const otherdata = [
-
-    {
+    },
+        {
         "title": "線上 創業 讀書會",
         "weblink": "https://www.facebook.com/groups/1746983635561623/",
         "memo": "",
@@ -132,7 +131,38 @@ const otherdata = [
     },
 ];
 
-const languagedata = [
+export const otherdata = [
+
+    {
+        "title": "線上 創業 讀書會",
+        "weblink": "https://www.facebook.com/groups/1746983635561623/",
+        "memo": "",
+        "icon": "images/icons/business.png",
+
+    },{
+        "title": "線上 韓語 讀書會",
+        "weblink": "https://www.facebook.com/groups/583103035208789/",
+        "memo": "",
+        "icon": "images/icons/korean.png",
+    }, {
+        "title": "線上 越南語 讀書會",
+        "weblink": "https://www.facebook.com/groups/683209238508614/",
+        "memo": "",
+        "icon": "images/icons/vietnam.png",
+    }, {
+        "title": "線上 日語 讀書會",
+        "weblink": "https://www.facebook.com/groups/1113446758690591/",
+        "memo": "",
+        "icon": "images/icons/japan.png",
+    }, {
+        "title": "線上 英文 讀書會",
+        "weblink": "https://www.facebook.com/groups/1781798848754929/",
+        "memo": "",
+        "icon": "images/icons/english.png",
+    },
+];
+
+export const languagedata = [
     {
         "title": "線上 韓語 讀書會",
         "weblink": "https://www.facebook.com/groups/583103035208789/",

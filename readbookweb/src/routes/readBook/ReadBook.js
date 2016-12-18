@@ -13,47 +13,57 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './ReadBook.css';
 //import MenuData from './MenuData';
+import Drawer from 'material-ui/Drawer';
+import ActionStoreIcon from 'material-ui/svg-icons/action/store';
+import ActionSearchIcon from 'material-ui/svg-icons/action/search';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import Avatar from 'material-ui/Avatar';
+//import MenuData from './MenuData';
+import RaisedButton from 'material-ui/RaisedButton';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
-
-import { connect } from 'react-redux';
 
 
-class ReadBook extends Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-        //        console.log(this.props);
+const styles = {
+    button: {
+        margin: 12,
+    },
+    exampleImageInput: {
+        cursor: 'pointer',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        right: 0,
+        left: 0,
+        width: '100%',
+        opacity: 0,
+    },
+    avatar: {
+        margin: 5
     }
-    render() {
-
-        return (
-            <div>
-                <Layout name="polo">
-                    <div className={s.root}>
-                        <div className={s.container}>
- 
-                        </div>
-                    </div>
-                </Layout>
-            </div >)
-    }
-}
-
-// Home.propTypes = {
-
-// };
-
-
-const mapState = (state) => ({
-
-
-
-});
-const mapDispatch = {
-
 };
 
 
 
-export default connect(mapState)(withStyles(s)(ReadBook));
+//class ReadBook extends Component {
+    function ReadBook({showdata}){
+    console.log(showdata);
+    return (
+                 <Layout name="polo">
+                    <div className={s.root}>
+                        <div className={s.container}>
+                        <Card>
+                       
+                        </Card>
+                          {showdata.bookname}
+                                                </div>
+                    </div>
+                </Layout>
+     )
+}
+ 
+
+
+
+export default withStyles(s)(ReadBook);

@@ -4219,16 +4219,6 @@ module.exports =
           _Link2.default,
           { className: _Footer2.default.link, to: '/matchwork' },
           '\u7DDA\u4E0A\u5A92\u5408'
-        ),
-        _react2.default.createElement(
-          'span',
-          { className: _Footer2.default.spacer },
-          '\xB7'
-        ),
-        _react2.default.createElement(
-          _Link2.default,
-          { className: _Footer2.default.link, to: '/readbook/laravel' },
-          'readbook'
         )
       )
     );
@@ -4321,24 +4311,6 @@ module.exports =
   
   var _inherits3 = _interopRequireDefault(_inherits2);
   
-  var _defineProperty2 = __webpack_require__(116);
-  
-  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-  
-  var _ref; /**
-             * React Starter Kit (https://www.reactstarterkit.com/)
-             *
-             * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-             *
-             * This source code is licensed under the MIT license found in the
-             * LICENSE.txt file in the root directory of this source tree.
-             */
-  
-  //import MenuData from '../MenuData';
-  
-  //import MenuData from './MenuData';
-  // ES6
-  
   var _react = __webpack_require__(16);
   
   var _react2 = _interopRequireDefault(_react);
@@ -4349,7 +4321,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Menu = __webpack_require__(117);
+  var _Menu = __webpack_require__(116);
   
   var _Menu2 = _interopRequireDefault(_Menu);
   
@@ -4357,25 +4329,25 @@ module.exports =
   
   var _reactRedux = __webpack_require__(94);
   
-  var _Drawer = __webpack_require__(119);
+  var _Drawer = __webpack_require__(118);
   
   var _Drawer2 = _interopRequireDefault(_Drawer);
   
-  var _store = __webpack_require__(120);
+  var _store = __webpack_require__(119);
   
   var _store2 = _interopRequireDefault(_store);
   
-  var _search = __webpack_require__(121);
+  var _search = __webpack_require__(120);
   
   var _search2 = _interopRequireDefault(_search);
   
-  var _Card = __webpack_require__(122);
+  var _Card = __webpack_require__(121);
   
-  var _Avatar = __webpack_require__(123);
+  var _Avatar = __webpack_require__(122);
   
   var _Avatar2 = _interopRequireDefault(_Avatar);
   
-  var _RaisedButton = __webpack_require__(124);
+  var _RaisedButton = __webpack_require__(123);
   
   var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
   
@@ -4383,20 +4355,23 @@ module.exports =
   
   var _MenuItem2 = _interopRequireDefault(_MenuItem);
   
-  var _Divider = __webpack_require__(125);
+  var _Divider = __webpack_require__(124);
   
   var _Divider2 = _interopRequireDefault(_Divider);
   
-  var _reactAddonsCssTransitionGroup = __webpack_require__(126);
+  var _history = __webpack_require__(87);
   
-  var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+  var _history2 = _interopRequireDefault(_history);
   
   var _Link = __webpack_require__(85);
   
   var _Link2 = _interopRequireDefault(_Link);
   
+  var _MenuData = __webpack_require__(125);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
+  //import MenuData from './MenuData';
   var styles = {
       button: {
           margin: 12
@@ -4415,7 +4390,283 @@ module.exports =
           margin: 5
       }
   };
-  var programdata = [{
+  //import MenuData from '../MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  var Menu = function (_Component) {
+      (0, _inherits3.default)(Menu, _Component);
+  
+      function Menu(props) {
+          (0, _classCallCheck3.default)(this, Menu);
+  
+          var _this = (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this, props));
+  
+          _this.OpenAbout = function (result) {
+              // console.log(this.props);
+              var setLeftmenu = _this.props.setLeftmenu;
+  
+              setLeftmenu({
+                  openMenu: !_this.props.common.openMenu,
+                  openMenuEvent: false
+              });
+          };
+  
+          _this.ClickBookTopic = function (index) {
+              //console.log(result);
+  
+              _this.setState({
+                  IsOpenData: !_this.state.IsOpenData,
+                  IsOpenInfo: true
+              });
+  
+              var setLeftmenu = _this.props.setLeftmenu;
+              //console.log(this.props);
+  
+  
+              setLeftmenu({
+                  openMenu: !_this.props.common.openMenu
+              });
+              console.log(index);
+              _history2.default.push('/readbook/' + index);
+              //狀態更改後要轉址
+  
+              //
+  
+              //   console.log('this.state');
+          };
+  
+          _this.ClickCloseInfo = function () {
+              // this.setState({
+              //     IsOpenInfo: false
+              // })
+              // console.log(this.state.IsOpenInfo);
+              //  console.log('ooo');
+              var setLeftmenu = _this.props.setLeftmenu;
+  
+              setLeftmenu({
+                  openMenu: _this.props.common.openMenu ? false : true
+              });
+              // console.log(this.props.common.openMenu);
+          };
+  
+          _this.state = {
+              IsOpenData: false,
+              IsOpenInfo: false,
+              AssignData: {
+                  "id": 1,
+                  "title": "線上讀書會",
+                  "subtitle": "歡迎來到線上讀書會",
+                  "連結網址": "https://www.facebook.com/groups/906048196159262/",
+                  "介紹": "可以學到 react reactnatvice redux ....",
+                  "icon": "images/icons/reactjs.png",
+                  "mainphoto": "images/interior-of-library.jpg"
+              },
+              items: ['hello', 'world', 'click', 'me']
+          };
+          _this.props = props;
+          //console.log(this.props);
+          return _this;
+      }
+  
+      (0, _createClass3.default)(Menu, [{
+          key: 'render',
+          value: function render() {
+              var _this2 = this;
+  
+              var ClickBookTopic = this.ClickBookTopic;
+  
+              var items = this.state.items.map(function (item, i) {
+                  return _react2.default.createElement(
+                      'div',
+                      { key: i, onClick: function onClick() {
+                              return _this2.handleRemove(i);
+                          } },
+                      item
+                  );
+              });
+              var common = this.props.common;
+              // console.log(common);
+  
+              return _react2.default.createElement(
+                  'div',
+                  { className: _Menu2.default.root },
+                  _react2.default.createElement(
+                      'div',
+                      { className: _Menu2.default.container },
+                      _react2.default.createElement(
+                          _Drawer2.default,
+                          { open: common.openMenu, width: 350 },
+                          _MenuData.programdata.map(function (result, index) {
+                              // result.bookname =(result.bookname)?result.bookname:"未設定";
+                              return _react2.default.createElement(
+                                  _MenuItem2.default,
+                                  { key: index, onTouchTap: function onTouchTap() {
+                                          return ClickBookTopic(index);
+                                      } },
+                                  _react2.default.createElement(_Avatar2.default, {
+                                      src: "/" + result.icon,
+                                      size: 30,
+                                      style: styles.avatar
+  
+                                  }),
+                                  result.title
+                              );
+                          }),
+                          _react2.default.createElement(_RaisedButton2.default, {
+                              label: '\u95DC\u9589',
+                              labelPosition: 'before',
+                              primary: true,
+                              icon: _react2.default.createElement(_search2.default, null),
+                              style: styles.button,
+  
+                              onTouchTap: this.OpenAbout
+                          })
+                      )
+                  )
+              );
+          }
+      }]);
+      return Menu;
+  }(_react.Component);
+  
+  var mapState = function mapState(state) {
+      return {
+          common: state.common
+      };
+  };
+  var mapDispatch = {
+      setLeftmenu: _common.setLeftmenu
+  };
+  
+  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_Menu2.default)(Menu)));
+
+/***/ },
+/* 116 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(117);
+      var insertCss = __webpack_require__(45);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Menu.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Menu.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(44)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Menu_root_2Jd {}\n\n.Menu_container_2wE {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: 1000px;\n}\n\n.Menu_link_11S {\n    text-decoration: none;\n    color: #080808\n}\n\n.Menu_brand_1Dh {\n    color: rgb(146, 229, 252);\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.Menu_brandTxt_3hK {\n    margin-left: 10px;\n}\n\n.Menu_nav_2YJ {\n    float: right;\n    margin-top: 6px;\n}\n\n.Menu_banner_3LH {\n    text-align: center;\n}\n\n.Menu_bannerTitle_2pr {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.Menu_bannerDesc_3dD {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n.example-enter {\n    opacity: 0.01;\n}\n\n.example-enter.example-enter-active {\n    opacity: 1;\n    -webkit-transition: opacity 500ms ease-in;\n    -o-transition: opacity 500ms ease-in;\n    transition: opacity 500ms ease-in;\n}\n\n.example-leave {\n    opacity: 1;\n}\n\n.example-leave.example-leave-active {\n    opacity: 0.01;\n    -webkit-transition: opacity 300ms ease-in;\n    -o-transition: opacity 300ms ease-in;\n    transition: opacity 300ms ease-in;\n}", "", {"version":3,"sources":["/./components/Menu/Menu.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADfD,iBAAQ;;AAER;IACI,eAAe;IACf,gBAAgB;IAChB,kBAAoC;CACvC;;AAED;IACI,sBAAsB;IACtB,cAAc;CACjB;;AAED;IACI,0BAAiD;IACjD,sBAAsB;IACtB,kBAAkB;IAClB,WAAW;CACd;;AAED;IACI,kBAAkB;CACrB;;AAED;IACI,aAAa;IACb,gBAAgB;CACnB;;AAED;IACI,mBAAmB;CACtB;;AAED;IACI,UAAU;IACV,cAAc;IACd,oBAAoB;IACpB,eAAe;IACf,iBAAiB;CACpB;;AAED;IACI,WAAW;IACX,gCAAgC;IAChC,kBAAkB;IAClB,UAAU;CACb;;AAED;IACI,cAAc;CACjB;;AAED;IACI,WAAW;IACX,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC;;AAED;IACI,WAAW;CACd;;AAED;IACI,cAAc;IACd,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC","file":"Menu.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n:root {\n    --brand-color: #61dafb;\n}\n\n.root {}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: var(--max-content-width);\n}\n\n.link {\n    text-decoration: none;\n    color: #080808\n}\n\n.brand {\n    color: color(var(--brand-color) lightness(+10%));\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.brandTxt {\n    margin-left: 10px;\n}\n\n.nav {\n    float: right;\n    margin-top: 6px;\n}\n\n.banner {\n    text-align: center;\n}\n\n.bannerTitle {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.bannerDesc {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n:global(.example-enter) {\n    opacity: 0.01;\n}\n\n:global(.example-enter.example-enter-active) {\n    opacity: 1;\n    transition: opacity 500ms ease-in;\n}\n\n:global(.example-leave) {\n    opacity: 1;\n}\n\n:global(.example-leave.example-leave-active) {\n    opacity: 0.01;\n    transition: opacity 300ms ease-in;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Menu_root_2Jd",
+  	"container": "Menu_container_2wE",
+  	"link": "Menu_link_11S",
+  	"brand": "Menu_brand_1Dh",
+  	"brandTxt": "Menu_brandTxt_3hK",
+  	"nav": "Menu_nav_2YJ",
+  	"banner": "Menu_banner_3LH",
+  	"bannerTitle": "Menu_bannerTitle_2pr",
+  	"bannerDesc": "Menu_bannerDesc_3dD"
+  };
+
+/***/ },
+/* 118 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Drawer");
+
+/***/ },
+/* 119 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/svg-icons/action/store");
+
+/***/ },
+/* 120 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/svg-icons/action/search");
+
+/***/ },
+/* 121 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Card");
+
+/***/ },
+/* 122 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Avatar");
+
+/***/ },
+/* 123 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/RaisedButton");
+
+/***/ },
+/* 124 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Divider");
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+  "use strict";
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  exports.languagedata = exports.otherdata = exports.programdata = undefined;
+  
+  var _defineProperty2 = __webpack_require__(126);
+  
+  var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+  
+  var _ref;
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var programdata = exports.programdata = [{
       "id": 1,
       "title": "線上 react 讀書會",
       "bookname": "react",
@@ -4450,7 +4701,7 @@ module.exports =
       "icon": "images/icons/swift.png",
   
       "weblink": "https://www.facebook.com/groups/238948643131478/"
-  }, (0, _defineProperty3.default)(_ref, 'icon', "images/icons/swift.png"), (0, _defineProperty3.default)(_ref, "memo", ""), _ref), {
+  }, (0, _defineProperty3.default)(_ref, "icon", "images/icons/swift.png"), (0, _defineProperty3.default)(_ref, "memo", ""), _ref), {
       "id": 5,
       "title": "線上 laravel 讀書會",
       "weblink": "https://www.facebook.com/groups/956973084383781/",
@@ -4534,9 +4785,7 @@ module.exports =
       "memo": "",
       "icon": "images/icons/go.png"
   
-  }];
-  
-  var otherdata = [{
+  }, {
       "title": "線上 創業 讀書會",
       "weblink": "https://www.facebook.com/groups/1746983635561623/",
       "memo": "",
@@ -4544,7 +4793,13 @@ module.exports =
   
   }];
   
-  var languagedata = [{
+  var otherdata = exports.otherdata = [{
+      "title": "線上 創業 讀書會",
+      "weblink": "https://www.facebook.com/groups/1746983635561623/",
+      "memo": "",
+      "icon": "images/icons/business.png"
+  
+  }, {
       "title": "線上 韓語 讀書會",
       "weblink": "https://www.facebook.com/groups/583103035208789/",
       "memo": "",
@@ -4566,339 +4821,33 @@ module.exports =
       "icon": "images/icons/english.png"
   }];
   
-  var Menu = function (_Component) {
-      (0, _inherits3.default)(Menu, _Component);
-  
-      function Menu(props) {
-          (0, _classCallCheck3.default)(this, Menu);
-  
-          var _this = (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this, props));
-  
-          _this.OpenAbout = function () {
-              // console.log(this.props);
-              var setLeftmenu = _this.props.setLeftmenu;
-  
-              setLeftmenu({
-                  openMenu: !_this.props.common.openMenu,
-                  openMenuEvent: false
-              });
-          };
-  
-          _this.ClickBookTopic = function (result) {
-              //console.log(result);
-  
-              _this.setState({
-                  IsOpenData: !_this.state.IsOpenData,
-                  IsOpenInfo: true,
-                  AssignData: result
-              });
-  
-              var setLeftmenu = _this.props.setLeftmenu;
-              //console.log(this.props);
-  
-              setLeftmenu({
-                  openMenu: !_this.props.common.openMenu
-              });
-  
-              //   console.log('this.state');
-          };
-  
-          _this.ClickCloseInfo = function () {
-              // this.setState({
-              //     IsOpenInfo: false
-              // })
-              // console.log(this.state.IsOpenInfo);
-              //  console.log('ooo');
-              var setLeftmenu = _this.props.setLeftmenu;
-  
-              setLeftmenu({
-                  openMenu: _this.props.common.openMenu ? false : true
-              });
-              // console.log(this.props.common.openMenu);
-          };
-  
-          _this.state = {
-              IsOpenData: false,
-              IsOpenInfo: false,
-              AssignData: {
-                  "id": 1,
-                  "title": "線上讀書會",
-                  "subtitle": "歡迎來到線上讀書會",
-                  "連結網址": "https://www.facebook.com/groups/906048196159262/",
-                  "介紹": "可以學到 react reactnatvice redux ....",
-                  "icon": "images/icons/reactjs.png",
-                  "mainphoto": "images/interior-of-library.jpg"
-              },
-              items: ['hello', 'world', 'click', 'me']
-  
-          };
-          _this.props = props;
-          //console.log(this.props);
-          return _this;
-      }
-  
-      (0, _createClass3.default)(Menu, [{
-          key: 'render',
-          value: function render() {
-              var _this2 = this;
-  
-              var ClickBookTopic = this.ClickBookTopic;
-  
-              var items = this.state.items.map(function (item, i) {
-                  return _react2.default.createElement(
-                      'div',
-                      { key: i, onClick: function onClick() {
-                              return _this2.handleRemove(i);
-                          } },
-                      item
-                  );
-              });
-              var common = this.props.common;
-              // console.log(common);
-  
-              return _react2.default.createElement(
-                  'div',
-                  { className: _Menu2.default.root },
-                  _react2.default.createElement(
-                      'div',
-                      { className: _Menu2.default.container },
-                      _react2.default.createElement(
-                          _reactAddonsCssTransitionGroup2.default,
-                          {
-                              transitionName: 'example',
-                              transitionEnterTimeout: 500,
-                              transitionLeaveTimeout: 300,
-                              transitionAppear: true
-                          },
-                          _react2.default.createElement(
-                              _Card.Card,
-                              null,
-                              _react2.default.createElement(_Card.CardHeader, {
-                                  title: this.state.AssignData.title,
-                                  subtitle: this.state.AssignData.subtitle,
-                                  avatar: "/" + this.state.AssignData.icon
-                              }),
-                              _react2.default.createElement(
-                                  _Card.CardMedia,
-                                  {
-                                      overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
-                                  },
-                                  _react2.default.createElement('img', { src: "/" + this.state.AssignData.mainphoto, key: this.state.AssignData.mainphoto })
-                              ),
-                              _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
-                              _react2.default.createElement(_Card.CardText, null),
-                              _react2.default.createElement(
-                                  _Card.CardActions,
-                                  null,
-                                  _react2.default.createElement(_RaisedButton2.default, {
-                                      label: '\u66F4\u4E86\u89E3\u7DDA\u4E0A\u8B80\u66F8\u6703',
-                                      labelPosition: 'before',
-                                      primary: true,
-                                      icon: _react2.default.createElement(_store2.default, null),
-                                      style: styles.button
-                                  }),
-                                  _react2.default.createElement(_RaisedButton2.default, {
-                                      label: '\u60F3\u8981\u518D\u63A2\u7D22\u770B\u770B\u9084\u6709\u4EC0\u9EBC\u8B80\u66F8\u6703',
-                                      labelPosition: 'before',
-                                      primary: true,
-                                      icon: _react2.default.createElement(_search2.default, null),
-                                      style: styles.button,
-                                      onTouchTap: this.OpenAbout
-                                  })
-                              )
-                          )
-                      ),
-                      _react2.default.createElement(
-                          _Drawer2.default,
-                          { open: common.openMenu },
-                          programdata.map(function (result, index) {
-                              return _react2.default.createElement(
-                                  _MenuItem2.default,
-                                  { key: index, onTouchTap: function onTouchTap() {
-                                          return ClickBookTopic(result);
-                                      } },
-                                  _react2.default.createElement(_Avatar2.default, {
-                                      src: "/" + result.icon,
-                                      size: 30,
-                                      style: styles.avatar
-  
-                                  }),
-                                  _react2.default.createElement(
-                                      _Link2.default,
-                                      { className: _Menu2.default.link, to: "/readbook/" + result.bookname },
-                                      ' ',
-                                      result.title,
-                                      ' '
-                                  )
-                              );
-                          }),
-                          _react2.default.createElement(_Divider2.default, null),
-                          languagedata.map(function (result, index) {
-                              return _react2.default.createElement(
-                                  _MenuItem2.default,
-                                  { key: index },
-                                  _react2.default.createElement(_Avatar2.default, {
-                                      src: "/" + result.icon,
-                                      size: 30,
-                                      style: styles.avatar
-                                  }),
-                                  result.title,
-                                  ' '
-                              );
-                          }),
-                          _react2.default.createElement(_Divider2.default, null),
-                          otherdata.map(function (result, index) {
-                              return _react2.default.createElement(
-                                  _MenuItem2.default,
-                                  { key: index },
-                                  _react2.default.createElement(_Avatar2.default, {
-                                      src: "/" + result.icon,
-                                      size: 30,
-                                      style: styles.avatar
-                                  }),
-                                  result.title,
-                                  ' '
-                              );
-                          }),
-                          _react2.default.createElement(_RaisedButton2.default, {
-                              label: '\u95DC\u9589',
-                              labelPosition: 'before',
-                              primary: true,
-                              icon: _react2.default.createElement(_search2.default, null),
-                              style: styles.button,
-  
-                              onTouchTap: this.OpenAbout
-                          })
-                      )
-                  )
-              );
-          }
-      }]);
-      return Menu;
-  }(_react.Component);
-  
-  var mapState = function mapState(state) {
-      return {
-          common: state.common
-      };
-  };
-  var mapDispatch = {
-      setLeftmenu: _common.setLeftmenu
-  };
-  
-  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_Menu2.default)(Menu)));
-
-/***/ },
-/* 116 */
-/***/ function(module, exports) {
-
-  module.exports = require("babel-runtime/helpers/defineProperty");
-
-/***/ },
-/* 117 */
-/***/ function(module, exports, __webpack_require__) {
-
-  
-      var content = __webpack_require__(118);
-      var insertCss = __webpack_require__(45);
-  
-      if (typeof content === 'string') {
-        content = [[module.id, content, '']];
-      }
-  
-      module.exports = content.locals || {};
-      module.exports._getCss = function() { return content.toString(); };
-      module.exports._insertCss = function(options) { return insertCss(content, options) };
-    
-      // Hot Module Replacement
-      // https://webpack.github.io/docs/hot-module-replacement
-      // Only activated in browser context
-      if (false) {
-        var removeCss = function() {};
-        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Menu.css", function() {
-          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Menu.css");
-  
-          if (typeof content === 'string') {
-            content = [[module.id, content, '']];
-          }
-  
-          removeCss = insertCss(content, { replace: true });
-        });
-        module.hot.dispose(function() { removeCss(); });
-      }
-    
-
-/***/ },
-/* 118 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(44)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Menu_root_2Jd {}\n\n.Menu_container_2wE {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: 1000px;\n}\n\n.Menu_link_11S {\n    text-decoration: none;\n}\n\n.Menu_brand_1Dh {\n    color: rgb(146, 229, 252);\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.Menu_brandTxt_3hK {\n    margin-left: 10px;\n}\n\n.Menu_nav_2YJ {\n    float: right;\n    margin-top: 6px;\n}\n\n.Menu_banner_3LH {\n    text-align: center;\n}\n\n.Menu_bannerTitle_2pr {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.Menu_bannerDesc_3dD {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n.example-enter {\n    opacity: 0.01;\n}\n\n.example-enter.example-enter-active {\n    opacity: 1;\n    -webkit-transition: opacity 500ms ease-in;\n    -o-transition: opacity 500ms ease-in;\n    transition: opacity 500ms ease-in;\n}\n\n.example-leave {\n    opacity: 1;\n}\n\n.example-leave.example-leave-active {\n    opacity: 0.01;\n    -webkit-transition: opacity 300ms ease-in;\n    -o-transition: opacity 300ms ease-in;\n    transition: opacity 300ms ease-in;\n}", "", {"version":3,"sources":["/./components/Menu/Menu.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADfD,iBAAQ;;AAER;IACI,eAAe;IACf,gBAAgB;IAChB,kBAAoC;CACvC;;AAED;IACI,sBAAsB;CACzB;;AAED;IACI,0BAAiD;IACjD,sBAAsB;IACtB,kBAAkB;IAClB,WAAW;CACd;;AAED;IACI,kBAAkB;CACrB;;AAED;IACI,aAAa;IACb,gBAAgB;CACnB;;AAED;IACI,mBAAmB;CACtB;;AAED;IACI,UAAU;IACV,cAAc;IACd,oBAAoB;IACpB,eAAe;IACf,iBAAiB;CACpB;;AAED;IACI,WAAW;IACX,gCAAgC;IAChC,kBAAkB;IAClB,UAAU;CACb;;AAED;IACI,cAAc;CACjB;;AAED;IACI,WAAW;IACX,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC;;AAED;IACI,WAAW;CACd;;AAED;IACI,cAAc;IACd,0CAAkC;IAAlC,qCAAkC;IAAlC,kCAAkC;CACrC","file":"Menu.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n:root {\n    --brand-color: #61dafb;\n}\n\n.root {}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 0;\n    max-width: var(--max-content-width);\n}\n\n.link {\n    text-decoration: none;\n}\n\n.brand {\n    color: color(var(--brand-color) lightness(+10%));\n    text-decoration: none;\n    font-size: 1.75em;\n    /* ~28px */\n}\n\n.brandTxt {\n    margin-left: 10px;\n}\n\n.nav {\n    float: right;\n    margin-top: 6px;\n}\n\n.banner {\n    text-align: center;\n}\n\n.bannerTitle {\n    margin: 0;\n    padding: 10px;\n    font-weight: normal;\n    font-size: 4em;\n    line-height: 1em;\n}\n\n.bannerDesc {\n    padding: 0;\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 1.25em;\n    margin: 0;\n}\n\n:global(.example-enter) {\n    opacity: 0.01;\n}\n\n:global(.example-enter.example-enter-active) {\n    opacity: 1;\n    transition: opacity 500ms ease-in;\n}\n\n:global(.example-leave) {\n    opacity: 1;\n}\n\n:global(.example-leave.example-leave-active) {\n    opacity: 0.01;\n    transition: opacity 300ms ease-in;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Menu_root_2Jd",
-  	"container": "Menu_container_2wE",
-  	"link": "Menu_link_11S",
-  	"brand": "Menu_brand_1Dh",
-  	"brandTxt": "Menu_brandTxt_3hK",
-  	"nav": "Menu_nav_2YJ",
-  	"banner": "Menu_banner_3LH",
-  	"bannerTitle": "Menu_bannerTitle_2pr",
-  	"bannerDesc": "Menu_bannerDesc_3dD"
-  };
-
-/***/ },
-/* 119 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Drawer");
-
-/***/ },
-/* 120 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/svg-icons/action/store");
-
-/***/ },
-/* 121 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/svg-icons/action/search");
-
-/***/ },
-/* 122 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Card");
-
-/***/ },
-/* 123 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Avatar");
-
-/***/ },
-/* 124 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/RaisedButton");
-
-/***/ },
-/* 125 */
-/***/ function(module, exports) {
-
-  module.exports = require("material-ui/Divider");
+  var languagedata = exports.languagedata = [{
+      "title": "線上 韓語 讀書會",
+      "weblink": "https://www.facebook.com/groups/583103035208789/",
+      "memo": "",
+      "icon": "images/icons/korean.png"
+  }, {
+      "title": "線上 越南語 讀書會",
+      "weblink": "https://www.facebook.com/groups/683209238508614/",
+      "memo": "",
+      "icon": "images/icons/vietnam.png"
+  }, {
+      "title": "線上 日語 讀書會",
+      "weblink": "https://www.facebook.com/groups/1113446758690591/",
+      "memo": "",
+      "icon": "images/icons/japan.png"
+  }, {
+      "title": "線上 英文 讀書會",
+      "weblink": "https://www.facebook.com/groups/1781798848754929/",
+      "memo": "",
+      "icon": "images/icons/english.png"
+  }];
 
 /***/ },
 /* 126 */
 /***/ function(module, exports) {
 
-  module.exports = require("react-addons-css-transition-group");
+  module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
 /* 127 */
@@ -5343,7 +5292,7 @@ module.exports =
       value: true
   });
   
-  var _defineProperty2 = __webpack_require__(116);
+  var _defineProperty2 = __webpack_require__(126);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -5368,7 +5317,19 @@ module.exports =
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
+  var _MenuData = __webpack_require__(125);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var AssignData = {
+      "id": 1,
+      "title": "線上讀書會",
+      "subtitle": "歡迎來到線上讀書會",
+      "連結網址": "https://www.facebook.com/groups/906048196159262/",
+      "介紹": "可以學到 react reactnatvice redux ....",
+      "icon": "images/icons/reactjs.png",
+      "mainphoto": "images/interior-of-library.jpg"
+  };
   
   exports.default = (_path$action$path$act = {
       path: '/readbook/',
@@ -5378,13 +5339,23 @@ module.exports =
               component: _react2.default.createElement(_readBook2.default, null)
           };
       }
-  }, (0, _defineProperty3.default)(_path$action$path$act, 'path', '/readbook/:bookname'), (0, _defineProperty3.default)(_path$action$path$act, 'action', function action(_ref) {
+  }, (0, _defineProperty3.default)(_path$action$path$act, 'path', '/readbook/:id'), (0, _defineProperty3.default)(_path$action$path$act, 'action', function action(_ref) {
       var params = _ref.params;
   
-      return {
+      var showdata = _MenuData.programdata[params.id];
   
+      console.log(showdata);
+      // var data=programdata.filter(function(data,index,params){
+      //    console.log(data[index]);
+      //       console.log(params);
+  
+      //     //return data[index].bookname===params.bookname;
+      // })
+      //console.log(data);
+  
+      return {
           title: 'React Starter Kit',
-          component: _react2.default.createElement(_readBook2.default, null)
+          component: _react2.default.createElement(_readBook2.default, { showdata: showdata })
       };
   }), _path$action$path$act);
 
@@ -5397,26 +5368,6 @@ module.exports =
   Object.defineProperty(exports, "__esModule", {
       value: true
   });
-  
-  var _getPrototypeOf = __webpack_require__(26);
-  
-  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-  
-  var _classCallCheck2 = __webpack_require__(27);
-  
-  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-  
-  var _createClass2 = __webpack_require__(28);
-  
-  var _createClass3 = _interopRequireDefault(_createClass2);
-  
-  var _possibleConstructorReturn2 = __webpack_require__(29);
-  
-  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-  
-  var _inherits2 = __webpack_require__(30);
-  
-  var _inherits3 = _interopRequireDefault(_inherits2);
   
   var _react = __webpack_require__(16);
   
@@ -5436,58 +5387,61 @@ module.exports =
   
   var _ReadBook2 = _interopRequireDefault(_ReadBook);
   
-  var _reactAddonsCssTransitionGroup = __webpack_require__(126);
+  var _Drawer = __webpack_require__(118);
   
-  var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+  var _Drawer2 = _interopRequireDefault(_Drawer);
   
-  var _reactRedux = __webpack_require__(94);
+  var _store = __webpack_require__(119);
+  
+  var _store2 = _interopRequireDefault(_store);
+  
+  var _search = __webpack_require__(120);
+  
+  var _search2 = _interopRequireDefault(_search);
+  
+  var _Card = __webpack_require__(121);
+  
+  var _Avatar = __webpack_require__(122);
+  
+  var _Avatar2 = _interopRequireDefault(_Avatar);
+  
+  var _RaisedButton = __webpack_require__(123);
+  
+  var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+  
+  var _MenuItem = __webpack_require__(103);
+  
+  var _MenuItem2 = _interopRequireDefault(_MenuItem);
+  
+  var _Divider = __webpack_require__(124);
+  
+  var _Divider2 = _interopRequireDefault(_Divider);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   //import MenuData from './MenuData';
-  
-  var ReadBook = function (_Component) {
-      (0, _inherits3.default)(ReadBook, _Component);
-  
-      function ReadBook(props) {
-          (0, _classCallCheck3.default)(this, ReadBook);
-  
-          var _this = (0, _possibleConstructorReturn3.default)(this, (ReadBook.__proto__ || (0, _getPrototypeOf2.default)(ReadBook)).call(this, props));
-  
-          _this.props = props;
-          //        console.log(this.props);
-          return _this;
+  var styles = {
+      button: {
+          margin: 12
+      },
+      exampleImageInput: {
+          cursor: 'pointer',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          width: '100%',
+          opacity: 0
+      },
+      avatar: {
+          margin: 5
       }
+  };
   
-      (0, _createClass3.default)(ReadBook, [{
-          key: 'render',
-          value: function render() {
+  //class ReadBook extends Component {
   
-              return _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                      _Layout2.default,
-                      { name: 'polo' },
-                      _react2.default.createElement(
-                          'div',
-                          { className: _ReadBook2.default.root },
-                          _react2.default.createElement('div', { className: _ReadBook2.default.container })
-                      )
-                  )
-              );
-          }
-      }]);
-      return ReadBook;
-  }(_react.Component);
-  
-  // Home.propTypes = {
-  
-  // };
-  
-  
-  // ES6
-  
+  //import MenuData from './MenuData';
   /**
    * React Starter Kit (https://www.reactstarterkit.com/)
    *
@@ -5497,12 +5451,27 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  var mapState = function mapState(state) {
-      return {};
-  };
-  var mapDispatch = {};
+  function ReadBook(_ref) {
+      var showdata = _ref.showdata;
   
-  exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_ReadBook2.default)(ReadBook));
+      console.log(showdata);
+      return _react2.default.createElement(
+          _Layout2.default,
+          { name: 'polo' },
+          _react2.default.createElement(
+              'div',
+              { className: _ReadBook2.default.root },
+              _react2.default.createElement(
+                  'div',
+                  { className: _ReadBook2.default.container },
+                  _react2.default.createElement(_Card.Card, null),
+                  showdata.bookname
+              )
+          )
+      );
+  }
+  
+  exports.default = (0, _withStyles2.default)(_ReadBook2.default)(ReadBook);
 
 /***/ },
 /* 138 */
@@ -5737,7 +5706,7 @@ module.exports =
       value: true
   });
   
-  var _defineProperty2 = __webpack_require__(116);
+  var _defineProperty2 = __webpack_require__(126);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -7334,7 +7303,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(116);
+  var _defineProperty2 = __webpack_require__(126);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -7370,7 +7339,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(116);
+  var _defineProperty2 = __webpack_require__(126);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
