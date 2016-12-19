@@ -8,7 +8,8 @@
  */
 
 import React, { PropTypes, Component } from 'react';
-import { FormattedRelative } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
 import s from './ReadBook.css';
@@ -22,22 +23,14 @@ import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
+import { setLeftmenu } from '../../actions/common';
 
+import { connect } from 'react-redux';
 
 
 const styles = {
     button: {
         margin: 12,
-    },
-    exampleImageInput: {
-        cursor: 'pointer',
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        right: 0,
-        left: 0,
-        width: '100%',
-        opacity: 0,
     },
     avatar: {
         margin: 5
@@ -46,24 +39,84 @@ const styles = {
 
 
 
-//class ReadBook extends Component {
-    function ReadBook({showdata}){
-    console.log(showdata);
-    return (
-                 <Layout name="polo">
-                    <div className={s.root}>
-                        <div className={s.container}>
+class ReadBook extends Component {
+    ///    function ReadBook({showdata}){
+    constructor(props) {
+        super(props);
+
+        this.props = props;
+    }
+
+
+    OpenAbout = () => {
+        const { setLeftmenu } = this.props;
+        console.log('ttest');
+        setLeftmenu({
+            openMenu: !this.props.common.openMenu,
+            openMenuEvent: false
+        });
+
+    }
+
+
+    render() {
+        const showdata = this.props.showdata;
+        const {OpenAbout} = this;
+        return (
+            <Layout name="polo">
+                <div className={s.root}>
+                    <div className={s.container}>
                         <Card>
-                       
+                            <CardHeader
+                                title={showdata.title}
+                                subtitle={showdata.subtitle}
+                                avatar={"/" + showdata.icon}
+                                />
+                            <CardMedia
+                                overlay={<CardTitle title="這不是一個實體的讀書會,但你會愛上他" subtitle="是透過Zoom線上會議軟體所進行的讀書會,而你可以在任何地點,只要可以上網有安裝Zoom軟體,都可以一起來享受學習的樂趣" />}
+                                >
+                                <img src={"/" + showdata.mainphoto} key={showdata.mainphoto} />
+                            </CardMedia>
+                            <CardTitle title="再也不是一個人讀書" subtitle="線上讀書會 讓在學習知識的路上不孤單,可以快速攻略並藉由線上會議交談與主題探索發現,原來學習只要找對同好 一切是如此的順暢" />
+
+                            <CardText>
+
+                            </CardText>
+                            <CardActions>
+                                <RaisedButton
+                                    label="更了解線上讀書會"
+                                    labelPosition="before"
+                                    primary={true}
+                                    icon={<ActionStoreIcon />}
+                                    style={styles.button}
+                                    />
+                                <RaisedButton
+                                    label="想要再探索看看還有什麼讀書會"
+                                    labelPosition="before"
+                                    primary={true}
+                                    icon={<ActionSearchIcon />}
+                                    style={styles.button}
+                                    onTouchTap={() => OpenAbout()}
+                                    />
+
+
+                            </CardActions>
                         </Card>
-                          {showdata.bookname}
-                                                </div>
+
                     </div>
-                </Layout>
-     )
+                </div>
+            </Layout>
+        )
+    }
 }
- 
 
 
+const mapState = (state) => ({
+    common: state.common
+});
+const mapDispatch = {
+    setLeftmenu
+};
 
-export default withStyles(s)(ReadBook);
+export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(ReadBook)));
+

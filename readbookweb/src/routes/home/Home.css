@@ -24,6 +24,10 @@
   padding: 0;
 }
 
+.avatar {
+  margin: 5;
+}
+
 .newsItem {
   list-style-type: none;
   padding-bottom: 6px;
@@ -41,22 +45,4 @@
 .publishedDate {
   font-size: 0.8em;
   color: #777;
-}
-
-:global (.example-enter) {
-  opacity: 0;
-}
-
-:global(.example-enter-active) {
-  opacity: 1;
-  transition: opacity 1300ms ease-in;
-}
-
-:global(.example-leave) {
-  opacity: 1;
-}
-
-:global(.example-leave-active) {
-  opacity: 0;
-  transition: opacity 1300ms ease-in;
 }

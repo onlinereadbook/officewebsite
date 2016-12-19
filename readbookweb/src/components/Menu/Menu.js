@@ -112,7 +112,7 @@ class Menu extends Component {
         setLeftmenu({
             openMenu: this.props.common.openMenu ? false : true
         });
-        // console.log(this.props.common.openMenu);
+          // console.log(this.props.common.openMenu);
     }
     render() {
         let {ClickBookTopic} = this;

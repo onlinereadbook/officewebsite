@@ -7,14 +7,19 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import Sequelize from 'sequelize';
-import { databaseUrl } from '../config';
-//console.log(databaseUrl);
+import React from 'react';
+import Events from './Events';
+import fetch from '../../core/fetch';
 
-const sequelize = new Sequelize(databaseUrl, {
-  define: {
-    freezeTableName: true,
-  },
-});
+export default {
+    path: '/events',
+    action() {
 
-export default sequelize;
+
+        return {
+            title: '行事曆',
+            component: <Events />,
+        };
+    },
+
+};

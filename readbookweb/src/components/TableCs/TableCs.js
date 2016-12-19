@@ -38,7 +38,7 @@ class TableCs extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-        //console.log(this.props);
+        console.log(this.props);
     }
 
 

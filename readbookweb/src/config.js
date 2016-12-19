@@ -15,7 +15,8 @@ export const host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`;
 // default locale is the first one
 export const locales = ['en-US', 'cs-CZ'];
 
-export const databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
+//export const databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
+export const databaseUrl = process.env.DATABASE_URL || 'mysql:polo:1314@localhost:8889/polodb';
 
 export const analytics = {
 

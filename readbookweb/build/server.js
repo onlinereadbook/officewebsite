@@ -148,25 +148,25 @@ module.exports =
   
   var _models2 = _interopRequireDefault(_models);
   
-  var _schema = __webpack_require__(60);
+  var _schema = __webpack_require__(61);
   
   var _schema2 = _interopRequireDefault(_schema);
   
-  var _routes = __webpack_require__(76);
+  var _routes = __webpack_require__(77);
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(172);
+  var _assets = __webpack_require__(177);
   
   var _assets2 = _interopRequireDefault(_assets);
   
-  var _configureStore = __webpack_require__(173);
+  var _configureStore = __webpack_require__(178);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(183);
+  var _runtime = __webpack_require__(188);
   
-  var _intl = __webpack_require__(95);
+  var _intl = __webpack_require__(96);
   
   var _config = __webpack_require__(23);
   
@@ -613,7 +613,8 @@ module.exports =
   // default locale is the first one
   var locales = exports.locales = ['en-US', 'cs-CZ'];
   
-  var databaseUrl = exports.databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
+  //export const databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
+  var databaseUrl = exports.databaseUrl = process.env.DATABASE_URL || 'mysql:polo:1314@localhost:8889/polodb';
   
   var analytics = exports.analytics = {
   
@@ -1667,21 +1668,27 @@ module.exports =
   
   var _UserProfile2 = _interopRequireDefault(_UserProfile);
   
+  var _Events = __webpack_require__(60);
+  
+  var _Events2 = _interopRequireDefault(_Events);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
   _User2.default.hasMany(_UserLogin2.default, {
     foreignKey: 'userId',
     as: 'logins',
     onUpdate: 'cascade',
     onDelete: 'cascade'
-  }); /**
-       * React Starter Kit (https://www.reactstarterkit.com/)
-       *
-       * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-       *
-       * This source code is licensed under the MIT license found in the
-       * LICENSE.txt file in the root directory of this source tree.
-       */
+  });
   
   _User2.default.hasMany(_UserClaim2.default, {
     foreignKey: 'userId',
@@ -1724,6 +1731,8 @@ module.exports =
   var _config = __webpack_require__(23);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  //console.log(databaseUrl);
   
   /**
    * React Starter Kit (https://www.reactstarterkit.com/)
@@ -1949,24 +1958,79 @@ module.exports =
   'use strict';
   
   Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _sequelize = __webpack_require__(55);
+  
+  var _sequelize2 = _interopRequireDefault(_sequelize);
+  
+  var _sequelize3 = __webpack_require__(54);
+  
+  var _sequelize4 = _interopRequireDefault(_sequelize3);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  var Events = _sequelize4.default.define('Events', {
+      id: {
+          type: _sequelize2.default.UUID,
+          defaultValue: _sequelize2.default.UUIDV1,
+          primaryKey: true
+      },
+      title: {
+          type: _sequelize2.default.STRING(255)
+      },
+      calendar: {
+          type: _sequelize2.default.STRING(255)
+      },
+      memo: {
+          type: _sequelize2.default.TEXT()
+      },
+      speaker: {
+          type: _sequelize2.default.STRING(255)
+      },
+      publishedDate: {
+          type: _sequelize2.default.STRING(255)
+      }
+  
+  });
+  
+  exports.default = Events;
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
-  var _me = __webpack_require__(62);
+  var _me = __webpack_require__(63);
   
   var _me2 = _interopRequireDefault(_me);
   
-  var _content = __webpack_require__(64);
+  var _content = __webpack_require__(65);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _news = __webpack_require__(70);
+  var _news = __webpack_require__(71);
   
   var _news2 = _interopRequireDefault(_news);
   
-  var _intl = __webpack_require__(74);
+  var _intl = __webpack_require__(75);
   
   var _intl2 = _interopRequireDefault(_intl);
   
@@ -1994,13 +2058,13 @@ module.exports =
   exports.default = schema;
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
   module.exports = require("graphql");
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2009,7 +2073,7 @@ module.exports =
     value: true
   });
   
-  var _UserType = __webpack_require__(63);
+  var _UserType = __webpack_require__(64);
   
   var _UserType2 = _interopRequireDefault(_UserType);
   
@@ -2037,7 +2101,7 @@ module.exports =
   exports.default = me;
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2046,7 +2110,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
   var UserType = new _graphql.GraphQLObjectType({
     name: 'User',
@@ -2066,7 +2130,7 @@ module.exports =
   exports.default = UserType;
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2236,27 +2300,27 @@ module.exports =
     };
   }();
   
-  var _fs = __webpack_require__(65);
+  var _fs = __webpack_require__(66);
   
   var _fs2 = _interopRequireDefault(_fs);
   
   var _path = __webpack_require__(8);
   
-  var _bluebird = __webpack_require__(66);
+  var _bluebird = __webpack_require__(67);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _frontMatter = __webpack_require__(67);
+  var _frontMatter = __webpack_require__(68);
   
   var _frontMatter2 = _interopRequireDefault(_frontMatter);
   
-  var _markdownIt = __webpack_require__(68);
+  var _markdownIt = __webpack_require__(69);
   
   var _markdownIt2 = _interopRequireDefault(_markdownIt);
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
-  var _ContentType = __webpack_require__(69);
+  var _ContentType = __webpack_require__(70);
   
   var _ContentType2 = _interopRequireDefault(_ContentType);
   
@@ -2354,31 +2418,31 @@ module.exports =
   exports.default = content;
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports) {
 
   module.exports = require("fs");
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
   module.exports = require("bluebird");
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
   module.exports = require("front-matter");
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
   module.exports = require("markdown-it");
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2387,7 +2451,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
   var ContentType = new _graphql.GraphQLObjectType({
     name: 'Content',
@@ -2409,7 +2473,7 @@ module.exports =
   exports.default = ContentType;
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2418,13 +2482,13 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
-  var _NewsItemType = __webpack_require__(73);
+  var _NewsItemType = __webpack_require__(74);
   
   var _NewsItemType2 = _interopRequireDefault(_NewsItemType);
   
@@ -2479,7 +2543,7 @@ module.exports =
   exports.default = news;
 
 /***/ },
-/* 71 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2489,11 +2553,11 @@ module.exports =
   });
   exports.Response = exports.Headers = exports.Request = exports.default = undefined;
   
-  var _bluebird = __webpack_require__(66);
+  var _bluebird = __webpack_require__(67);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _nodeFetch = __webpack_require__(72);
+  var _nodeFetch = __webpack_require__(73);
   
   var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
   
@@ -2534,13 +2598,13 @@ module.exports =
   exports.Response = _nodeFetch.Response;
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports) {
 
   module.exports = require("node-fetch");
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2549,7 +2613,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
   var NewsItemType = new _graphql.GraphQLObjectType({
     name: 'NewsItem',
@@ -2572,7 +2636,7 @@ module.exports =
   exports.default = NewsItemType;
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2589,19 +2653,19 @@ module.exports =
   
   var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
   
-  var _fs = __webpack_require__(65);
+  var _fs = __webpack_require__(66);
   
   var _fs2 = _interopRequireDefault(_fs);
   
   var _path = __webpack_require__(8);
   
-  var _bluebird = __webpack_require__(66);
+  var _bluebird = __webpack_require__(67);
   
   var _bluebird2 = _interopRequireDefault(_bluebird);
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
-  var _IntlMessageType = __webpack_require__(75);
+  var _IntlMessageType = __webpack_require__(76);
   
   var _IntlMessageType2 = _interopRequireDefault(_IntlMessageType);
   
@@ -2684,7 +2748,7 @@ module.exports =
   exports.default = intl;
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2693,7 +2757,7 @@ module.exports =
     value: true
   });
   
-  var _graphql = __webpack_require__(61);
+  var _graphql = __webpack_require__(62);
   
   var IntlMessageType = new _graphql.GraphQLObjectType({
     name: 'IntlMessage',
@@ -2716,7 +2780,7 @@ module.exports =
   exports.default = IntlMessageType;
 
 /***/ },
-/* 76 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2752,10 +2816,10 @@ module.exports =
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(77).default, __webpack_require__(136).default, __webpack_require__(140).default, __webpack_require__(144).default, __webpack_require__(148).default, __webpack_require__(152).default, __webpack_require__(156).default, __webpack_require__(160).default,
+    children: [__webpack_require__(78).default, __webpack_require__(137).default, __webpack_require__(141).default, __webpack_require__(145).default, __webpack_require__(149).default, __webpack_require__(153).default, __webpack_require__(157).default, __webpack_require__(161).default, __webpack_require__(165).default,
   
     // place new routes before...
-    __webpack_require__(164).default, __webpack_require__(168).default],
+    __webpack_require__(169).default, __webpack_require__(173).default],
   
     action: function action(_ref) {
       var _this = this;
@@ -2804,7 +2868,7 @@ module.exports =
   };
 
 /***/ },
-/* 77 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2817,7 +2881,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _MatchWork = __webpack_require__(78);
+  var _MatchWork = __webpack_require__(79);
   
   var _MatchWork2 = _interopRequireDefault(_MatchWork);
   
@@ -2847,7 +2911,7 @@ module.exports =
   };
 
 /***/ },
-/* 78 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2864,11 +2928,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _MatchWork = __webpack_require__(134);
+  var _MatchWork = __webpack_require__(135);
   
   var _MatchWork2 = _interopRequireDefault(_MatchWork);
   
@@ -2917,7 +2981,7 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_MatchWork2.default)(MatchWork);
 
 /***/ },
-/* 79 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -2954,29 +3018,29 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(80);
+  var _Layout = __webpack_require__(81);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Header = __webpack_require__(82);
+  var _Header = __webpack_require__(83);
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Feedback = __webpack_require__(109);
+  var _Feedback = __webpack_require__(110);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
-  var _Footer = __webpack_require__(112);
+  var _Footer = __webpack_require__(113);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _Menu = __webpack_require__(115);
+  var _Menu = __webpack_require__(116);
   
   var _Menu2 = _interopRequireDefault(_Menu);
   
-  var _MenuEvent = __webpack_require__(127);
+  var _MenuEvent = __webpack_require__(128);
   
   var _MenuEvent2 = _interopRequireDefault(_MenuEvent);
   
@@ -3038,11 +3102,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_Layout2.default)(Layout));
 
 /***/ },
-/* 80 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(81);
+      var content = __webpack_require__(82);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -3072,7 +3136,7 @@ module.exports =
     
 
 /***/ },
-/* 81 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -3086,7 +3150,7 @@ module.exports =
 
 
 /***/ },
-/* 82 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3129,76 +3193,71 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Header = __webpack_require__(83);
+  var _Header = __webpack_require__(84);
   
   var _Header2 = _interopRequireDefault(_Header);
   
-  var _Link = __webpack_require__(85);
+  var _Link = __webpack_require__(86);
   
   var _Link2 = _interopRequireDefault(_Link);
   
-  var _Navigation = __webpack_require__(89);
+  var _Navigation = __webpack_require__(90);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _LanguageSwitcher = __webpack_require__(93);
+  var _LanguageSwitcher = __webpack_require__(94);
   
   var _LanguageSwitcher2 = _interopRequireDefault(_LanguageSwitcher);
   
-  var _logoSmall = __webpack_require__(97);
+  var _logoSmall = __webpack_require__(98);
   
   var _logoSmall2 = _interopRequireDefault(_logoSmall);
   
-  var _AppBar = __webpack_require__(98);
+  var _AppBar = __webpack_require__(99);
   
   var _AppBar2 = _interopRequireDefault(_AppBar);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _test = __webpack_require__(99);
+  var _test = __webpack_require__(100);
   
-  var _common = __webpack_require__(100);
+  var _common = __webpack_require__(101);
   
-  var _IconButton = __webpack_require__(101);
+  var _IconButton = __webpack_require__(102);
   
   var _IconButton2 = _interopRequireDefault(_IconButton);
   
-  var _IconMenu = __webpack_require__(102);
+  var _IconMenu = __webpack_require__(103);
   
   var _IconMenu2 = _interopRequireDefault(_IconMenu);
   
-  var _MenuItem = __webpack_require__(103);
+  var _MenuItem = __webpack_require__(104);
   
   var _MenuItem2 = _interopRequireDefault(_MenuItem);
   
-  var _toc = __webpack_require__(104);
+  var _toc = __webpack_require__(105);
   
   var _toc2 = _interopRequireDefault(_toc);
   
-  var _chromeReaderMode = __webpack_require__(105);
+  var _chromeReaderMode = __webpack_require__(106);
   
   var _chromeReaderMode2 = _interopRequireDefault(_chromeReaderMode);
   
-  var _dateRange = __webpack_require__(106);
+  var _dateRange = __webpack_require__(107);
   
   var _dateRange2 = _interopRequireDefault(_dateRange);
   
-  var _assignmentInd = __webpack_require__(107);
+  var _assignmentInd = __webpack_require__(108);
   
   var _assignmentInd2 = _interopRequireDefault(_assignmentInd);
   
-  var _redux = __webpack_require__(108);
+  var _redux = __webpack_require__(109);
+  
+  var _history = __webpack_require__(88);
+  
+  var _history2 = _interopRequireDefault(_history);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
   
   var Header = function (_Component) {
       (0, _inherits3.default)(Header, _Component);
@@ -3221,15 +3280,16 @@ module.exports =
           };
   
           _this.OpenMenuEvent = function () {
-              var setLeftmenu = _this.props.setLeftmenu;
   
+              //   const { setLeftmenu } = this.props;
   
-              setLeftmenu({
+              // setLeftmenu({
   
-                  openMenu: false,
-                  openMenuEvent: true
+              //     openMenu: false,
+              //     openMenuEvent: true
   
-              });
+              // });
+              _history2.default.push('/events/');
           };
   
           _this.props = props;
@@ -3287,7 +3347,14 @@ module.exports =
           }
       }]);
       return Header;
-  }(_react.Component);
+  }(_react.Component); /**
+                        * React Starter Kit (https://www.reactstarterkit.com/)
+                        *
+                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                        *
+                        * This source code is licensed under the MIT license found in the
+                        * LICENSE.txt file in the root directory of this source tree.
+                        */
   
   var mapState = function mapState(state) {
       return {
@@ -3304,11 +3371,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_Header2.default)(Header)));
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(84);
+      var content = __webpack_require__(85);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -3338,7 +3405,7 @@ module.exports =
     
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -3361,7 +3428,7 @@ module.exports =
   };
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3374,7 +3441,7 @@ module.exports =
   
   var _extends3 = _interopRequireDefault(_extends2);
   
-  var _objectWithoutProperties2 = __webpack_require__(86);
+  var _objectWithoutProperties2 = __webpack_require__(87);
   
   var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
   
@@ -3402,7 +3469,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _history = __webpack_require__(87);
+  var _history = __webpack_require__(88);
   
   var _history2 = _interopRequireDefault(_history);
   
@@ -3483,13 +3550,13 @@ module.exports =
   exports.default = Link;
 
 /***/ },
-/* 86 */
+/* 87 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/objectWithoutProperties");
 
 /***/ },
-/* 87 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3498,7 +3565,7 @@ module.exports =
     value: true
   });
   
-  var _createBrowserHistory = __webpack_require__(88);
+  var _createBrowserHistory = __webpack_require__(89);
   
   var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
   
@@ -3509,13 +3576,13 @@ module.exports =
   exports.default = (false) && (0, _createBrowserHistory2.default)();
 
 /***/ },
-/* 88 */
+/* 89 */
 /***/ function(module, exports) {
 
   module.exports = require("history/createBrowserHistory");
 
 /***/ },
-/* 89 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3530,7 +3597,7 @@ module.exports =
   
   var _reactIntl = __webpack_require__(20);
   
-  var _classnames = __webpack_require__(90);
+  var _classnames = __webpack_require__(91);
   
   var _classnames2 = _interopRequireDefault(_classnames);
   
@@ -3538,11 +3605,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Navigation = __webpack_require__(91);
+  var _Navigation = __webpack_require__(92);
   
   var _Navigation2 = _interopRequireDefault(_Navigation);
   
-  var _Link = __webpack_require__(85);
+  var _Link = __webpack_require__(86);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -3626,17 +3693,17 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Navigation2.default)(Navigation);
 
 /***/ },
-/* 90 */
+/* 91 */
 /***/ function(module, exports) {
 
   module.exports = require("classnames");
 
 /***/ },
-/* 91 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(92);
+      var content = __webpack_require__(93);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -3666,7 +3733,7 @@ module.exports =
     
 
 /***/ },
-/* 92 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -3685,7 +3752,7 @@ module.exports =
   };
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3698,9 +3765,9 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _intl = __webpack_require__(95);
+  var _intl = __webpack_require__(96);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -3767,13 +3834,13 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)(LanguageSwitcher);
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports) {
 
   module.exports = require("react-redux");
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3792,7 +3859,7 @@ module.exports =
   
   exports.setLocale = setLocale;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -3880,7 +3947,7 @@ module.exports =
   }
 
 /***/ },
-/* 96 */
+/* 97 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -3897,19 +3964,19 @@ module.exports =
   var SET_LEFTMENU = exports.SET_LEFTMENU = 'SET_LEFTMENU';
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports) {
 
   module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAACrRJREFUeNqcWAlQlFcSnosBhmFmBAaVG0RAEBQVUUh2jRKjiKJGEfFE8YisGkw066rrmd2o5bWaaIyaQuMRo/EAiRG8SojxwAMFEQWEkUMYkBlmmHtmu//9f+rtXzhFQlXXPN7r192vX/fX/X4+x/4fF4gHxAcSADnQvwJ6jksThxhz6TU+zU/u4RH8dv/43TCKMUhIkyP9y2cZx+Z3ZPGTh/nThpFKGOFOBAlp5Xyaj+1Vht+Z4O/KMNu7DBPYMZoxDJU4i739xe/96+BIB1epXFtf+7p4x9p7quoKLayZgUxAFuKw1PVJA0NcBn+2JcbFy8/H1K5qLvzHwmuauhoNbRwaZaWpS8+8y5NC+rSiPhPSfOM2f3NY4OwSzjBYLea3bRWlh36dl3hc39JkJBTwnNw9hR8dyZshC4nI4PEFPZg9Zp227Pb6pRkvzx+rhX87gPRARuJQdq+SuUZHmkSjD+duAk9Flh/fn1mweNJ2LpdbiB6UBvSdEzZ94QhQ+Kz58V30mnP47L/1HbX/7D5xb9/xHU0N1yt+PPTV1cwp2/lCx0J59LCpntGx3qVHdl+ljbHSHrd1x2Nc2lsYHyJZnzC3iZce33n7/En2heQhh0nXx67dNThk6ryNPAcHSVn23i04Fz5n6VqryaSu+OnI+jtbsorJ0JiY82C+rG/EnPPjBsS2VZa30l7T0V6zsePILkyEpMwP4PJ4opbShw/p0xlpMoHikivzxy0ztLUqIuYu34iEY5zDNTr2GH4zePUhygpJyQgkEof7rgB/l2GUcc4ePakY0b6pa6dPxQQtrgve3C/Uvzjz/UUun++I9PzHQxdwjk4cLs1L7etobkQZHGcPTxlhFPePZGUnSJp1HdSEk8xdyuKnsi8wMcU/Iv3TJR3NDdU4GZnxWWbbizJFdd5pDWEcpctR5ib53yHr9SwctOsxNspT+NV4v7ANFx1lPXrDjwtJrj4BkrhNX6+2mk3G/PlJ+5BwjHO4xuIXOcncUAZHWXJPQwC2oKtr5XWB2gw4Ur/VOafUoKxd7BOIUOEKJIPrlQeNnx764eFLWUKJzKfl6YPf+89fEYWEY5zDNeRBXtwDJBF7B/RDWbX5Fzro5HJkVYZOe9i1jTmFC22EBLBLOqWgfJfAWSTVKZsUzp69Ah1EYo/ulhaMLVOHRqlraqyG2PKF0FCdSQjLAohRwZoaCONOSyQJwoiFSxRYIVFyRKGpC/qGz14629UvKAEwCE/M6XhT97JdUV1lUL1V+Y1Mmqypr31y64t5Bw1tLUZNvQKFc8Revi6OMnfh+1uPLBR7+UXWXsv92VHaQ+rqGxgk6ukdjDwWo6GtvbaqoOzo3qPPT333ggBbBnDNfFZtE/mOTPIceyx/U9C4aeuEUpl/e01lUX1RQUGP0MiYF2ezT9/4NC0/In35MGd5T+9bK9O3wVqzvqXZaDUarEgwNkHZ0amrKyoCk1ISTJr2lkupfzkFRurlA2OHVOWc3A8HbZcEBI/0Gzl+Zmhqhr/61csHwG8is55PFFrR8PV7Bw/+/MtsBxfXUOWT4oNXP5m85eGeDYU1V87VAKK/J5L3loC3GsJnZabX3bpy9uHeTQ/wSoOSUv1j1+xIDJ40K8pqNmveVjxVq2tedsijYmy9Y0ckqaqe3wtJmTcSMMycOyV+D1SQm4pruWfcw6PbwMBJAWM+ngSyH72++UszAUdUYHoHjJ0ydM4znXLmo7fPgifOGgtz0UCDEOCBRo0+fCl7brnBlHKzqhR4Wpzc5HNhPjV62fptc5/pTekVJhsSjqOXb9iOa3Clc4C3GffgXpSBsmiZKDsadaFO1I02oC1oUyc8DMxcm8Ll8lxv/zNzJRTZRhq19XTJ0BXvWJPDsdksLr19wxVXc87oW5sxLmxhMxanArB24huOw9IWTcM1iD0d8P6Me2CvtXjXulxGHi3bhLpQJ+pGGxj46ExPoavE12LQ11VePNFM9EpWJktayh6pda1NL9C4h3s3/8bUNiG0Qew0JOZsFC/swb0AJSpGHlEROKgTdYMNPky28xgDdMo3pQAJ/tA/hbDQn8pav4RkL5FHr36AMPyhq7ePZjBH19xYzTZM19TAzPEoXtgDe8NQRhetOQd1om6woYyJLx7T6EHanwVsqQSQ3Dl8w76BdLZSHQb+Ri74PBnA0QCB/ZtXfEKyrG84lihO8c51P9CYxPRcquLd64+hUuQB3gm4B/o3Q9SiVcmkTNSBulAn6kYb6BBCmygmdyC/kKnp8TOKlXcgiC0pNypz+s1ckobBCnGTjEE84dzdm5DyWRCohqSfin7FAEeC8jMfWqDdSDhm5pEHeXEP7gUZSpSFMlE26kBdoPMu6kYbaFtEXKIkUJABqC5KPHkjHU67gCdwkEJ3Wgqg+gqEJwF07Hz09ZdlCQfOjfX9YNzE2xuXris/8W0l09SS9RcayCDwxhYA2HMAO5cHZq4Jh2xd0fzoTi6AbQB0uRFwAyoo+N/lTR/xPVSHDrKr5RL3TT46RNKgUI+Yv2+b4B4RPQbioz/GCQjSQxzUAIi+cQ8fGG9QtdaVnzx4wmY2WyFLNVQX4iYXcwUCHhiW5ih184GkKXRyl/eEmukPB3XCROhQNj6F/u7yva9WXQCMayEMMjBlqat3oJC+XglNrqlFit0AjkLoOp9AS+0PWecpcBF7QD/vZK9IQlzpzVqN0tiuaoJqUAPdcKTNajWcivfNIuqkmjbMSDxqLAI6Ky2sVwuPKejQKTiBF/q8KS46/cvMUSfIKxtzND+t97ARsxQ38k7XFlwsx0m/hAlhviMSUxp+v3Hs8uwP/49/7PFr03sOipsGMk1GdZueqI962ihGv43HwiymdTYwG+CFJMPOFAp4BX06FU3qgkUTj2sbX5d4xyeMh67BZtJqbDjGufyMpB/Y/PDse46yoB6LCB3M9ZlJbOOxHp82AgApIz0iB1NdJ7Q8DTRiM0GqgxTXQWBvA3BUx23clxm/+ZtMHFNzRoOOza9vVaIMjnzAUAn76gj9dnv+TgO5PD715oOs0RKIbaGFmiCIW0sObj/gIJZ4IOEY51gPYWoPyNBRlUEs4bPRv7s9P7PBqm1QoBKOxC/Ig04Q8jFigRbIa8Anq5dY9DqKD8fQ/rx+emRXC6s75tEyOLRMK9lJdPeV1FknS77dVg3Z1SYfEBtHwgqkvhCCeVLMqq3/sVnM2qK1i1cUrlmUBWPNkJX/3oNryEO2zh5RQ4ejLJBZxbrCbnmMTASzSdtu0NYrzgMozgBlNVCIK9z6DQj2iBryMYBxCAR63lV4nQNeUc8pVeWz9FEHzq3sFfP+F2n3myYrS+6faX32+KV7/0Eh4LGp7a9fHQeZTLC/8zrtfbtwYL7YyIL7uY3JvrLVWd4rkfkgYlS9vVt/+9qh68tSi4iM6vwY88Gek3FecaMyhNIescweKPh5+YuSV8PhlGTr09W3C66ddyX5SYnqcqEI+8mCwz0V1/Nq4d3YQgS4mfW1h+kg8N3p7vPXj/wA4ZvgCmuJHs9A7LX9EcPYb0zyicUhIMXUlceIL4l8IqHITwx2r5LfnecXK+7I7xFGAo/MREBbWIaTfORB3gkX3THMShhFKjN1cWobq7SZCTLZA9Q/YxjbaxbWr81OZlu74LV2R+F/BRgA2E9xgXp3xzgAAAAASUVORK5CYII="
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/AppBar");
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -3930,7 +3997,7 @@ module.exports =
   }
 
 /***/ },
-/* 100 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3940,7 +4007,7 @@ module.exports =
   });
   exports.setLeftmenu = setLeftmenu;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function setLeftmenu(_ref) {
       var openMenu = _ref.openMenu,
@@ -3956,55 +4023,55 @@ module.exports =
   }
 
 /***/ },
-/* 101 */
+/* 102 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/IconButton");
 
 /***/ },
-/* 102 */
+/* 103 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/IconMenu");
 
 /***/ },
-/* 103 */
+/* 104 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/MenuItem");
 
 /***/ },
-/* 104 */
+/* 105 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/toc");
 
 /***/ },
-/* 105 */
+/* 106 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/chrome-reader-mode");
 
 /***/ },
-/* 106 */
+/* 107 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/date-range");
 
 /***/ },
-/* 107 */
+/* 108 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/assignment-ind");
 
 /***/ },
-/* 108 */
+/* 109 */
 /***/ function(module, exports) {
 
   module.exports = require("redux");
 
 /***/ },
-/* 109 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4021,7 +4088,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Feedback = __webpack_require__(110);
+  var _Feedback = __webpack_require__(111);
   
   var _Feedback2 = _interopRequireDefault(_Feedback);
   
@@ -4069,11 +4136,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Feedback2.default)(Feedback);
 
 /***/ },
-/* 110 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(111);
+      var content = __webpack_require__(112);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -4103,7 +4170,7 @@ module.exports =
     
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -4122,7 +4189,7 @@ module.exports =
   };
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4139,11 +4206,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Footer = __webpack_require__(113);
+  var _Footer = __webpack_require__(114);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var _Link = __webpack_require__(85);
+  var _Link = __webpack_require__(86);
   
   var _Link2 = _interopRequireDefault(_Link);
   
@@ -4227,11 +4294,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Footer2.default)(Footer);
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(114);
+      var content = __webpack_require__(115);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -4261,7 +4328,7 @@ module.exports =
     
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -4282,7 +4349,7 @@ module.exports =
   };
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4321,53 +4388,53 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Menu = __webpack_require__(116);
+  var _Menu = __webpack_require__(117);
   
   var _Menu2 = _interopRequireDefault(_Menu);
   
-  var _common = __webpack_require__(100);
+  var _common = __webpack_require__(101);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _Drawer = __webpack_require__(118);
+  var _Drawer = __webpack_require__(119);
   
   var _Drawer2 = _interopRequireDefault(_Drawer);
   
-  var _store = __webpack_require__(119);
+  var _store = __webpack_require__(120);
   
   var _store2 = _interopRequireDefault(_store);
   
-  var _search = __webpack_require__(120);
+  var _search = __webpack_require__(121);
   
   var _search2 = _interopRequireDefault(_search);
   
-  var _Card = __webpack_require__(121);
+  var _Card = __webpack_require__(122);
   
-  var _Avatar = __webpack_require__(122);
+  var _Avatar = __webpack_require__(123);
   
   var _Avatar2 = _interopRequireDefault(_Avatar);
   
-  var _RaisedButton = __webpack_require__(123);
+  var _RaisedButton = __webpack_require__(124);
   
   var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
   
-  var _MenuItem = __webpack_require__(103);
+  var _MenuItem = __webpack_require__(104);
   
   var _MenuItem2 = _interopRequireDefault(_MenuItem);
   
-  var _Divider = __webpack_require__(124);
+  var _Divider = __webpack_require__(125);
   
   var _Divider2 = _interopRequireDefault(_Divider);
   
-  var _history = __webpack_require__(87);
+  var _history = __webpack_require__(88);
   
   var _history2 = _interopRequireDefault(_history);
   
-  var _Link = __webpack_require__(85);
+  var _Link = __webpack_require__(86);
   
   var _Link2 = _interopRequireDefault(_Link);
   
-  var _MenuData = __webpack_require__(125);
+  var _MenuData = __webpack_require__(126);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -4548,11 +4615,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_Menu2.default)(Menu)));
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(117);
+      var content = __webpack_require__(118);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -4582,7 +4649,7 @@ module.exports =
     
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -4606,49 +4673,49 @@ module.exports =
   };
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Drawer");
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/store");
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/svg-icons/action/search");
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Card");
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Avatar");
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/RaisedButton");
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Divider");
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
   "use strict";
@@ -4658,7 +4725,7 @@ module.exports =
   });
   exports.languagedata = exports.otherdata = exports.programdata = undefined;
   
-  var _defineProperty2 = __webpack_require__(126);
+  var _defineProperty2 = __webpack_require__(127);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -4844,13 +4911,13 @@ module.exports =
   }];
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports) {
 
   module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4889,15 +4956,15 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _MenuEvent = __webpack_require__(128);
+  var _MenuEvent = __webpack_require__(129);
   
   var _MenuEvent2 = _interopRequireDefault(_MenuEvent);
   
-  var _common = __webpack_require__(100);
+  var _common = __webpack_require__(101);
   
-  var _TableCs = __webpack_require__(130);
+  var _TableCs = __webpack_require__(131);
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
@@ -4966,11 +5033,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_MenuEvent2.default)(MenuEvent)));
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(129);
+      var content = __webpack_require__(130);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5000,7 +5067,7 @@ module.exports =
     
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5014,7 +5081,7 @@ module.exports =
 
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5053,13 +5120,13 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _TableCs = __webpack_require__(131);
+  var _TableCs = __webpack_require__(132);
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
-  var _reactRedux = __webpack_require__(94);
+  var _reactRedux = __webpack_require__(95);
   
-  var _Table = __webpack_require__(133);
+  var _Table = __webpack_require__(134);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -5096,7 +5163,7 @@ module.exports =
           var _this = (0, _possibleConstructorReturn3.default)(this, (TableCs.__proto__ || (0, _getPrototypeOf2.default)(TableCs)).call(this, props));
   
           _this.props = props;
-          //console.log(this.props);
+          console.log(_this.props);
           return _this;
       }
   
@@ -5178,11 +5245,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_TableCs2.default)(TableCs)));
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(132);
+      var content = __webpack_require__(133);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5212,7 +5279,7 @@ module.exports =
     
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5226,17 +5293,17 @@ module.exports =
 
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Table");
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(135);
+      var content = __webpack_require__(136);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5266,7 +5333,7 @@ module.exports =
     
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5283,7 +5350,7 @@ module.exports =
   };
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5292,7 +5359,7 @@ module.exports =
       value: true
   });
   
-  var _defineProperty2 = __webpack_require__(126);
+  var _defineProperty2 = __webpack_require__(127);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -5309,15 +5376,15 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _readBook = __webpack_require__(137);
+  var _readBook = __webpack_require__(138);
   
   var _readBook2 = _interopRequireDefault(_readBook);
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
-  var _MenuData = __webpack_require__(125);
+  var _MenuData = __webpack_require__(126);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -5344,15 +5411,6 @@ module.exports =
   
       var showdata = _MenuData.programdata[params.id];
   
-      console.log(showdata);
-      // var data=programdata.filter(function(data,index,params){
-      //    console.log(data[index]);
-      //       console.log(params);
-  
-      //     //return data[index].bookname===params.bookname;
-      // })
-      //console.log(data);
-  
       return {
           title: 'React Starter Kit',
           component: _react2.default.createElement(_readBook2.default, { showdata: showdata })
@@ -5360,7 +5418,7 @@ module.exports =
   }), _path$action$path$act);
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5368,6 +5426,26 @@ module.exports =
   Object.defineProperty(exports, "__esModule", {
       value: true
   });
+  
+  var _getPrototypeOf = __webpack_require__(26);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(27);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(28);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(29);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(30);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
   
   var _react = __webpack_require__(16);
   
@@ -5379,43 +5457,47 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _ReadBook = __webpack_require__(138);
+  var _ReadBook = __webpack_require__(139);
   
   var _ReadBook2 = _interopRequireDefault(_ReadBook);
   
-  var _Drawer = __webpack_require__(118);
+  var _Drawer = __webpack_require__(119);
   
   var _Drawer2 = _interopRequireDefault(_Drawer);
   
-  var _store = __webpack_require__(119);
+  var _store = __webpack_require__(120);
   
   var _store2 = _interopRequireDefault(_store);
   
-  var _search = __webpack_require__(120);
+  var _search = __webpack_require__(121);
   
   var _search2 = _interopRequireDefault(_search);
   
-  var _Card = __webpack_require__(121);
+  var _Card = __webpack_require__(122);
   
-  var _Avatar = __webpack_require__(122);
+  var _Avatar = __webpack_require__(123);
   
   var _Avatar2 = _interopRequireDefault(_Avatar);
   
-  var _RaisedButton = __webpack_require__(123);
+  var _RaisedButton = __webpack_require__(124);
   
   var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
   
-  var _MenuItem = __webpack_require__(103);
+  var _MenuItem = __webpack_require__(104);
   
   var _MenuItem2 = _interopRequireDefault(_MenuItem);
   
-  var _Divider = __webpack_require__(124);
+  var _Divider = __webpack_require__(125);
   
   var _Divider2 = _interopRequireDefault(_Divider);
+  
+  var _common = __webpack_require__(101);
+  
+  var _reactRedux = __webpack_require__(95);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -5424,23 +5506,10 @@ module.exports =
       button: {
           margin: 12
       },
-      exampleImageInput: {
-          cursor: 'pointer',
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          width: '100%',
-          opacity: 0
-      },
       avatar: {
           margin: 5
       }
   };
-  
-  //class ReadBook extends Component {
-  
   //import MenuData from './MenuData';
   /**
    * React Starter Kit (https://www.reactstarterkit.com/)
@@ -5451,34 +5520,108 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
-  function ReadBook(_ref) {
-      var showdata = _ref.showdata;
+  var ReadBook = function (_Component) {
+      (0, _inherits3.default)(ReadBook, _Component);
   
-      console.log(showdata);
-      return _react2.default.createElement(
-          _Layout2.default,
-          { name: 'polo' },
-          _react2.default.createElement(
-              'div',
-              { className: _ReadBook2.default.root },
-              _react2.default.createElement(
-                  'div',
-                  { className: _ReadBook2.default.container },
-                  _react2.default.createElement(_Card.Card, null),
-                  showdata.bookname
-              )
-          )
-      );
-  }
+      ///    function ReadBook({showdata}){
+      function ReadBook(props) {
+          (0, _classCallCheck3.default)(this, ReadBook);
   
-  exports.default = (0, _withStyles2.default)(_ReadBook2.default)(ReadBook);
+          var _this = (0, _possibleConstructorReturn3.default)(this, (ReadBook.__proto__ || (0, _getPrototypeOf2.default)(ReadBook)).call(this, props));
+  
+          _this.OpenAbout = function () {
+              var setLeftmenu = _this.props.setLeftmenu;
+  
+              console.log('ttest');
+              setLeftmenu({
+                  openMenu: !_this.props.common.openMenu,
+                  openMenuEvent: false
+              });
+          };
+  
+          _this.props = props;
+          return _this;
+      }
+  
+      (0, _createClass3.default)(ReadBook, [{
+          key: 'render',
+          value: function render() {
+              var showdata = this.props.showdata;
+              var OpenAbout = this.OpenAbout;
+  
+              return _react2.default.createElement(
+                  _Layout2.default,
+                  { name: 'polo' },
+                  _react2.default.createElement(
+                      'div',
+                      { className: _ReadBook2.default.root },
+                      _react2.default.createElement(
+                          'div',
+                          { className: _ReadBook2.default.container },
+                          _react2.default.createElement(
+                              _Card.Card,
+                              null,
+                              _react2.default.createElement(_Card.CardHeader, {
+                                  title: showdata.title,
+                                  subtitle: showdata.subtitle,
+                                  avatar: "/" + showdata.icon
+                              }),
+                              _react2.default.createElement(
+                                  _Card.CardMedia,
+                                  {
+                                      overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
+                                  },
+                                  _react2.default.createElement('img', { src: "/" + showdata.mainphoto, key: showdata.mainphoto })
+                              ),
+                              _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
+                              _react2.default.createElement(_Card.CardText, null),
+                              _react2.default.createElement(
+                                  _Card.CardActions,
+                                  null,
+                                  _react2.default.createElement(_RaisedButton2.default, {
+                                      label: '\u66F4\u4E86\u89E3\u7DDA\u4E0A\u8B80\u66F8\u6703',
+                                      labelPosition: 'before',
+                                      primary: true,
+                                      icon: _react2.default.createElement(_store2.default, null),
+                                      style: styles.button
+                                  }),
+                                  _react2.default.createElement(_RaisedButton2.default, {
+                                      label: '\u60F3\u8981\u518D\u63A2\u7D22\u770B\u770B\u9084\u6709\u4EC0\u9EBC\u8B80\u66F8\u6703',
+                                      labelPosition: 'before',
+                                      primary: true,
+                                      icon: _react2.default.createElement(_search2.default, null),
+                                      style: styles.button,
+                                      onTouchTap: function onTouchTap() {
+                                          return OpenAbout();
+                                      }
+                                  })
+                              )
+                          )
+                      )
+                  )
+              );
+          }
+      }]);
+      return ReadBook;
+  }(_react.Component);
+  
+  var mapState = function mapState(state) {
+      return {
+          common: state.common
+      };
+  };
+  var mapDispatch = {
+      setLeftmenu: _common.setLeftmenu
+  };
+  
+  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_ReadBook2.default)(ReadBook)));
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(139);
+      var content = __webpack_require__(140);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5508,7 +5651,7 @@ module.exports =
     
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5516,13 +5659,20 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"ReadBook.css","sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.ReadBook_root_3zb {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.ReadBook_news_3Zg {\n    padding: 0;\n}\n\n.ReadBook_newsItem_2UW {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.ReadBook_newsTitle_3t8 {\n    font-size: 1.125em;\n}\n\n.ReadBook_newsTitle_3t8,\n.ReadBook_newsDesc_Sro {\n    display: block;\n}\n\n.ReadBook_publishedDate_1ZD {\n    font-size: 0.8em;\n    color: #777;\n}\n\n(.example-enter) {\n    opacity: 0;\n}\n\n.example-enter-active {\n    opacity: 1;\n    -webkit-transition: opacity 1300ms ease-in;\n    -o-transition: opacity 1300ms ease-in;\n    transition: opacity 1300ms ease-in;\n}\n\n.example-leave {\n    opacity: 1;\n}\n\n.example-leave-active {\n    opacity: 0;\n    -webkit-transition: opacity 1300ms ease-in;\n    -o-transition: opacity 1300ms ease-in;\n    transition: opacity 1300ms ease-in;\n}", "", {"version":3,"sources":["/./routes/readBook/ReadBook.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;IACI,mBAAmB;IACnB,oBAAoB;CACvB;;AAGD;;;;GAIG;;AAEH;IACI,WAAW;CACd;;AAED;IACI,sBAAsB;IACtB,oBAAoB;CACvB;;AAED;IACI,mBAAmB;CACtB;;AAED;;IAEI,eAAe;CAClB;;AAED;IACI,iBAAiB;IACjB,YAAY;CACf;;AAED;IACI,WAAW;CACd;;AAED;IACI,WAAW;IACX,2CAAmC;IAAnC,sCAAmC;IAAnC,mCAAmC;CACtC;;AAED;IACI,WAAW;CACd;;AAED;IACI,WAAW;IACX,2CAAmC;IAAnC,sCAAmC;IAAnC,mCAAmC;CACtC","file":"ReadBook.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.news {\n    padding: 0;\n}\n\n.newsItem {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.newsTitle {\n    font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n    display: block;\n}\n\n.publishedDate {\n    font-size: 0.8em;\n    color: #777;\n}\n\n:global (.example-enter) {\n    opacity: 0;\n}\n\n:global(.example-enter-active) {\n    opacity: 1;\n    transition: opacity 1300ms ease-in;\n}\n\n:global(.example-leave) {\n    opacity: 1;\n}\n\n:global(.example-leave-active) {\n    opacity: 0;\n    transition: opacity 1300ms ease-in;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
   
   // exports
-
+  exports.locals = {
+  	"root": "ReadBook_root_3zb",
+  	"news": "ReadBook_news_3Zg",
+  	"newsItem": "ReadBook_newsItem_2UW",
+  	"newsTitle": "ReadBook_newsTitle_3t8",
+  	"newsDesc": "ReadBook_newsDesc_Sro",
+  	"publishedDate": "ReadBook_publishedDate_1ZD"
+  };
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5535,11 +5685,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _livemap = __webpack_require__(141);
+  var _livemap = __webpack_require__(142);
   
   var _livemap2 = _interopRequireDefault(_livemap);
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -5578,7 +5728,7 @@ module.exports =
       */
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5597,11 +5747,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Livemap = __webpack_require__(142);
+  var _Livemap = __webpack_require__(143);
   
   var _Livemap2 = _interopRequireDefault(_Livemap);
   
@@ -5641,11 +5791,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Livemap2.default)(Livemap);
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(143);
+      var content = __webpack_require__(144);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5675,7 +5825,7 @@ module.exports =
     
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5697,7 +5847,7 @@ module.exports =
   };
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5706,7 +5856,7 @@ module.exports =
       value: true
   });
   
-  var _defineProperty2 = __webpack_require__(126);
+  var _defineProperty2 = __webpack_require__(127);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -5714,11 +5864,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Home = __webpack_require__(145);
+  var _Home = __webpack_require__(146);
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -5910,7 +6060,7 @@ module.exports =
       */
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5949,15 +6099,29 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Home = __webpack_require__(146);
+  var _Home = __webpack_require__(147);
   
   var _Home2 = _interopRequireDefault(_Home);
   
-  var _reactRedux = __webpack_require__(94);
+  var _store = __webpack_require__(120);
+  
+  var _store2 = _interopRequireDefault(_store);
+  
+  var _search = __webpack_require__(121);
+  
+  var _search2 = _interopRequireDefault(_search);
+  
+  var _Card = __webpack_require__(122);
+  
+  var _RaisedButton = __webpack_require__(124);
+  
+  var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+  
+  var _reactRedux = __webpack_require__(95);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -5970,6 +6134,12 @@ module.exports =
    * LICENSE.txt file in the root directory of this source tree.
    */
   
+  var styles = {
+      button: { margin: 12 },
+      Card: { marginBotton: 10 }
+  };
+  //import MenuData from './MenuData';
+  
   var Home = function (_Component) {
       (0, _inherits3.default)(Home, _Component);
   
@@ -5977,6 +6147,15 @@ module.exports =
           (0, _classCallCheck3.default)(this, Home);
   
           var _this = (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call(this, props));
+  
+          _this.OpenAbout = function () {
+              // const { setLeftmenu } = this.props;
+              console.log('ttest');
+              // setLeftmenu({
+              //     openMenu: !this.props.common.openMenu,
+              //     openMenuEvent: false
+              // });
+          };
   
           _this.props = props;
           //        console.log(this.props);
@@ -5987,6 +6166,7 @@ module.exports =
           key: 'render',
           value: function render() {
               var common = this.props.common;
+              var OpenAbout = this.OpenAbout;
   
   
               return _react2.default.createElement(
@@ -5998,7 +6178,49 @@ module.exports =
                       _react2.default.createElement(
                           'div',
                           { className: _Home2.default.root },
-                          _react2.default.createElement('div', { className: _Home2.default.container })
+                          _react2.default.createElement(
+                              'div',
+                              { className: _Home2.default.container },
+                              _react2.default.createElement(
+                                  _Card.Card,
+                                  { style: styles.Card },
+                                  _react2.default.createElement(_Card.CardHeader, {
+                                      title: '\u6B61\u8FCE\u4F86\u5230\u8B80\u66F8\u6703',
+                                      subtitle: '\u7531',
+                                      avatar: "/images/logo.png"
+                                  }),
+                                  _react2.default.createElement(
+                                      _Card.CardMedia,
+                                      {
+                                          overlay: _react2.default.createElement(_Card.CardTitle, { title: '\u9019\u4E0D\u662F\u4E00\u500B\u5BE6\u9AD4\u7684\u8B80\u66F8\u6703,\u4F46\u4F60\u6703\u611B\u4E0A\u4ED6', subtitle: '\u662F\u900F\u904EZoom\u7DDA\u4E0A\u6703\u8B70\u8EDF\u9AD4\u6240\u9032\u884C\u7684\u8B80\u66F8\u6703,\u800C\u4F60\u53EF\u4EE5\u5728\u4EFB\u4F55\u5730\u9EDE,\u53EA\u8981\u53EF\u4EE5\u4E0A\u7DB2\u6709\u5B89\u88DDZoom\u8EDF\u9AD4,\u90FD\u53EF\u4EE5\u4E00\u8D77\u4F86\u4EAB\u53D7\u5B78\u7FD2\u7684\u6A02\u8DA3' })
+                                      },
+                                      _react2.default.createElement('img', { src: "/images/1.jpg" })
+                                  ),
+                                  _react2.default.createElement(_Card.CardTitle, { title: '\u518D\u4E5F\u4E0D\u662F\u4E00\u500B\u4EBA\u8B80\u66F8', subtitle: '\u7DDA\u4E0A\u8B80\u66F8\u6703 \u8B93\u5728\u5B78\u7FD2\u77E5\u8B58\u7684\u8DEF\u4E0A\u4E0D\u5B64\u55AE,\u53EF\u4EE5\u5FEB\u901F\u653B\u7565\u4E26\u85C9\u7531\u7DDA\u4E0A\u6703\u8B70\u4EA4\u8AC7\u8207\u4E3B\u984C\u63A2\u7D22\u767C\u73FE,\u539F\u4F86\u5B78\u7FD2\u53EA\u8981\u627E\u5C0D\u540C\u597D \u4E00\u5207\u662F\u5982\u6B64\u7684\u9806\u66A2' }),
+                                  _react2.default.createElement(_Card.CardText, null),
+                                  _react2.default.createElement(
+                                      _Card.CardActions,
+                                      null,
+                                      _react2.default.createElement(_RaisedButton2.default, {
+                                          label: '\u66F4\u4E86\u89E3\u7DDA\u4E0A\u8B80\u66F8\u6703',
+                                          labelPosition: 'before',
+                                          primary: true,
+                                          icon: _react2.default.createElement(_store2.default, null),
+                                          style: styles.button
+                                      }),
+                                      _react2.default.createElement(_RaisedButton2.default, {
+                                          label: '\u60F3\u8981\u518D\u63A2\u7D22\u770B\u770B\u9084\u6709\u4EC0\u9EBC\u8B80\u66F8\u6703',
+                                          labelPosition: 'before',
+                                          primary: true,
+                                          icon: _react2.default.createElement(_search2.default, null),
+                                          style: styles.button,
+                                          onTouchTap: function onTouchTap() {
+                                              return OpenAbout();
+                                          }
+                                      })
+                                  )
+                              )
+                          )
                       )
                   )
               );
@@ -6010,9 +6232,6 @@ module.exports =
   // Home.propTypes = {
   
   // };
-  
-  
-  //import MenuData from './MenuData';
   
   
   var mapState = function mapState(state) {
@@ -6027,11 +6246,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_Home2.default)(Home));
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(147);
+      var content = __webpack_require__(148);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6061,7 +6280,7 @@ module.exports =
     
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6069,12 +6288,13 @@ module.exports =
   
   
   // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.Home_news_oTy {\n  padding: 0;\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n}\n\n.Home_publishedDate_2Mw {\n  font-size: 0.8em;\n  color: #777;\n}\n\n(.example-enter) {\n  opacity: 0;\n}\n\n.example-enter-active {\n  opacity: 1;\n  -webkit-transition: opacity 1300ms ease-in;\n  -o-transition: opacity 1300ms ease-in;\n  transition: opacity 1300ms ease-in;\n}\n\n.example-leave {\n  opacity: 1;\n}\n\n.example-leave-active {\n  opacity: 0;\n  -webkit-transition: opacity 1300ms ease-in;\n  -o-transition: opacity 1300ms ease-in;\n  transition: opacity 1300ms ease-in;\n}", "", {"version":3,"sources":["/./routes/home/Home.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAGD;;;;GAIG;;AAEH;EACE,WAAW;CACZ;;AAED;EACE,sBAAsB;EACtB,oBAAoB;CACrB;;AAED;EACE,mBAAmB;CACpB;;AAED;;EAEE,eAAe;CAChB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb;;AAED;EACE,WAAW;CACZ;;AAED;EACE,WAAW;EACX,2CAAmC;EAAnC,sCAAmC;EAAnC,mCAAmC;CACpC;;AAED;EACE,WAAW;CACZ;;AAED;EACE,WAAW;EACX,2CAAmC;EAAnC,sCAAmC;EAAnC,mCAAmC;CACpC","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.news {\n  padding: 0;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n}\n\n.publishedDate {\n  font-size: 0.8em;\n  color: #777;\n}\n\n:global (.example-enter) {\n  opacity: 0;\n}\n\n:global(.example-enter-active) {\n  opacity: 1;\n  transition: opacity 1300ms ease-in;\n}\n\n:global(.example-leave) {\n  opacity: 1;\n}\n\n:global(.example-leave-active) {\n  opacity: 0;\n  transition: opacity 1300ms ease-in;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Home_root_2IM {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.Home_news_oTy {\n  padding: 0;\n}\n\n.Home_avatar_1TH {\n  margin: 5;\n}\n\n.Home_newsItem_3Ob {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.Home_newsTitle_1yW {\n  font-size: 1.125em;\n}\n\n.Home_newsTitle_1yW,\n.Home_newsDesc_21L {\n  display: block;\n}\n\n.Home_publishedDate_2Mw {\n  font-size: 0.8em;\n  color: #777;\n}", "", {"version":3,"sources":["/./routes/home/Home.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAGD;;;;GAIG;;AAEH;EACE,WAAW;CACZ;;AAED;EACE,UAAU;CACX;;AAED;EACE,sBAAsB;EACtB,oBAAoB;CACrB;;AAED;EACE,mBAAmB;CACpB;;AAED;;EAEE,eAAe;CAChB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb","file":"Home.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.news {\n  padding: 0;\n}\n\n.avatar {\n  margin: 5;\n}\n\n.newsItem {\n  list-style-type: none;\n  padding-bottom: 6px;\n}\n\n.newsTitle {\n  font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n  display: block;\n}\n\n.publishedDate {\n  font-size: 0.8em;\n  color: #777;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
   
   // exports
   exports.locals = {
   	"root": "Home_root_2IM",
   	"news": "Home_news_oTy",
+  	"avatar": "Home_avatar_1TH",
   	"newsItem": "Home_newsItem_3Ob",
   	"newsTitle": "Home_newsTitle_1yW",
   	"newsDesc": "Home_newsDesc_21L",
@@ -6082,7 +6302,7 @@ module.exports =
   };
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6095,7 +6315,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(149);
+  var _Contact = __webpack_require__(150);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -6125,7 +6345,7 @@ module.exports =
   };
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6142,11 +6362,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Contact = __webpack_require__(150);
+  var _Contact = __webpack_require__(151);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -6195,11 +6415,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(151);
+      var content = __webpack_require__(152);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6229,7 +6449,7 @@ module.exports =
     
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6246,7 +6466,7 @@ module.exports =
   };
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6259,7 +6479,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(153);
+  var _Login = __webpack_require__(154);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -6289,7 +6509,7 @@ module.exports =
   };
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6306,11 +6526,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Login = __webpack_require__(154);
+  var _Login = __webpack_require__(155);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -6385,11 +6605,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(155);
+      var content = __webpack_require__(156);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6419,7 +6639,7 @@ module.exports =
     
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6446,7 +6666,7 @@ module.exports =
   };
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6459,7 +6679,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(157);
+  var _Register = __webpack_require__(158);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -6489,7 +6709,7 @@ module.exports =
   };
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6506,11 +6726,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Register = __webpack_require__(158);
+  var _Register = __webpack_require__(159);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -6557,11 +6777,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(159);
+      var content = __webpack_require__(160);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6591,7 +6811,7 @@ module.exports =
     
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6608,7 +6828,7 @@ module.exports =
   };
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6621,7 +6841,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Admin = __webpack_require__(161);
+  var _Admin = __webpack_require__(162);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -6656,7 +6876,7 @@ module.exports =
   };
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6673,11 +6893,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Admin = __webpack_require__(162);
+  var _Admin = __webpack_require__(163);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -6726,11 +6946,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Admin2.default)(Admin);
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(163);
+      var content = __webpack_require__(164);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6760,7 +6980,7 @@ module.exports =
     
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6777,7 +6997,259 @@ module.exports =
   };
 
 /***/ },
-/* 164 */
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _Events = __webpack_require__(166);
+  
+  var _Events2 = _interopRequireDefault(_Events);
+  
+  var _fetch = __webpack_require__(72);
+  
+  var _fetch2 = _interopRequireDefault(_fetch);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+      path: '/events',
+      action: function action() {
+  
+          return {
+              title: '行事曆',
+              component: _react2.default.createElement(_Events2.default, null)
+          };
+      }
+  }; /**
+      * React Starter Kit (https://www.reactstarterkit.com/)
+      *
+      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+      *
+      * This source code is licensed under the MIT license found in the
+      * LICENSE.txt file in the root directory of this source tree.
+      */
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(26);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(27);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(28);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(29);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(30);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactIntl = __webpack_require__(20);
+  
+  var _withStyles = __webpack_require__(41);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Layout = __webpack_require__(80);
+  
+  var _Layout2 = _interopRequireDefault(_Layout);
+  
+  var _Events = __webpack_require__(167);
+  
+  var _Events2 = _interopRequireDefault(_Events);
+  
+  var _store = __webpack_require__(120);
+  
+  var _store2 = _interopRequireDefault(_store);
+  
+  var _search = __webpack_require__(121);
+  
+  var _search2 = _interopRequireDefault(_search);
+  
+  var _Card = __webpack_require__(122);
+  
+  var _RaisedButton = __webpack_require__(124);
+  
+  var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+  
+  var _TableCs = __webpack_require__(131);
+  
+  var _TableCs2 = _interopRequireDefault(_TableCs);
+  
+  var _reactRedux = __webpack_require__(95);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  //import MenuData from './MenuData';
+  var styles = {
+      button: { margin: 12 },
+      Card: { marginBotton: 10 }
+  }; /**
+      * React Starter Kit (https://www.reactstarterkit.com/)
+      *
+      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+      *
+      * This source code is licensed under the MIT license found in the
+      * LICENSE.txt file in the root directory of this source tree.
+      */
+  
+  var TableHeaderData = ["時間", "種類", "主講者", "內容"];
+  
+  var TableRowData = [{ time: "time", kind: "kind", speaker: "speaker", content: "content" }];
+  
+  var Events = function (_Component) {
+      (0, _inherits3.default)(Events, _Component);
+  
+      function Events(props) {
+          (0, _classCallCheck3.default)(this, Events);
+  
+          var _this = (0, _possibleConstructorReturn3.default)(this, (Events.__proto__ || (0, _getPrototypeOf2.default)(Events)).call(this, props));
+  
+          _this.OpenAbout = function () {
+              // const { setLeftmenu } = this.props;
+              console.log('ttest');
+              // setLeftmenu({
+              //     openMenu: !this.props.common.openMenu,
+              //     openMenuEvent: false
+              // });
+          };
+  
+          _this.props = props;
+          //        console.log(this.props);
+          return _this;
+      }
+  
+      (0, _createClass3.default)(Events, [{
+          key: 'render',
+          value: function render() {
+              var common = this.props.common;
+              var OpenAbout = this.OpenAbout;
+  
+  
+              return _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                      _Layout2.default,
+                      { name: 'polo' },
+                      _react2.default.createElement(
+                          'div',
+                          { className: _Events2.default.root },
+                          _react2.default.createElement(
+                              'div',
+                              { className: _Events2.default.container },
+                              _react2.default.createElement(_TableCs2.default, { TableHeaderData: TableHeaderData, TableRowData: TableRowData })
+                          )
+                      )
+                  )
+              );
+          }
+      }]);
+      return Events;
+  }(_react.Component);
+  
+  // Events.propTypes = {
+  
+  // };
+  
+  
+  var mapState = function mapState(state) {
+      return {
+  
+          common: state.common
+  
+      };
+  };
+  var mapDispatch = {};
+  
+  exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_Events2.default)(Events));
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(168);
+      var insertCss = __webpack_require__(45);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Events.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./Events.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(44)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.Events_root_3U4 {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.Events_news_2n8 {\n    padding: 0;\n}\n\n.Events_avatar_1YS {\n    margin: 5;\n}\n\n.Events_newsItem_3IH {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.Events_newsTitle_1OU {\n    font-size: 1.125em;\n}\n\n.Events_newsTitle_1OU,\n.Events_newsDesc_N3W {\n    display: block;\n}\n\n.Events_publishedDate_Iqj {\n    font-size: 0.8em;\n    color: #777;\n}", "", {"version":3,"sources":["/./routes/events/Events.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;IACI,mBAAmB;IACnB,oBAAoB;CACvB;;AAGD;;;;GAIG;;AAEH;IACI,WAAW;CACd;;AAED;IACI,UAAU;CACb;;AAED;IACI,sBAAsB;IACtB,oBAAoB;CACvB;;AAED;IACI,mBAAmB;CACtB;;AAED;;IAEI,eAAe;CAClB;;AAED;IACI,iBAAiB;IACjB,YAAY;CACf","file":"Events.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.css';\n.root {\n    padding-left: 20px;\n    padding-right: 20px;\n}\n\n\n/*.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: var(--max-content-width);\n}*/\n\n.news {\n    padding: 0;\n}\n\n.avatar {\n    margin: 5;\n}\n\n.newsItem {\n    list-style-type: none;\n    padding-bottom: 6px;\n}\n\n.newsTitle {\n    font-size: 1.125em;\n}\n\n.newsTitle,\n.newsDesc {\n    display: block;\n}\n\n.publishedDate {\n    font-size: 0.8em;\n    color: #777;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "Events_root_3U4",
+  	"news": "Events_news_2n8",
+  	"avatar": "Events_avatar_1YS",
+  	"newsItem": "Events_newsItem_3IH",
+  	"newsTitle": "Events_newsTitle_1OU",
+  	"newsDesc": "Events_newsDesc_N3W",
+  	"publishedDate": "Events_publishedDate_Iqj"
+  };
+
+/***/ },
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6802,11 +7274,11 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(165);
+  var _Content = __webpack_require__(170);
   
   var _Content2 = _interopRequireDefault(_Content);
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -6889,7 +7361,7 @@ module.exports =
       */
 
 /***/ },
-/* 165 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6906,15 +7378,15 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Content = __webpack_require__(166);
+  var _Content = __webpack_require__(171);
   
   var _Content2 = _interopRequireDefault(_Content);
   
-  var _Menu = __webpack_require__(115);
+  var _Menu = __webpack_require__(116);
   
   var _Menu2 = _interopRequireDefault(_Menu);
   
@@ -6962,11 +7434,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 166 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(167);
+      var content = __webpack_require__(172);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6996,7 +7468,7 @@ module.exports =
     
 
 /***/ },
-/* 167 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7013,7 +7485,7 @@ module.exports =
   };
 
 /***/ },
-/* 168 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7026,7 +7498,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _NotFound = __webpack_require__(169);
+  var _NotFound = __webpack_require__(174);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -7057,7 +7529,7 @@ module.exports =
   };
 
 /***/ },
-/* 169 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7074,11 +7546,11 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Layout = __webpack_require__(79);
+  var _Layout = __webpack_require__(80);
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _NotFound = __webpack_require__(170);
+  var _NotFound = __webpack_require__(175);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -7127,11 +7599,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_NotFound2.default)(NotFound);
 
 /***/ },
-/* 170 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(171);
+      var content = __webpack_require__(176);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7161,7 +7633,7 @@ module.exports =
     
 
 /***/ },
-/* 171 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7178,13 +7650,13 @@ module.exports =
   };
 
 /***/ },
-/* 172 */
+/* 177 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 173 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7194,21 +7666,21 @@ module.exports =
   });
   exports.default = configureStore;
   
-  var _redux = __webpack_require__(108);
+  var _redux = __webpack_require__(109);
   
-  var _reduxThunk = __webpack_require__(174);
+  var _reduxThunk = __webpack_require__(179);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(175);
+  var _reducers = __webpack_require__(180);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(180);
+  var _createHelpers = __webpack_require__(185);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
-  var _logger = __webpack_require__(181);
+  var _logger = __webpack_require__(186);
   
   var _logger2 = _interopRequireDefault(_logger);
   
@@ -7251,13 +7723,13 @@ module.exports =
   }
 
 /***/ },
-/* 174 */
+/* 179 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
 
 /***/ },
-/* 175 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7266,21 +7738,21 @@ module.exports =
     value: true
   });
   
-  var _redux = __webpack_require__(108);
+  var _redux = __webpack_require__(109);
   
-  var _runtime = __webpack_require__(176);
+  var _runtime = __webpack_require__(181);
   
   var _runtime2 = _interopRequireDefault(_runtime);
   
-  var _intl = __webpack_require__(177);
+  var _intl = __webpack_require__(182);
   
   var _intl2 = _interopRequireDefault(_intl);
   
-  var _test = __webpack_require__(178);
+  var _test = __webpack_require__(183);
   
   var _test2 = _interopRequireDefault(_test);
   
-  var _common = __webpack_require__(179);
+  var _common = __webpack_require__(184);
   
   var _common2 = _interopRequireDefault(_common);
   
@@ -7294,7 +7766,7 @@ module.exports =
   });
 
 /***/ },
-/* 176 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7303,7 +7775,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(126);
+  var _defineProperty2 = __webpack_require__(127);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -7313,7 +7785,7 @@ module.exports =
   
   exports.default = runtime;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -7330,7 +7802,7 @@ module.exports =
   }
 
 /***/ },
-/* 177 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7339,7 +7811,7 @@ module.exports =
     value: true
   });
   
-  var _defineProperty2 = __webpack_require__(126);
+  var _defineProperty2 = __webpack_require__(127);
   
   var _defineProperty3 = _interopRequireDefault(_defineProperty2);
   
@@ -7349,7 +7821,7 @@ module.exports =
   
   exports.default = intl;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -7397,7 +7869,7 @@ module.exports =
   }
 
 /***/ },
-/* 178 */
+/* 183 */
 /***/ function(module, exports) {
 
   'use strict';
@@ -7420,7 +7892,7 @@ module.exports =
   }
 
 /***/ },
-/* 179 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7463,7 +7935,7 @@ module.exports =
   }
 
 /***/ },
-/* 180 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7490,7 +7962,7 @@ module.exports =
   
   exports.default = createHelpers;
   
-  var _fetch = __webpack_require__(71);
+  var _fetch = __webpack_require__(72);
   
   var _fetch2 = _interopRequireDefault(_fetch);
   
@@ -7586,7 +8058,7 @@ module.exports =
   }
 
 /***/ },
-/* 181 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7596,7 +8068,7 @@ module.exports =
   });
   exports.default = createLogger;
   
-  var _util = __webpack_require__(182);
+  var _util = __webpack_require__(187);
   
   // Server side redux action logger
   function createLogger() {
@@ -7615,13 +8087,13 @@ module.exports =
   }
 
 /***/ },
-/* 182 */
+/* 187 */
 /***/ function(module, exports) {
 
   module.exports = require("util");
 
 /***/ },
-/* 183 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7631,7 +8103,7 @@ module.exports =
   });
   exports.setRuntimeVariable = setRuntimeVariable;
   
-  var _constants = __webpack_require__(96);
+  var _constants = __webpack_require__(97);
   
   function setRuntimeVariable(_ref) {
     var name = _ref.name,

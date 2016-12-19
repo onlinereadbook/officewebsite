@@ -46,3 +46,18 @@ span[type=button] {
 npm package 版本衝突 需要加上^
 
 使用:global(）處理 react universal ReactCSSTransitionGroup 的 withStyle 自動加上唯一的問題
+
+history.push('/readbook/'+index); 可以用來轉址用
+
+在model定義後就會自動migration
+
+在types 中定義要回傳的 graphQL 型態
+
+在queries 中則是 撈資料
+這邊應該還要定義一個mutation
+sequelize 的 datatype
+http://docs.sequelizejs.com/en/v3/api/datatypes/
+
+react-flexbox-grid
+
+react-ultimate-pagination-material-ui

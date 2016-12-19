@@ -28,6 +28,7 @@ import ChromeIcon from 'material-ui/svg-icons/action/chrome-reader-mode';
 import DateIcon from 'material-ui/svg-icons/action/date-range';
 import PeopleIcon from 'material-ui/svg-icons/action/assignment-ind';
 import { bindActionCreators } from 'redux'
+import history from '../../core/history';
 
 
 
@@ -85,14 +86,16 @@ class Header extends Component {
 
     OpenMenuEvent = () => {
 
-        const { setLeftmenu } = this.props;
+        //   const { setLeftmenu } = this.props;
 
-        setLeftmenu({
+        // setLeftmenu({
 
-            openMenu: false,
-            openMenuEvent: true
+        //     openMenu: false,
+        //     openMenuEvent: true
 
-        });
+        // });
+        history.push('/events/');
+
     }
 
 

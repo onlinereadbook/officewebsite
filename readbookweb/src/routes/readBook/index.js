@@ -33,31 +33,12 @@ export default {
     path: '/readbook/:id',
     action({ params }) {
        const showdata=  programdata[params.id];
-        
-        console.log(showdata);
-// var data=programdata.filter(function(data,index,params){
-//    console.log(data[index]);
-//       console.log(params);
-
-//     //return data[index].bookname===params.bookname;
-// })
- //console.log(data);
+       
 
         return {
             title: 'React Starter Kit',
             component: <ReadBook  showdata={showdata} />,
         }
     },
-
-
-
-    // ,
-    // children: [{
-    //    path:'/:bookname',
-    //    action(){ return {
-    //                    component: <ReadBook />
-    //    }}
-
-    // }]
-
+ 
 };
