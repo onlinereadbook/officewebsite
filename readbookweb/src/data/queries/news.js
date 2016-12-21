@@ -13,15 +13,15 @@ import NewsItemType from '../types/NewsItemType';
 
 // React.js News Feed (RSS)
 const url = 'http://ajax.googleapis.com/ajax/services/feed/load' +
-            '?v=1.0&num=10&q=https://reactjsnews.com/feed.xml';
+  '?v=1.0&num=10&q=https://reactjsnews.com/feed.xml';
 
 let items = [];
 let lastFetchTask;
 let lastFetchTime = new Date(1970, 0, 1);
 
 const news = {
-  type: new List(NewsItemType),
-  resolve() {
+  type: new List(NewsItemType),      //宣告type類型為GraphQLList
+  resolve() {     //抓取網路資料
     if (lastFetchTask) {
       return lastFetchTask;
     }

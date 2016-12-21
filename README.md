@@ -58,6 +58,10 @@ history.push('/readbook/'+index); 可以用來轉址用
 sequelize 的 datatype
 http://docs.sequelizejs.com/en/v3/api/datatypes/
 
+
+//ORM中這邊一定要用async 
+
+
 react-flexbox-grid
 
 react-ultimate-pagination-material-ui

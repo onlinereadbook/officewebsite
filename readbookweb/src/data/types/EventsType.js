@@ -24,4 +24,4 @@ const EventsType = new ObjectType({
     },
 });
 
-export default NewsItemType;
+export default EventsType;

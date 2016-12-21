@@ -8,7 +8,7 @@
  */
 
 import DataType from 'sequelize';
-import Model from '../sequelize';
+import Model from '../sequelize';   //這邊已經有綁Model了 所以照理說 Events應該就是一個ORM
 
 const Events = Model.define('Events', {
     id: {
@@ -34,5 +34,6 @@ const Events = Model.define('Events', {
 
 
 });
-
+//console.log("Events",Events);
+console.log("EventsTest");
 export default Events;
