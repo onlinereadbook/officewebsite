@@ -65,3 +65,4 @@ http://docs.sequelizejs.com/en/v3/api/datatypes/
 react-flexbox-grid
 
 react-ultimate-pagination-material-ui
+https://github.com/AdeleD/react-paginate

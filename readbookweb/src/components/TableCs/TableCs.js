@@ -17,32 +17,35 @@ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowCol
 
 
 
-const events = [{
-    "eventTitle": "Nodejs讀書會",
-    "eventCal": "2016-12-12",
-    "eventKind": "後端",
-    "eventSpeaker": "主講者:polo",
-    "eventMemo": "好康之主題",
-}, {
-    "eventTitle": "Reactjs讀書會",
-    "eventCal": "2016-12-13",
-    "eventKind": "前端",
-    "eventSpeaker": "主講者:andy",
-    "eventMemo": "好康之主題",
+// const events = [{
+//     "eventTitle": "Nodejs讀書會",
+//     "eventCal": "2016-12-12",
+//     "eventKind": "後端",
+//     "eventSpeaker": "主講者:polo",
+//     "eventMemo": "好康之主題",
+// }, {
+//     "eventTitle": "Reactjs讀書會",
+//     "eventCal": "2016-12-13",
+//     "eventKind": "前端",
+//     "eventSpeaker": "主講者:andy",
+//     "eventMemo": "好康之主題",
 
-}]
+// }]
 
 
 
 class TableCs extends Component {
     constructor(props) {
         super(props);
+
         this.props = props;
-        console.log(this.props);
+        //console.log(this.props);
     }
 
 
     render() {
+        const { tablecs } = this.props;
+        const tabledata = tablecs.data;
 
         return (
             <div className={s.root}>
@@ -57,7 +60,7 @@ class TableCs extends Component {
                         </TableHeader>
                         <TableBody>
 
-                            {events.map(function (data, index) {
+                            {tabledata.map(function (data, index) {
 
                                 return <TableRow key={index}>
                                     <TableRowColumn>{index}</TableRowColumn>
@@ -75,7 +78,7 @@ class TableCs extends Component {
 
 }
 const mapState = (state) => ({
-
+    tablecs: state.tablecs
 });
 const mapDispatch = {
 

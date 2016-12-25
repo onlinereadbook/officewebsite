@@ -156,15 +156,15 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(179);
+  var _assets = __webpack_require__(187);
   
   var _assets2 = _interopRequireDefault(_assets);
   
-  var _configureStore = __webpack_require__(180);
+  var _configureStore = __webpack_require__(188);
   
   var _configureStore2 = _interopRequireDefault(_configureStore);
   
-  var _runtime = __webpack_require__(189);
+  var _runtime = __webpack_require__(198);
   
   var _intl = __webpack_require__(98);
   
@@ -2940,7 +2940,7 @@ module.exports =
     children: [__webpack_require__(80).default, __webpack_require__(139).default, __webpack_require__(143).default, __webpack_require__(147).default, __webpack_require__(151).default, __webpack_require__(155).default, __webpack_require__(159).default, __webpack_require__(163).default, __webpack_require__(167).default,
   
     // place new routes before...
-    __webpack_require__(171).default, __webpack_require__(175).default],
+    __webpack_require__(179).default, __webpack_require__(183).default],
   
     action: function action(_ref) {
       var _this = this;
@@ -4083,6 +4083,8 @@ module.exports =
   var SET_LOCALE_SUCCESS = exports.SET_LOCALE_SUCCESS = 'SET_LOCALE_SUCCESS';
   var SET_LOCALE_ERROR = exports.SET_LOCALE_ERROR = 'SET_LOCALE_ERROR';
   var SET_LEFTMENU = exports.SET_LEFTMENU = 'SET_LEFTMENU';
+  var INSERT_TABLE = exports.INSERT_TABLE = 'INSERT_TABLE';
+  var SHOW_TABLE = exports.SHOW_TABLE = 'SHOW_TABLE';
 
 /***/ },
 /* 100 */
@@ -5251,6 +5253,22 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
+  // const events = [{
+  //     "eventTitle": "Nodejs讀書會",
+  //     "eventCal": "2016-12-12",
+  //     "eventKind": "後端",
+  //     "eventSpeaker": "主講者:polo",
+  //     "eventMemo": "好康之主題",
+  // }, {
+  //     "eventTitle": "Reactjs讀書會",
+  //     "eventCal": "2016-12-13",
+  //     "eventKind": "前端",
+  //     "eventSpeaker": "主講者:andy",
+  //     "eventMemo": "好康之主題",
+  
+  // }]
+  
+  
   /**
    * React Starter Kit (https://www.reactstarterkit.com/)
    *
@@ -5259,21 +5277,6 @@ module.exports =
    * This source code is licensed under the MIT license found in the
    * LICENSE.txt file in the root directory of this source tree.
    */
-  
-  var events = [{
-      "eventTitle": "Nodejs讀書會",
-      "eventCal": "2016-12-12",
-      "eventKind": "後端",
-      "eventSpeaker": "主講者:polo",
-      "eventMemo": "好康之主題"
-  }, {
-      "eventTitle": "Reactjs讀書會",
-      "eventCal": "2016-12-13",
-      "eventKind": "前端",
-      "eventSpeaker": "主講者:andy",
-      "eventMemo": "好康之主題"
-  
-  }];
   
   var TableCs = function (_Component) {
       (0, _inherits3.default)(TableCs, _Component);
@@ -5284,13 +5287,16 @@ module.exports =
           var _this = (0, _possibleConstructorReturn3.default)(this, (TableCs.__proto__ || (0, _getPrototypeOf2.default)(TableCs)).call(this, props));
   
           _this.props = props;
-          console.log(_this.props);
+          //console.log(this.props);
           return _this;
       }
   
       (0, _createClass3.default)(TableCs, [{
           key: 'render',
           value: function render() {
+              var tablecs = this.props.tablecs;
+  
+              var tabledata = tablecs.data;
   
               return _react2.default.createElement(
                   'div',
@@ -5327,7 +5333,7 @@ module.exports =
                           _react2.default.createElement(
                               _Table.TableBody,
                               null,
-                              events.map(function (data, index) {
+                              tabledata.map(function (data, index) {
   
                                   return _react2.default.createElement(
                                       _Table.TableRow,
@@ -5359,7 +5365,9 @@ module.exports =
   }(_react.Component);
   
   var mapState = function mapState(state) {
-      return {};
+      return {
+          tablecs: state.tablecs
+      };
   };
   var mapDispatch = {};
   
@@ -7280,22 +7288,29 @@ module.exports =
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
+  var _FormCs = __webpack_require__(171);
+  
+  var _FormCs2 = _interopRequireDefault(_FormCs);
+  
   var _reactRedux = __webpack_require__(97);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  //import MenuData from './MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
   var styles = {
       button: { margin: 12 },
       Card: { marginBotton: 10 }
-  }; /**
-      * React Starter Kit (https://www.reactstarterkit.com/)
-      *
-      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-      *
-      * This source code is licensed under the MIT license found in the
-      * LICENSE.txt file in the root directory of this source tree.
-      */
+  };
+  //import MenuData from './MenuData';
+  
   
   var TableHeaderData = ["時間", "種類", "主講者", "內容"];
   
@@ -7342,7 +7357,8 @@ module.exports =
                           _react2.default.createElement(
                               'div',
                               { className: _Events2.default.container },
-                              _react2.default.createElement(_TableCs2.default, { TableHeaderData: TableHeaderData, TableRowData: TableRowData })
+                              _react2.default.createElement(_TableCs2.default, { TableHeaderData: TableHeaderData, TableRowData: TableRowData }),
+                              _react2.default.createElement(_FormCs2.default, null)
                           )
                       )
                   )
@@ -7431,6 +7447,278 @@ module.exports =
   'use strict';
   
   Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(26);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(27);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(28);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(29);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(30);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(16);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactIntl = __webpack_require__(20);
+  
+  var _withStyles = __webpack_require__(41);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _FormCs = __webpack_require__(172);
+  
+  var _FormCs2 = _interopRequireDefault(_FormCs);
+  
+  var _reactRedux = __webpack_require__(97);
+  
+  var _TextField = __webpack_require__(174);
+  
+  var _TextField2 = _interopRequireDefault(_TextField);
+  
+  var _Divider = __webpack_require__(127);
+  
+  var _Divider2 = _interopRequireDefault(_Divider);
+  
+  var _Paper = __webpack_require__(175);
+  
+  var _Paper2 = _interopRequireDefault(_Paper);
+  
+  var _Card = __webpack_require__(124);
+  
+  var _FlatButton = __webpack_require__(176);
+  
+  var _FlatButton2 = _interopRequireDefault(_FlatButton);
+  
+  var _DatePicker = __webpack_require__(177);
+  
+  var _DatePicker2 = _interopRequireDefault(_DatePicker);
+  
+  var _tablecs = __webpack_require__(178);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  //import MenuData from '../MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  var FormCs = function (_Component) {
+      (0, _inherits3.default)(FormCs, _Component);
+  
+      function FormCs(props) {
+          (0, _classCallCheck3.default)(this, FormCs);
+  
+          var _this = (0, _possibleConstructorReturn3.default)(this, (FormCs.__proto__ || (0, _getPrototypeOf2.default)(FormCs)).call(this, props));
+  
+          _this.onInsertClick = function () {
+              //console.log('test');
+              var data = {};
+              data.title = _this.refs.title.getValue();
+              data.calendar = _this.refs.calendar.getDate();
+              data.memo = _this.refs.memo.getValue();
+              data.speaker = _this.refs.speaker.getValue();
+              var insertTable = _this.props.insertTable;
+  
+  
+              insertTable({ table: "table", data: data });
+          };
+  
+          _this.props = props;
+          //console.log(this.props);
+          return _this;
+      }
+  
+      (0, _createClass3.default)(FormCs, [{
+          key: 'render',
+          value: function render() {
+              var onInsertClick = this.onInsertClick;
+  
+  
+              return _react2.default.createElement(
+                  'div',
+                  { className: _FormCs2.default.root },
+                  _react2.default.createElement(
+                      'div',
+                      { className: _FormCs2.default.container },
+                      _react2.default.createElement(
+                          _Card.Card,
+                          null,
+                          _react2.default.createElement(_Card.CardTitle, { title: '\u8868\u55AE\u64CD\u4F5C', subtitle: 'Card subtitle' }),
+                          _react2.default.createElement(
+                              _Card.CardText,
+                              null,
+                              _react2.default.createElement(_TextField2.default, { fullWidth: true, hintText: '\u6D3B\u52D5\u540D\u7A31', name: 'title', ref: 'title' }),
+                              _react2.default.createElement(_DatePicker2.default, { hintText: '\u6D3B\u52D5\u65E5\u671F', mode: 'landscape', name: 'calendar', ref: 'calendar' }),
+                              _react2.default.createElement(_TextField2.default, { rows: 3, multiLine: true, fullWidth: true, hintText: '\u6D3B\u52D5\u8AAA\u660E', name: 'memo', ref: 'memo' }),
+                              _react2.default.createElement(_TextField2.default, { fullWidth: true, hintText: '\u4E3B\u8B1B\u8005', name: 'speaker', ref: 'speaker' })
+                          ),
+                          _react2.default.createElement(
+                              _Card.CardActions,
+                              null,
+                              _react2.default.createElement(_FlatButton2.default, { label: '\u65B0\u589E', onTouchTap: function onTouchTap() {
+                                      return onInsertClick();
+                                  } }),
+                              _react2.default.createElement(_FlatButton2.default, { label: '\u4FEE\u6539' })
+                          )
+                      )
+                  )
+              );
+          }
+      }]);
+      return FormCs;
+  }(_react.Component);
+  
+  var mapState = function mapState(state) {
+      return {};
+  };
+  var mapDispatch = {
+      insertTable: _tablecs.insertTable
+  };
+  
+  exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_FormCs2.default)(FormCs)));
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(173);
+      var insertCss = __webpack_require__(45);
+  
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+  
+      module.exports = content.locals || {};
+      module.exports._getCss = function() { return content.toString(); };
+      module.exports._insertCss = function(options) { return insertCss(content, options) };
+    
+      // Hot Module Replacement
+      // https://webpack.github.io/docs/hot-module-replacement
+      // Only activated in browser context
+      if (false) {
+        var removeCss = function() {};
+        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./FormCs.css", function() {
+          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?pack=default!./FormCs.css");
+  
+          if (typeof content === 'string') {
+            content = [[module.id, content, '']];
+          }
+  
+          removeCss = insertCss(content, { replace: true });
+        });
+        module.hot.dispose(function() { removeCss(); });
+      }
+    
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+  exports = module.exports = __webpack_require__(44)();
+  // imports
+  
+  
+  // module
+  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.FormCs_root_1MU {\n    background: #fff;\n    color: #000;\n}\n\n.FormCs_container_2u4 {\n    margin: 0 auto;\n    padding: 20px 0;\n}\n\n.FormCs_text_1k3 {\n    margin: 10px;\n}", "", {"version":3,"sources":["/./components/FormCs/FormCs.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADfD;IACI,iBAAiB;IACjB,YAAY;CACf;;AAED;IACI,eAAe;IACf,gBAAgB;CACnB;;AAED;IACI,aAAa;CAChB","file":"FormCs.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n:root {\n    --brand-color: #61dafb;\n}\n\n.root {\n    background: #fff;\n    color: #000;\n}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 0;\n}\n\n.text {\n    margin: 10px;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
+  
+  // exports
+  exports.locals = {
+  	"root": "FormCs_root_1MU",
+  	"container": "FormCs_container_2u4",
+  	"text": "FormCs_text_1k3"
+  };
+
+/***/ },
+/* 174 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/TextField");
+
+/***/ },
+/* 175 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/Paper");
+
+/***/ },
+/* 176 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/FlatButton");
+
+/***/ },
+/* 177 */
+/***/ function(module, exports) {
+
+  module.exports = require("material-ui/DatePicker");
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  exports.insertTable = insertTable;
+  exports.showTable = showTable;
+  
+  var _constants = __webpack_require__(99);
+  
+  function insertTable(_ref) {
+      var table = _ref.table,
+          data = _ref.data;
+  
+      //console.log(data);
+  
+      return {
+          type: _constants.INSERT_TABLE,
+          payload: {
+              table: table,
+              data: data
+          }
+      };
+  }
+  function showTable(_ref2) {
+      var table = _ref2.table;
+  
+      return {
+          type: _constants.SHOW_TABLE,
+          payload: {
+              table: table
+          }
+      };
+  }
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
     value: true
   });
   
@@ -7450,7 +7738,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(172);
+  var _Content = __webpack_require__(180);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -7537,7 +7825,7 @@ module.exports =
       */
 
 /***/ },
-/* 172 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7558,7 +7846,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Content = __webpack_require__(173);
+  var _Content = __webpack_require__(181);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -7610,11 +7898,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 173 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(174);
+      var content = __webpack_require__(182);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7644,7 +7932,7 @@ module.exports =
     
 
 /***/ },
-/* 174 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7661,7 +7949,7 @@ module.exports =
   };
 
 /***/ },
-/* 175 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7674,7 +7962,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _NotFound = __webpack_require__(176);
+  var _NotFound = __webpack_require__(184);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -7705,7 +7993,7 @@ module.exports =
   };
 
 /***/ },
-/* 176 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7726,7 +8014,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _NotFound = __webpack_require__(177);
+  var _NotFound = __webpack_require__(185);
   
   var _NotFound2 = _interopRequireDefault(_NotFound);
   
@@ -7775,11 +8063,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_NotFound2.default)(NotFound);
 
 /***/ },
-/* 177 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(178);
+      var content = __webpack_require__(186);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7809,7 +8097,7 @@ module.exports =
     
 
 /***/ },
-/* 178 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7826,13 +8114,13 @@ module.exports =
   };
 
 /***/ },
-/* 179 */
+/* 187 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 180 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7844,19 +8132,19 @@ module.exports =
   
   var _redux = __webpack_require__(111);
   
-  var _reduxThunk = __webpack_require__(181);
+  var _reduxThunk = __webpack_require__(189);
   
   var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
   
-  var _reducers = __webpack_require__(182);
+  var _reducers = __webpack_require__(190);
   
   var _reducers2 = _interopRequireDefault(_reducers);
   
-  var _createHelpers = __webpack_require__(186);
+  var _createHelpers = __webpack_require__(195);
   
   var _createHelpers2 = _interopRequireDefault(_createHelpers);
   
-  var _logger = __webpack_require__(187);
+  var _logger = __webpack_require__(196);
   
   var _logger2 = _interopRequireDefault(_logger);
   
@@ -7899,13 +8187,13 @@ module.exports =
   }
 
 /***/ },
-/* 181 */
+/* 189 */
 /***/ function(module, exports) {
 
   module.exports = require("redux-thunk");
 
 /***/ },
-/* 182 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7916,30 +8204,34 @@ module.exports =
   
   var _redux = __webpack_require__(111);
   
-  var _runtime = __webpack_require__(183);
+  var _runtime = __webpack_require__(191);
   
   var _runtime2 = _interopRequireDefault(_runtime);
   
-  var _intl = __webpack_require__(184);
+  var _intl = __webpack_require__(192);
   
   var _intl2 = _interopRequireDefault(_intl);
   
-  var _common = __webpack_require__(185);
+  var _common = __webpack_require__(193);
   
   var _common2 = _interopRequireDefault(_common);
   
+  var _tablecs = __webpack_require__(194);
+  
+  var _tablecs2 = _interopRequireDefault(_tablecs);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
+  //import test from './test';
   exports.default = (0, _redux.combineReducers)({
     runtime: _runtime2.default,
     intl: _intl2.default,
-    //test,
+    tablecs: _tablecs2.default,
     common: _common2.default
   });
-  //import test from './test';
 
 /***/ },
-/* 183 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7975,7 +8267,7 @@ module.exports =
   }
 
 /***/ },
-/* 184 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -8042,7 +8334,7 @@ module.exports =
   }
 
 /***/ },
-/* 185 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -8069,7 +8361,7 @@ module.exports =
       var action = arguments[1];
   
   
-      //console.log(action.payload)
+      //  console.log(action.payload)
       switch (action.type) {
           case 'SET_LEFTMENU':
               return (0, _extends3.default)({}, state, {
@@ -8085,7 +8377,53 @@ module.exports =
   }
 
 /***/ },
-/* 186 */
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+  "use strict";
+  
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  
+  var _extends2 = __webpack_require__(4);
+  
+  var _extends3 = _interopRequireDefault(_extends2);
+  
+  exports.default = tablecs;
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var initialState = {
+      table: { table: "testTable" },
+      data: ["無資料"]
+  };
+  var tabledata = [];
+  //console.log('test reducer');
+  function tablecs() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+      var action = arguments[1];
+  
+      switch (action.type) {
+          case 'INSERT_TABLE':
+              // console.log(action.payload.data);
+              tabledata.push(action.payload.data);
+              // console.log(tabledata);
+              return (0, _extends3.default)({}, state, {
+                  //    tableheader: action.payload.tableheader,
+                  table: action.payload.table,
+                  data: tabledata
+              });
+          //  return action.payload.common
+          case 'SHOW_TABLE':
+              return state;
+          default:
+              return state;
+      }
+  }
+
+/***/ },
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -8208,7 +8546,7 @@ module.exports =
   }
 
 /***/ },
-/* 187 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -8218,7 +8556,7 @@ module.exports =
   });
   exports.default = createLogger;
   
-  var _util = __webpack_require__(188);
+  var _util = __webpack_require__(197);
   
   // Server side redux action logger
   function createLogger() {
@@ -8237,13 +8575,13 @@ module.exports =
   }
 
 /***/ },
-/* 188 */
+/* 197 */
 /***/ function(module, exports) {
 
   module.exports = require("util");
 
 /***/ },
-/* 189 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';

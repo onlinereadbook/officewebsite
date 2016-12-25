@@ -18,6 +18,7 @@ import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TableCs from '../../components/TableCs';
+import FormCs from '../../components/FormCs';
 
 import { connect } from 'react-redux';
 const styles = {
@@ -30,6 +31,8 @@ const TableHeaderData = ["時間", "種類", "主講者", "內容"];
 const TableRowData = [
     { time: "time", kind: "kind", speaker: "speaker", content: "content" }
 ];
+
+
 
 class Events extends Component {
     constructor(props) {
@@ -59,7 +62,7 @@ class Events extends Component {
 
                             <TableCs TableHeaderData={TableHeaderData} TableRowData={TableRowData}></TableCs>
 
-
+                            <FormCs></FormCs>
                         </div>
                     </div>
                 </Layout>

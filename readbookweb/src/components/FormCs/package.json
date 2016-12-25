@@ -1,0 +1,6 @@
+{
+    "name": "FormCs",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FormCs.js"
+}

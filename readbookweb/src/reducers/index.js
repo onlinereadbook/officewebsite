@@ -3,10 +3,12 @@ import runtime from './runtime';
 import intl from './intl';
 //import test from './test';
 import common from './common';
+import tablecs from './tablecs';
 
 export default combineReducers({
   runtime,
   intl,
-  //test,
-  common
+  tablecs,
+  common,
+  //test
 });
