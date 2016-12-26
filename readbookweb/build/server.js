@@ -2937,7 +2937,7 @@ module.exports =
     path: '/',
   
     // Keep in mind, routes are evaluated in order
-    children: [__webpack_require__(80).default, __webpack_require__(139).default, __webpack_require__(143).default, __webpack_require__(147).default, __webpack_require__(151).default, __webpack_require__(155).default, __webpack_require__(159).default, __webpack_require__(163).default, __webpack_require__(167).default,
+    children: [__webpack_require__(80).default, __webpack_require__(140).default, __webpack_require__(144).default, __webpack_require__(148).default, __webpack_require__(152).default, __webpack_require__(156).default, __webpack_require__(160).default, __webpack_require__(164).default, __webpack_require__(168).default,
   
     // place new routes before...
     __webpack_require__(179).default, __webpack_require__(183).default],
@@ -3053,7 +3053,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _MatchWork = __webpack_require__(137);
+  var _MatchWork = __webpack_require__(138);
   
   var _MatchWork2 = _interopRequireDefault(_MatchWork);
   
@@ -4085,6 +4085,7 @@ module.exports =
   var SET_LEFTMENU = exports.SET_LEFTMENU = 'SET_LEFTMENU';
   var INSERT_TABLE = exports.INSERT_TABLE = 'INSERT_TABLE';
   var SHOW_TABLE = exports.SHOW_TABLE = 'SHOW_TABLE';
+  var SEND_ONEDATA = exports.SEND_ONEDATA = 'SEND_ONEDATA';
 
 /***/ },
 /* 100 */
@@ -5251,6 +5252,8 @@ module.exports =
   
   var _Table = __webpack_require__(136);
   
+  var _tablecs = __webpack_require__(137);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   // const events = [{
@@ -5269,15 +5272,6 @@ module.exports =
   // }]
   
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
-  
   var TableCs = function (_Component) {
       (0, _inherits3.default)(TableCs, _Component);
   
@@ -5285,6 +5279,14 @@ module.exports =
           (0, _classCallCheck3.default)(this, TableCs);
   
           var _this = (0, _possibleConstructorReturn3.default)(this, (TableCs.__proto__ || (0, _getPrototypeOf2.default)(TableCs)).call(this, props));
+  
+          _this.onSelectClick = function (onedata) {
+              console.log('select' + onedata);
+              var sendOneData = _this.props.sendOneData;
+  
+              var tableName = "TableName";
+              sendOneData({ tableName: tableName, onedata: onedata });
+          };
   
           _this.props = props;
           //console.log(this.props);
@@ -5297,6 +5299,7 @@ module.exports =
               var tablecs = this.props.tablecs;
   
               var tabledata = tablecs.data;
+              var onSelectClick = this.onSelectClick;
   
               return _react2.default.createElement(
                   'div',
@@ -5337,7 +5340,9 @@ module.exports =
   
                                   return _react2.default.createElement(
                                       _Table.TableRow,
-                                      { key: index },
+                                      { key: index, onTouchTap: function onTouchTap() {
+                                              return onSelectClick(data);
+                                          } },
                                       _react2.default.createElement(
                                           _Table.TableRowColumn,
                                           null,
@@ -5362,14 +5367,23 @@ module.exports =
           }
       }]);
       return TableCs;
-  }(_react.Component);
+  }(_react.Component); /**
+                        * React Starter Kit (https://www.reactstarterkit.com/)
+                        *
+                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                        *
+                        * This source code is licensed under the MIT license found in the
+                        * LICENSE.txt file in the root directory of this source tree.
+                        */
   
   var mapState = function mapState(state) {
       return {
           tablecs: state.tablecs
       };
   };
-  var mapDispatch = {};
+  var mapDispatch = {
+      sendOneData: _tablecs.sendOneData
+  };
   
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_TableCs2.default)(TableCs)));
 
@@ -5431,8 +5445,62 @@ module.exports =
 /* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
+  'use strict';
   
-      var content = __webpack_require__(138);
+  Object.defineProperty(exports, "__esModule", {
+      value: true
+  });
+  exports.insertTable = insertTable;
+  exports.showTable = showTable;
+  exports.sendOneData = sendOneData;
+  
+  var _constants = __webpack_require__(99);
+  
+  function insertTable(_ref) {
+      var table = _ref.table,
+          data = _ref.data;
+  
+      console.log(data);
+  
+      return {
+          type: _constants.INSERT_TABLE,
+          payload: {
+              table: table,
+              data: data
+          }
+      };
+  }
+  function showTable(_ref2) {
+      var table = _ref2.table;
+  
+      return {
+          type: _constants.SHOW_TABLE,
+          payload: {
+              table: table
+          }
+      };
+  }
+  
+  function sendOneData(_ref3) {
+      var table = _ref3.table,
+          onedata = _ref3.onedata;
+  
+      console.log(onedata);
+      return {
+          type: _constants.SEND_ONEDATA,
+          payload: {
+              table: table,
+              onedata: onedata
+          }
+      };
+  }
+
+/***/ },
+/* 138 */
+/***/ function(module, exports, __webpack_require__) {
+
+  
+      var content = __webpack_require__(139);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5462,7 +5530,7 @@ module.exports =
     
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5479,7 +5547,7 @@ module.exports =
   };
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5505,7 +5573,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _readBook = __webpack_require__(140);
+  var _readBook = __webpack_require__(141);
   
   var _readBook2 = _interopRequireDefault(_readBook);
   
@@ -5547,7 +5615,7 @@ module.exports =
   }), _path$action$path$act);
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5590,7 +5658,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _ReadBook = __webpack_require__(141);
+  var _ReadBook = __webpack_require__(142);
   
   var _ReadBook2 = _interopRequireDefault(_ReadBook);
   
@@ -5746,11 +5814,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_ReadBook2.default)(ReadBook)));
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(142);
+      var content = __webpack_require__(143);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5780,7 +5848,7 @@ module.exports =
     
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5801,7 +5869,7 @@ module.exports =
   };
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5814,7 +5882,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _livemap = __webpack_require__(144);
+  var _livemap = __webpack_require__(145);
   
   var _livemap2 = _interopRequireDefault(_livemap);
   
@@ -5857,7 +5925,7 @@ module.exports =
       */
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5880,7 +5948,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Livemap = __webpack_require__(145);
+  var _Livemap = __webpack_require__(146);
   
   var _Livemap2 = _interopRequireDefault(_Livemap);
   
@@ -5920,11 +5988,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Livemap2.default)(Livemap);
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(146);
+      var content = __webpack_require__(147);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -5954,7 +6022,7 @@ module.exports =
     
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -5976,7 +6044,7 @@ module.exports =
   };
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5993,7 +6061,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Home = __webpack_require__(148);
+  var _Home = __webpack_require__(149);
   
   var _Home2 = _interopRequireDefault(_Home);
   
@@ -6189,7 +6257,7 @@ module.exports =
       */
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6232,7 +6300,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Home = __webpack_require__(149);
+  var _Home = __webpack_require__(150);
   
   var _Home2 = _interopRequireDefault(_Home);
   
@@ -6375,11 +6443,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_Home2.default)(Home));
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(150);
+      var content = __webpack_require__(151);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6409,7 +6477,7 @@ module.exports =
     
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6431,7 +6499,7 @@ module.exports =
   };
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6444,7 +6512,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Contact = __webpack_require__(152);
+  var _Contact = __webpack_require__(153);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -6474,7 +6542,7 @@ module.exports =
   };
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6495,7 +6563,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Contact = __webpack_require__(153);
+  var _Contact = __webpack_require__(154);
   
   var _Contact2 = _interopRequireDefault(_Contact);
   
@@ -6544,11 +6612,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Contact2.default)(Contact);
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(154);
+      var content = __webpack_require__(155);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6578,7 +6646,7 @@ module.exports =
     
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6595,7 +6663,7 @@ module.exports =
   };
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6608,7 +6676,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Login = __webpack_require__(156);
+  var _Login = __webpack_require__(157);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -6638,7 +6706,7 @@ module.exports =
   };
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6659,7 +6727,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Login = __webpack_require__(157);
+  var _Login = __webpack_require__(158);
   
   var _Login2 = _interopRequireDefault(_Login);
   
@@ -6734,11 +6802,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Login2.default)(Login);
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(158);
+      var content = __webpack_require__(159);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6768,7 +6836,7 @@ module.exports =
     
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6795,7 +6863,7 @@ module.exports =
   };
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6808,7 +6876,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Register = __webpack_require__(160);
+  var _Register = __webpack_require__(161);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -6838,7 +6906,7 @@ module.exports =
   };
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6859,7 +6927,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Register = __webpack_require__(161);
+  var _Register = __webpack_require__(162);
   
   var _Register2 = _interopRequireDefault(_Register);
   
@@ -6906,11 +6974,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Register2.default)(Register);
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(162);
+      var content = __webpack_require__(163);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -6940,7 +7008,7 @@ module.exports =
     
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -6957,7 +7025,7 @@ module.exports =
   };
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -6970,7 +7038,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Admin = __webpack_require__(164);
+  var _Admin = __webpack_require__(165);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -7005,7 +7073,7 @@ module.exports =
   };
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7026,7 +7094,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Admin = __webpack_require__(165);
+  var _Admin = __webpack_require__(166);
   
   var _Admin2 = _interopRequireDefault(_Admin);
   
@@ -7075,11 +7143,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Admin2.default)(Admin);
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(166);
+      var content = __webpack_require__(167);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7109,7 +7177,7 @@ module.exports =
     
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7126,7 +7194,7 @@ module.exports =
   };
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7151,7 +7219,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Events = __webpack_require__(168);
+  var _Events = __webpack_require__(169);
   
   var _Events2 = _interopRequireDefault(_Events);
   
@@ -7223,7 +7291,7 @@ module.exports =
       */
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7266,7 +7334,7 @@ module.exports =
   
   var _Layout2 = _interopRequireDefault(_Layout);
   
-  var _Events = __webpack_require__(169);
+  var _Events = __webpack_require__(170);
   
   var _Events2 = _interopRequireDefault(_Events);
   
@@ -7288,7 +7356,7 @@ module.exports =
   
   var _TableCs2 = _interopRequireDefault(_TableCs);
   
-  var _FormCs = __webpack_require__(171);
+  var _FormCs = __webpack_require__(172);
   
   var _FormCs2 = _interopRequireDefault(_FormCs);
   
@@ -7385,11 +7453,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState)((0, _withStyles2.default)(_Events2.default)(Events));
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(170);
+      var content = __webpack_require__(171);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7419,7 +7487,7 @@ module.exports =
     
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7441,7 +7509,7 @@ module.exports =
   };
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -7480,13 +7548,13 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _FormCs = __webpack_require__(172);
+  var _FormCs = __webpack_require__(173);
   
   var _FormCs2 = _interopRequireDefault(_FormCs);
   
   var _reactRedux = __webpack_require__(97);
   
-  var _TextField = __webpack_require__(174);
+  var _TextField = __webpack_require__(175);
   
   var _TextField2 = _interopRequireDefault(_TextField);
   
@@ -7494,21 +7562,21 @@ module.exports =
   
   var _Divider2 = _interopRequireDefault(_Divider);
   
-  var _Paper = __webpack_require__(175);
+  var _Paper = __webpack_require__(176);
   
   var _Paper2 = _interopRequireDefault(_Paper);
   
   var _Card = __webpack_require__(124);
   
-  var _FlatButton = __webpack_require__(176);
+  var _FlatButton = __webpack_require__(177);
   
   var _FlatButton2 = _interopRequireDefault(_FlatButton);
   
-  var _DatePicker = __webpack_require__(177);
+  var _DatePicker = __webpack_require__(178);
   
   var _DatePicker2 = _interopRequireDefault(_DatePicker);
   
-  var _tablecs = __webpack_require__(178);
+  var _tablecs = __webpack_require__(137);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -7531,17 +7599,24 @@ module.exports =
           var _this = (0, _possibleConstructorReturn3.default)(this, (FormCs.__proto__ || (0, _getPrototypeOf2.default)(FormCs)).call(this, props));
   
           _this.onInsertClick = function () {
-              //console.log('test');
               var data = {};
               data.title = _this.refs.title.getValue();
+              console.log(_this.refs.title);
+  
               data.calendar = _this.refs.calendar.getDate();
               data.memo = _this.refs.memo.getValue();
               data.speaker = _this.refs.speaker.getValue();
               var insertTable = _this.props.insertTable;
   
-  
+              console.log(data);
               insertTable({ table: "table", data: data });
           };
+  
+          _this.onUpdateClick = function () {
+              console.log('update');
+          };
+  
+          _this.onDeleteClick = function () {};
   
           _this.props = props;
           //console.log(this.props);
@@ -7551,7 +7626,8 @@ module.exports =
       (0, _createClass3.default)(FormCs, [{
           key: 'render',
           value: function render() {
-              var onInsertClick = this.onInsertClick;
+              var onInsertClick = this.onInsertClick,
+                  onUpdateClick = this.onUpdateClick;
   
   
               return _react2.default.createElement(
@@ -7563,7 +7639,27 @@ module.exports =
                       _react2.default.createElement(
                           _Card.Card,
                           null,
-                          _react2.default.createElement(_Card.CardTitle, { title: '\u8868\u55AE\u64CD\u4F5C', subtitle: 'Card subtitle' }),
+                          _react2.default.createElement(_Card.CardTitle, { title: '\u8868\u55AE\u65B0\u589E\u64CD\u4F5C', subtitle: 'Card subtitle' }),
+                          _react2.default.createElement(
+                              _Card.CardText,
+                              null,
+                              _react2.default.createElement(_TextField2.default, { fullWidth: true, hintText: '\u6D3B\u52D5\u540D\u7A31', name: 'title', ref: 'title', id: 'title' }),
+                              _react2.default.createElement(_DatePicker2.default, { hintText: '\u6D3B\u52D5\u65E5\u671F', mode: 'landscape', name: 'calendar', ref: 'calendar', id: 'calendar' }),
+                              _react2.default.createElement(_TextField2.default, { rows: 3, multiLine: true, fullWidth: true, hintText: '\u6D3B\u52D5\u8AAA\u660E', name: 'memo', ref: 'memo', id: 'memo' }),
+                              _react2.default.createElement(_TextField2.default, { fullWidth: true, hintText: '\u4E3B\u8B1B\u8005', name: 'speaker', ref: 'speaker', id: 'speaker' })
+                          ),
+                          _react2.default.createElement(
+                              _Card.CardActions,
+                              null,
+                              _react2.default.createElement(_FlatButton2.default, { label: '\u65B0\u589E', onTouchTap: function onTouchTap() {
+                                      return onInsertClick();
+                                  } })
+                          )
+                      ),
+                      _react2.default.createElement(
+                          _Card.Card,
+                          null,
+                          _react2.default.createElement(_Card.CardTitle, { title: '\u8868\u55AE\u4FEE\u6539\u64CD\u4F5C', subtitle: 'Card subtitle' }),
                           _react2.default.createElement(
                               _Card.CardText,
                               null,
@@ -7575,10 +7671,12 @@ module.exports =
                           _react2.default.createElement(
                               _Card.CardActions,
                               null,
-                              _react2.default.createElement(_FlatButton2.default, { label: '\u65B0\u589E', onTouchTap: function onTouchTap() {
-                                      return onInsertClick();
+                              _react2.default.createElement(_FlatButton2.default, { label: '\u4FEE\u6539', onTouchTap: function onTouchTap() {
+                                      return onUpdateClick();
                                   } }),
-                              _react2.default.createElement(_FlatButton2.default, { label: '\u4FEE\u6539' })
+                              _react2.default.createElement(_FlatButton2.default, { label: '\u522A\u9664', onTouchTap: function onTouchTap() {
+                                      return onDeleteClick();
+                                  } })
                           )
                       )
                   )
@@ -7598,11 +7696,11 @@ module.exports =
   exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)((0, _reactIntl.injectIntl)((0, _withStyles2.default)(_FormCs2.default)(FormCs)));
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(173);
+      var content = __webpack_require__(174);
       var insertCss = __webpack_require__(45);
   
       if (typeof content === 'string') {
@@ -7632,7 +7730,7 @@ module.exports =
     
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(44)();
@@ -7650,67 +7748,28 @@ module.exports =
   };
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/TextField");
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/Paper");
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/FlatButton");
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports) {
 
   module.exports = require("material-ui/DatePicker");
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-      value: true
-  });
-  exports.insertTable = insertTable;
-  exports.showTable = showTable;
-  
-  var _constants = __webpack_require__(99);
-  
-  function insertTable(_ref) {
-      var table = _ref.table,
-          data = _ref.data;
-  
-      //console.log(data);
-  
-      return {
-          type: _constants.INSERT_TABLE,
-          payload: {
-              table: table,
-              data: data
-          }
-      };
-  }
-  function showTable(_ref2) {
-      var table = _ref2.table;
-  
-      return {
-          type: _constants.SHOW_TABLE,
-          payload: {
-              table: table
-          }
-      };
-  }
 
 /***/ },
 /* 179 */
@@ -8380,7 +8439,7 @@ module.exports =
 /* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-  "use strict";
+  'use strict';
   
   Object.defineProperty(exports, "__esModule", {
       value: true
@@ -8396,9 +8455,13 @@ module.exports =
   
   var initialState = {
       table: { table: "testTable" },
-      data: ["無資料"]
+      data: []
   };
   var tabledata = [];
+  
+  var tableListContainer = [];
+  var FormAssignContainer = [];
+  
   //console.log('test reducer');
   function tablecs() {
       var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -8417,6 +8480,12 @@ module.exports =
           //  return action.payload.common
           case 'SHOW_TABLE':
               return state;
+          case 'SEND_ONEDATA':
+              // console.log('send onedata');
+              // console.log(action.payload.index);
+              FormAssignContainer[action.payload.tableName] = action.payload.onedata;
+  
+              return (0, _extends3.default)({}, state, { FormAssignContainer: FormAssignContainer });
           default:
               return state;
       }

@@ -1,8 +1,13 @@
 const initialState = {
     table: { table: "testTable" },
-    data: ["無資料"]
+    data: []
 };
 let tabledata = [];
+
+
+let tableListContainer = [];
+let FormAssignContainer = [];
+
 //console.log('test reducer');
 export default function tablecs(state = initialState, action) {
     switch (action.type) {
@@ -19,6 +24,13 @@ export default function tablecs(state = initialState, action) {
         //  return action.payload.common
         case 'SHOW_TABLE':
             return state;
+        case 'SEND_ONEDATA':
+            // console.log('send onedata');
+            // console.log(action.payload.index);
+            FormAssignContainer[action.payload.tableName] = action.payload.onedata;
+
+
+            return { ...state, FormAssignContainer };
         default:
             return state;
     }

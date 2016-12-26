@@ -7,4 +7,4 @@ export const SET_LOCALE_ERROR = 'SET_LOCALE_ERROR';
 export const SET_LEFTMENU = 'SET_LEFTMENU';
 export const INSERT_TABLE = 'INSERT_TABLE';
 export const SHOW_TABLE = 'SHOW_TABLE';
-
+export const SEND_ONEDATA = 'SEND_ONEDATA';

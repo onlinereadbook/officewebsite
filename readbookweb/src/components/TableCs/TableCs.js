@@ -13,6 +13,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './TableCs.css';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import { sendOneData } from '../../actions/tablecs';
 
 
 
@@ -41,12 +42,17 @@ class TableCs extends Component {
         this.props = props;
         //console.log(this.props);
     }
-
+    onSelectClick = (onedata) => {
+        console.log('select' + onedata);
+        const { sendOneData } = this.props;
+        const tableName = "TableName";
+        sendOneData({ tableName, onedata });
+    }
 
     render() {
-        const { tablecs } = this.props;
+        const { tablecs} = this.props;
         const tabledata = tablecs.data;
-
+        const {onSelectClick} = this;
         return (
             <div className={s.root}>
                 <div className={s.container}>
@@ -62,7 +68,7 @@ class TableCs extends Component {
 
                             {tabledata.map(function (data, index) {
 
-                                return <TableRow key={index}>
+                                return <TableRow key={index} onTouchTap={() => onSelectClick(data)}>
                                     <TableRowColumn>{index}</TableRowColumn>
                                     <TableRowColumn>{data.eventTitle}</TableRowColumn>
                                     <TableRowColumn>{data.eventCal}</TableRowColumn>
@@ -81,7 +87,7 @@ const mapState = (state) => ({
     tablecs: state.tablecs
 });
 const mapDispatch = {
-
+    sendOneData
 };
 
 

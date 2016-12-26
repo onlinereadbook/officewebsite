@@ -28,40 +28,65 @@ class FormCs extends Component {
         this.props = props;
         //console.log(this.props);
     }
+
     onInsertClick = () => {
-        //console.log('test');
         let data = {};
         data.title = this.refs.title.getValue();
+        console.log(this.refs.title);
+
         data.calendar = this.refs.calendar.getDate();
         data.memo = this.refs.memo.getValue();
         data.speaker = this.refs.speaker.getValue();
         const { insertTable } = this.props;
-
+        console.log(data);
         insertTable({ table: "table", data: data });
     }
 
+    onUpdateClick = () => {
+        console.log('update');
+
+    }
+    onDeleteClick = () => {
+
+    }
     render() {
-        const {onInsertClick} = this;
+        const {onInsertClick, onUpdateClick} = this;
 
         return (
             <div className={s.root}>
                 <div className={s.container}>
                     <Card>
+                        <CardTitle title="表單新增操作" subtitle="Card subtitle" />
+                        <CardText>
+                            <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title" id="title"></TextField>
+                            <DatePicker hintText="活動日期" mode="landscape" name="calendar" ref="calendar" id="calendar" />
+                            <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo" ref="memo" id="memo"></TextField>
+                            <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker" id="speaker"></TextField>
+                        </CardText>
+                        <CardActions>
+                            <FlatButton label="新增" onTouchTap={() => onInsertClick()} />
+                        </CardActions>
+                    </Card>
 
-                        <CardTitle title="表單操作" subtitle="Card subtitle" />
+
+                    <Card>
+                        <CardTitle title="表單修改操作" subtitle="Card subtitle" />
                         <CardText>
                             <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title"></TextField>
                             <DatePicker hintText="活動日期" mode="landscape" name="calendar" ref="calendar" />
                             <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo" ref="memo"></TextField>
                             <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker"></TextField>
-
-
                         </CardText>
                         <CardActions>
-                            <FlatButton label="新增" onTouchTap={() => onInsertClick()} />
-                            <FlatButton label="修改" />
+                            <FlatButton label="修改" onTouchTap={() => onUpdateClick()} />
+                            <FlatButton label="刪除" onTouchTap={() => onDeleteClick()} />
+
                         </CardActions>
                     </Card>
+
+
+
+
                 </div>
             </div>
         )
