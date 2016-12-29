@@ -20,8 +20,27 @@
 .container {
     margin: 0 auto;
     padding: 20px 0;
+    max-width: var(--max-content-width);
 }
 
 .text {
     margin: 10px;
+}
+
+:global(.example-enter) {
+    opacity: 0.01;
+}
+
+:global(.example-enter.example-enter-active) {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+:global(.example-leave) {
+    opacity: 1;
+}
+
+:global(.example-leave.example-leave-active) {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
 }

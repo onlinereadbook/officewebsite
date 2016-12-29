@@ -15,6 +15,7 @@ export default function tablecs(state = initialState, action) {
             // console.log(action.payload.data);
             tabledata.push(action.payload.data);
             // console.log(tabledata);
+
             return {
                 ...state,
                 //    tableheader: action.payload.tableheader,

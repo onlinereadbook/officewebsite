@@ -13,6 +13,7 @@ import UserLogin from './UserLogin';
 import UserClaim from './UserClaim';
 import UserProfile from './UserProfile';
 import Events from './Events';
+import BookStudys from './BookStudys';
 
 
 

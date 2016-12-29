@@ -8,8 +8,6 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import ReactDom from 'react-dom';
-
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './FormCs.css';
@@ -23,7 +21,6 @@ import FlatButton from 'material-ui/FlatButton';
 import DatePicker from 'material-ui/DatePicker';
 import { insertTable } from '../../actions/tablecs';
 
-//目標 把FormCs 寫成可以吃各種的Table 資料庫
 
 class FormCs extends Component {
     constructor(props) {
@@ -33,39 +30,31 @@ class FormCs extends Component {
         //console.log(this.props);
         this.state = {
             title: "",
-            calendar: null,
+            calendar: "",
             memo: "",
             speaker: ""
         }
+        this.onTitleChange = this.onTitleChange.bind(this);
+        this.onInsertClick = this.onInsertClick.bind(this);
 
     }
 
-    onInsertClick = (e) => {
-        // e.preventDefault();
-        //   console.log(e);
+    onInsertClick(event) {
+        //e.preventDefault();
         //console.log(this.refs.title.getValue().trim())
         let data = {};
         data.title = this.refs.title.getValue();
-        //console.log(this.refs.myform);
+        console.log(this.refs.title);
         data.calendar = this.refs.calendar.getDate();
         data.memo = this.refs.memo.getValue();
         data.speaker = this.refs.speaker.getValue();
         const { insertTable } = this.props;
-        //console.log(data);
-        //this.refs.title.value = '';
-        insertTable({ table: "events", data: data });
-        //   documentById("myform").reset();
-        //  React.findDOMNode(this.refs.myform).reset();
-        //this.refs.myform.getDomNode().reset();
-        this.setState({
-            title: "",
-            calendar: null,
-            memo: "",
-            speaker: ""
-        });
-        // this.refs.myform.getDOMNode().reset();
-        //ReactDom.findDOMNode(this.refs["title"]).value = '';
-        //        ReactDom.findDOMNode(this.refs.myform).reset();
+        console.log(data);
+        // insertTable({ table: "table", data: data });
+    }
+    onTitleChange(e) {
+        e.preventDefault();
+        this.setState({ "title": e.target.value });
     }
 
     onUpdateClick = () => {
@@ -80,29 +69,37 @@ class FormCs extends Component {
         return (
             <div className={s.root}>
                 <div className={s.container}>
-
-                    <Card >
-                        <form ref="myform" id="myform">
+                    <form>
+                        <Card>
                             <CardTitle title="表單新增操作" subtitle="Card subtitle" />
                             <CardText>
-
-                                <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title" id="title" value={this.state.title} onChange={(event) => { this.setState({ title: event.target.value }) } } ></TextField>
-
-
-                                <DatePicker hintText="活動日期" mode="landscape" autoOk={true} name="calendar"
-                                    ref="calendar" id="calendar" value={this.state.calendar}
-                                    onChange={(event, date) => { this.setState({ calendar: date }) } } />
-
-
-                                <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo" ref="memo" id="memo" value={this.state.memo} onChange={(event) => { this.setState({ memo: event.target.value }) } }></TextField>
-                                <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker" id="speaker" value={this.state.speaker} onChange={(event) => { this.setState({ speaker: event.target.value }) } }></TextField>
-
+                                <TextField fullWidth={true} hintText="活動名稱" ref="title"  ></TextField>
+                                <DatePicker hintText="活動日期" mode="landscape" ref="calendar" />
+                                <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" ref="memo" ></TextField>
+                                <TextField fullWidth={true} hintText="主講者" ref="speaker" ></TextField>
                             </CardText>
                             <CardActions>
-                                <FlatButton label="新增" onTouchTap={this.onInsertClick} />
+                                <FlatButton label="新增" onTouchTap={(event) => { console.log(this.refs.memo) } } />
                             </CardActions>
-                        </form>
+                        </Card>
+                    </form>
+
+                    <Card>
+                        <CardTitle title="表單修改操作" subtitle="Card subtitle" />
+                        <CardText>
+                            <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title"></TextField>
+                            <DatePicker hintText="活動日期" mode="landscape" name="calendar" ref="calendar" />
+                            <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo" ref="memo"></TextField>
+                            <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker"></TextField>
+                        </CardText>
+                        <CardActions>
+                            <FlatButton label="修改" onTouchTap={() => this.onUpdateClick()} />
+                            <FlatButton label="刪除" onTouchTap={() => this.onDeleteClick()} />
+
+                        </CardActions>
                     </Card>
+
+
 
 
                 </div>

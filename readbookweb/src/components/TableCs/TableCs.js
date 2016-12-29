@@ -14,7 +14,22 @@ import s from './TableCs.css';
 import { connect } from 'react-redux';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import { sendOneData } from '../../actions/tablecs';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import TextField from 'material-ui/TextField';
+import ActionAndroid from 'material-ui/svg-icons/action/android';
+import FlatButton from 'material-ui/FlatButton';
 
+
+
+const tableheader = [{
+    "headerName": "ID"
+}, {
+    "headerName": "活動名稱"
+}, {
+    "headerName": "活動日期"
+}, {
+    "headerName": "主講者"
+}];
 
 
 
@@ -52,33 +67,53 @@ class TableCs extends Component {
     render() {
         const { tablecs} = this.props;
         const tabledata = tablecs.data;
+        console.log('tablecs.data');
+        console.log(tablecs.data);
         const {onSelectClick} = this;
         return (
             <div className={s.root}>
                 <div className={s.container}>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHeaderColumn>ID</TableHeaderColumn>
-                                <TableHeaderColumn>Name</TableHeaderColumn>
-                                <TableHeaderColumn>Status</TableHeaderColumn>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
+                    <Card  >
+                        <CardText>
+                            <div className={s.flex2} >
+                                <TextField hintText="輸入關鍵字" fullWidth={true} ></TextField>
+                            </div>
+                            <div className={s.flex1} >
+                                <FlatButton
+                                    label="開始搜尋"
+                                    labelPosition="before"
+                                    primary={true}
+                                    icon={<ActionAndroid />}
+                                    />
+                            </div>
+                        </CardText>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    {tableheader.map(function (data, index) {
+                                        return <TableHeaderColumn key={index}>{data.headerName}</TableHeaderColumn>;
+                                    })}
 
-                            {tabledata.map(function (data, index) {
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
 
-                                return <TableRow key={index} onTouchTap={() => onSelectClick(data)}>
-                                    <TableRowColumn>{index}</TableRowColumn>
-                                    <TableRowColumn>{data.eventTitle}</TableRowColumn>
-                                    <TableRowColumn>{data.eventCal}</TableRowColumn>
-                                </TableRow>;
-                            })}
+                                {tabledata.map(function (data, index) {
+                                    return <TableRow key={index} onTouchTap={() => onSelectClick(data)}>
+                                        <TableRowColumn>{index}</TableRowColumn>
+                                        <TableRowColumn>{data.title}</TableRowColumn>
+                                        <TableRowColumn>{data.calendar.getFullYear()}/{data.calendar.getMonth()}/{data.calendar.getDate()}</TableRowColumn>
+                                        <TableRowColumn>{data.speaker}</TableRowColumn>
 
-                        </TableBody>
-                    </Table>
+                                    </TableRow>;
+                                })}
+
+                            </TableBody>
+                        </Table>
+                    </Card>
+
                 </div>
-            </div>
+            </div >
         )
     }
 
@@ -88,6 +123,7 @@ const mapState = (state) => ({
 });
 const mapDispatch = {
     sendOneData
+
 };
 
 
