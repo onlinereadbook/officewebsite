@@ -75,16 +75,18 @@ class TableCs extends Component {
                 <div className={s.container}>
                     <Card  >
                         <CardText>
-                            <div className={s.flex2} >
-                                <TextField hintText="輸入關鍵字" fullWidth={true} ></TextField>
-                            </div>
-                            <div className={s.flex1} >
-                                <FlatButton
-                                    label="開始搜尋"
-                                    labelPosition="before"
-                                    primary={true}
-                                    icon={<ActionAndroid />}
-                                    />
+                            <div className={s.flexContainer}>
+                                <div className={s.flex2} >
+                                    <TextField hintText="輸入關鍵字" fullWidth={true} id="search"></TextField>
+                                </div>
+                                <div className={s.flex1} >
+                                    <FlatButton
+                                        label="開始搜尋"
+                                        labelPosition="before"
+                                        primary={true}
+                                        icon={<ActionAndroid />}
+                                        />
+                                </div>
                             </div>
                         </CardText>
                         <Table>

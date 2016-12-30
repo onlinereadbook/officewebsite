@@ -69,21 +69,22 @@ class FormCs extends Component {
         return (
             <div className={s.root}>
                 <div className={s.container}>
-                    <form>
-                        <Card>
-                            <CardTitle title="表單新增操作" subtitle="Card subtitle" />
-                            <CardText>
-                                <TextField fullWidth={true} hintText="活動名稱" ref="title"  ></TextField>
-                                <DatePicker hintText="活動日期" mode="landscape" ref="calendar" />
-                                <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" ref="memo" ></TextField>
-                                <TextField fullWidth={true} hintText="主講者" ref="speaker" ></TextField>
-                            </CardText>
-                            <CardActions>
-                                <FlatButton label="新增" onTouchTap={(event) => { console.log(this.refs.memo) } } />
-                            </CardActions>
-                        </Card>
-                    </form>
-
+                    <div id="testdiv" className={s.createHide}>
+                        <form >
+                            <Card>
+                                <CardTitle title="表單新增操作" subtitle="Card subtitle" />
+                                <CardText>
+                                    <TextField fullWidth={true} hintText="活動名稱" ref="title"  ></TextField>
+                                    <DatePicker hintText="活動日期" mode="landscape" ref="calendar" />
+                                    <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" ref="memo" ></TextField>
+                                    <TextField fullWidth={true} hintText="主講者" ref="speaker" ></TextField>
+                                </CardText>
+                                <CardActions>
+                                    <FlatButton label="新增" onTouchTap={(event) => { console.log(this.refs.memo) } } />
+                                </CardActions>
+                            </Card>
+                        </form>
+                    </div>
                     <Card>
                         <CardTitle title="表單修改操作" subtitle="Card subtitle" />
                         <CardText>

@@ -22,6 +22,10 @@
 
 .button {}
 
+.flexContatiner {
+    display: flex;
+}
+
 .flex1 {
     -webkit-flex: 1;
     flex: 1;

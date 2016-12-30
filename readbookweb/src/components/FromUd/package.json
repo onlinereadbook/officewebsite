@@ -1,0 +1,6 @@
+{
+    "name": "FormUd",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FormUd.js"
+}

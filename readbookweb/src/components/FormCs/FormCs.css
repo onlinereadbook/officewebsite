@@ -27,20 +27,10 @@
     margin: 10px;
 }
 
-:global(.example-enter) {
-    opacity: 0.01;
+.divHide {
+    display: none
 }
 
-:global(.example-enter.example-enter-active) {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-}
-
-:global(.example-leave) {
-    opacity: 1;
-}
-
-:global(.example-leave.example-leave-active) {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
+.createShow {
+    display: ""
 }

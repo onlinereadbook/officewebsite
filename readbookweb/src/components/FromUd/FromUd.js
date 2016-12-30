@@ -12,7 +12,7 @@ import ReactDom from 'react-dom';
 
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './FormCs.css';
+import s from './FormUd.css';
 //import MenuData from '../MenuData';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
@@ -29,7 +29,7 @@ const divHide = {
     display: "none"
 }
 
-class FormCs extends Component {
+class FormUd extends Component {
 
     constructor(props) {
         super(props);
@@ -49,13 +49,9 @@ class FormCs extends Component {
         // e.preventDefault();
         //   console.log(e);
         //console.log(this.refs.title.getValue().trim())
-
-        if (this.refs.calendar.getDate() == null) {
-            return;
-        }
-
         let data = {};
         data.title = this.refs.title.getValue();
+        //console.log(this.refs.myform);
         data.calendar = this.refs.calendar.getDate();
         data.memo = this.refs.memo.getValue();
         data.speaker = this.refs.speaker.getValue();
@@ -123,4 +119,4 @@ const mapDispatch = {
 
 
 
-export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(FormCs)));
+export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(FormUd)));
