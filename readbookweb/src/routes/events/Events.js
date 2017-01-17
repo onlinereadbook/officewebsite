@@ -60,9 +60,8 @@ class Events extends Component {
                     <div className={s.root}>
                         <div className={s.container}>
 
-                            <TableCs TableHeaderData={TableHeaderData} TableRowData={TableRowData}></TableCs>
+                            <TableCs TableHeaderData={TableHeaderData} TableRowData={TableRowData} ></TableCs>
 
-                            <FormCs></FormCs>
                         </div>
                     </div>
                 </Layout>

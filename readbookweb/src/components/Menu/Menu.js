@@ -23,10 +23,10 @@ import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
- import history from '../../core/history';
+import history from '../../core/history';
 
 import Link from '../Link';
-import {programdata} from './MenuData';
+import { programdata } from './MenuData';
 
 
 const styles = {
@@ -49,6 +49,7 @@ const styles = {
 };
 
 class Menu extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -76,7 +77,7 @@ class Menu extends Component {
             openMenu: !this.props.common.openMenu,
             openMenuEvent: false
         });
-  
+
     }
     ClickBookTopic = (index) => {
         //console.log(result);
@@ -84,21 +85,21 @@ class Menu extends Component {
         this.setState({
             IsOpenData: !this.state.IsOpenData,
             IsOpenInfo: true,
-           // AssignData: result
+            // AssignData: result
         })
 
         const { setLeftmenu } = this.props;
         //console.log(this.props);
- 
+
 
         setLeftmenu({
             openMenu: !this.props.common.openMenu
         });
-  console.log(index);
-    history.push('/readbook/'+index);
+        console.log(index);
+        history.push('/readbook/' + index);
         //狀態更改後要轉址
-     
- //
+
+        //
 
         //   console.log('this.state');
     }
@@ -112,7 +113,7 @@ class Menu extends Component {
         setLeftmenu({
             openMenu: this.props.common.openMenu ? false : true
         });
-          // console.log(this.props.common.openMenu);
+        // console.log(this.props.common.openMenu);
     }
     render() {
         let {ClickBookTopic} = this;
@@ -123,16 +124,16 @@ class Menu extends Component {
         ));
         const { common } = this.props;
         // console.log(common);
-         
+
         return (
             <div className={s.root}>
                 <div className={s.container}>
- 
-         
-                
-                     <Drawer open={common.openMenu} width={350}>
+
+
+
+                    <Drawer open={common.openMenu} width={350}>
                         {programdata.map(function (result, index) {
-                           // result.bookname =(result.bookname)?result.bookname:"未設定";
+                            // result.bookname =(result.bookname)?result.bookname:"未設定";
                             return <MenuItem key={index} onTouchTap={() => ClickBookTopic(index)} >
 
                                 <Avatar
@@ -141,13 +142,13 @@ class Menu extends Component {
                                     style={styles.avatar}
 
                                     />
-                                    
-                                              {result.title} 
 
-                               </MenuItem >;
+                                {result.title}
+
+                            </MenuItem >;
 
                         })}
-                     
+
 
 
                         <RaisedButton

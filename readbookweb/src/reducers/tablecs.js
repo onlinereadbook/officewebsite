@@ -6,15 +6,25 @@ let tabledata = [];
 
 
 let tableListContainer = [];
-let FormAssignContainer = [];
+let readyUpdata = {
+    id: "",
+    title: "",
+    calendar: null,
+    memo: "",
+    speaker: ""
+
+};
 
 //console.log('test reducer');
 export default function tablecs(state = initialState, action) {
     switch (action.type) {
         case 'INSERT_TABLE':
-            // console.log(action.payload.data);
-            tabledata.push(action.payload.data);
-            // console.log(tabledata);
+            console.log(action.payload.data);
+            //使用Es7語法 把 物件轉成陣列
+            var arr = action.payload.data.values(obj);
+            tabledata.push(arr);
+            // tabledata.push(action.payload.data);
+            console.log(arr);
 
             return {
                 ...state,
@@ -26,12 +36,13 @@ export default function tablecs(state = initialState, action) {
         case 'SHOW_TABLE':
             return state;
         case 'SEND_ONEDATA':
-            // console.log('send onedata');
-            // console.log(action.payload.index);
-            FormAssignContainer[action.payload.tableName] = action.payload.onedata;
 
+            console.log(action.payload.onedata);
+            readyUpdata = action.payload.onedata;
+            //console.log('send onedata');
+            //console.log(readyUpdata);
 
-            return { ...state, FormAssignContainer };
+            return { ...state, readyUpdata };
         default:
             return state;
     }

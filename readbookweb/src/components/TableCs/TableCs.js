@@ -18,11 +18,11 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import TextField from 'material-ui/TextField';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import FlatButton from 'material-ui/FlatButton';
-
+import FormUd from '../FormUd'
 
 
 const tableheader = [{
-    "headerName": "ID"
+    "headerName": "活動類型"
 }, {
     "headerName": "活動名稱"
 }, {
@@ -57,18 +57,18 @@ class TableCs extends Component {
         this.props = props;
         //console.log(this.props);
     }
-    onSelectClick = (onedata) => {
-        console.log('select' + onedata);
+    onSelectClick = (index) => {
+        //console.log('select' + onedata);
         const { sendOneData } = this.props;
         const tableName = "TableName";
-        sendOneData({ tableName, onedata });
+        sendOneData({ tableName, index });
     }
 
     render() {
         const { tablecs} = this.props;
         const tabledata = tablecs.data;
-        console.log('tablecs.data');
-        console.log(tablecs.data);
+        //    console.log('tablecs.data');
+        //  console.log(tablecs.data);
         const {onSelectClick} = this;
         return (
             <div className={s.root}>
@@ -89,8 +89,8 @@ class TableCs extends Component {
                                 </div>
                             </div>
                         </CardText>
-                        <Table>
-                            <TableHeader>
+                        <Table adjustForCheckbox={false}>
+                            <TableHeader >
                                 <TableRow>
                                     {tableheader.map(function (data, index) {
                                         return <TableHeaderColumn key={index}>{data.headerName}</TableHeaderColumn>;
@@ -101,18 +101,29 @@ class TableCs extends Component {
                             <TableBody>
 
                                 {tabledata.map(function (data, index) {
-                                    return <TableRow key={index} onTouchTap={() => onSelectClick(data)}>
-                                        <TableRowColumn>{index}</TableRowColumn>
-                                        <TableRowColumn>{data.title}</TableRowColumn>
-                                        <TableRowColumn>{data.calendar.getFullYear()}/{data.calendar.getMonth()}/{data.calendar.getDate()}</TableRowColumn>
-                                        <TableRowColumn>{data.speaker}</TableRowColumn>
-
+                                    return <TableRow key={index} onTouchTap={() => onSelectClick(index)}>
+                                        {data.map(function (data2, index2) {
+                                            if (typeof (data2.getFullYear) == "function") {
+                                                return <TableRowColumn key={index2}>{data2.getFullYear()}-{data2.getMonth()}-{data2.getDate()} </TableRowColumn>
+                                            }
+                                            return <TableRowColumn key={index2}>{data2}</TableRowColumn>
+                                        })}
                                     </TableRow>;
+
+                                    // return <TableRow key={index} onTouchTap={() => onSelectClick(data)}>
+                                    //     <TableRowColumn>{index}</TableRowColumn>
+                                    //     <TableRowColumn>{data.title}</TableRowColumn>
+                                    //     <TableRowColumn>{data.calendar.getFullYear()}/{data.calendar.getMonth()}/{data.calendar.getDate()}</TableRowColumn>
+                                    //     <TableRowColumn>{data.speaker}</TableRowColumn>
+
+                                    // </TableRow>;
                                 })}
 
                             </TableBody>
                         </Table>
                     </Card>
+
+
 
                 </div>
             </div >

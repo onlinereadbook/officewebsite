@@ -17,6 +17,7 @@ import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import { setLeftmenu } from '../../actions/common';
 
 import { connect } from 'react-redux';
 const styles = {
@@ -33,12 +34,12 @@ class Home extends Component {
     }
 
     OpenAbout = () => {
-        // const { setLeftmenu } = this.props;
-        console.log('ttest');
-        // setLeftmenu({
-        //     openMenu: !this.props.common.openMenu,
-        //     openMenuEvent: false
-        // });
+        const { setLeftmenu } = this.props;
+        //   console.log('ttest');
+        setLeftmenu({
+            openMenu: !this.props.common.openMenu,
+            openMenuEvent: false
+        });
 
     }
     render() {
@@ -81,7 +82,7 @@ class Home extends Component {
                                         primary={true}
                                         icon={<ActionSearchIcon />}
                                         style={styles.button}
-                                        onTouchTap={() => OpenAbout()}
+                                        onTouchTap={() => this.OpenAbout()}
                                         />
 
 
@@ -107,9 +108,9 @@ const mapState = (state) => ({
 
 });
 const mapDispatch = {
-
+    setLeftmenu
 };
 
 
 
-export default connect(mapState)(withStyles(s)(Home));
+export default connect(mapState, mapDispatch)(withStyles(s)(Home));

@@ -7,7 +7,8 @@ export const programdata = [
         "weblink": "https://www.facebook.com/groups/906048196159262/",
         "memo": "react 讀書會 攻略項目 目前包含 react ,reactnatvice ,redux ,webpack ,add-ons ,未來會攻略 ReactVr  ....",
         "icon": "images/icons/reactjs.png",
-        "mainphoto": "images/mainphoto/a1.jpg"
+        "mainphoto": "images/mainphoto/a1.jpg",
+        "github": "https://github.com/onlinereadbook/bookreactjs/tree/master/%E8%AE%80%E6%9B%B8%E6%9C%83%E9%81%8E%E5%BE%80%E5%BD%B1%E7%89%87%E5%8F%8A%E8%A8%8E%E8%AB%96%E5%8D%80"
     }, {
         "id": 2,
         "title": "線上 nodejs 讀書會",
@@ -122,7 +123,7 @@ export const programdata = [
         "icon": "images/icons/go.png",
 
     },
-        {
+    {
         "title": "線上 創業 讀書會",
         "weblink": "https://www.facebook.com/groups/1746983635561623/",
         "memo": "",
@@ -139,7 +140,7 @@ export const otherdata = [
         "memo": "",
         "icon": "images/icons/business.png",
 
-    },{
+    }, {
         "title": "線上 韓語 讀書會",
         "weblink": "https://www.facebook.com/groups/583103035208789/",
         "memo": "",

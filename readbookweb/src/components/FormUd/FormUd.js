@@ -23,20 +23,18 @@ import FlatButton from 'material-ui/FlatButton';
 import DatePicker from 'material-ui/DatePicker';
 import { insertTable } from '../../actions/tablecs';
 
-//目標 把FormCs 寫成可以吃各種的Table 資料庫
+//目標 把FormCs 配合 傳進來的資料可以修改 寫成可以吃各種的Table 資料庫
 
 const divHide = {
     display: "none"
 }
 
 class FormUd extends Component {
-
     constructor(props) {
         super(props);
         this.props = props;
-        //this.refs = props;
-        //console.log(this.props);
         this.state = {
+            //      tablId: "",
             title: "",
             calendar: null,
             memo: "",
@@ -45,39 +43,31 @@ class FormUd extends Component {
 
     }
 
-    onInsertClick = (e) => {
-        // e.preventDefault();
-        //   console.log(e);
-        //console.log(this.refs.title.getValue().trim())
-        let data = {};
-        data.title = this.refs.title.getValue();
-        //console.log(this.refs.myform);
-        data.calendar = this.refs.calendar.getDate();
-        data.memo = this.refs.memo.getValue();
-        data.speaker = this.refs.speaker.getValue();
-        const { insertTable } = this.props;
-        //console.log(data);
-        //this.refs.title.value = '';
-        insertTable({ table: "events", data: data });
-        //   documentById("myform").reset();
-        //  React.findDOMNode(this.refs.myform).reset();
-        //this.refs.myform.getDomNode().reset();
+    componentWillReceiveProps(nextProps) {
+        const { readyUpdata} = nextProps;
         this.setState({
-            title: "",
-            calendar: null,
-            memo: "",
-            speaker: ""
+            //        tablId: "test",
+            title: readyUpdata.title,
+            calendar: readyUpdata.calendar,
+            memo: readyUpdata.memo,
+            speaker: readyUpdata.speaker
         });
-        // this.refs.myform.getDOMNode().reset();
-        //ReactDom.findDOMNode(this.refs["title"]).value = '';
-        //        ReactDom.findDOMNode(this.refs.myform).reset();
+        //      this.setState({ title: "123" })
+
+
     }
+
+
+
 
     onUpdateClick = () => {
         console.log('update');
+        console.log(this.state);
+
 
     }
     onDeleteClick = () => {
+        console.log('detele');
 
     }
     render() {
@@ -88,8 +78,10 @@ class FormUd extends Component {
                     <div id="panel" >
                         <Card >
                             <form ref="myform" id="myform">
-                                <CardTitle title="表單新增操作" subtitle="Card subtitle" />
+                                <CardTitle title="表單修改操作" subtitle="Card subtitle" />
                                 <CardText>
+                                    <TextField fullWidth={true} hintText="tablId" name="tablId" ref="tablId" id="tablId" value={this.state.tablId} onChange={(event) => { this.setState({ id: event.target.value }) } } ></TextField>
+
                                     <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title" id="title" value={this.state.title} onChange={(event) => { this.setState({ title: event.target.value }) } } ></TextField>
                                     <DatePicker hintText="活動日期" mode="landscape" autoOk={true} name="calendar"
                                         ref="calendar" id="calendar" value={this.state.calendar}
@@ -99,7 +91,8 @@ class FormUd extends Component {
 
                                 </CardText>
                                 <CardActions>
-                                    <FlatButton label="新增" onTouchTap={this.onInsertClick} />
+                                    <FlatButton label="修改" onTouchTap={this.onUpdateClick} />
+                                    <FlatButton label="刪除" onTouchTap={this.onDeleteClick} />
                                 </CardActions>
                             </form>
                         </Card>
@@ -112,6 +105,8 @@ class FormUd extends Component {
 
 }
 const mapState = (state) => ({
+    readyUpdata: state.tablecs.readyUpdata
+
 });
 const mapDispatch = {
     insertTable

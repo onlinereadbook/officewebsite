@@ -40,9 +40,41 @@ class FormCs extends Component {
             title: "",
             calendar: null,
             memo: "",
-            speaker: ""
+            speaker: "",
+            calendarError: "",
+            titleError: "",
+            memoError: "",
+            speakerError: ""
+
         }
 
+    }
+
+
+    verification = () => {
+        let isError = false;
+        //console.log("verification");
+
+        if (this.refs.calendar.getDate() == null) {
+            this.setState({ calendarError: "日期欄位必填歐" });
+            //  console.log("test");
+            isError = true;
+        }
+        if (this.refs.title.getValue() == "") {
+            this.setState({ titleError: "活動欄位必填歐" });
+            isError = true;
+        }
+        if (this.refs.memo.getValue() == "") {
+            this.setState({ memoError: "活動說明欄位必填歐" });
+            isError = true;
+        }
+        if (this.refs.speaker.getValue() == "") {
+            this.setState({ speakerError: "主講者欄位必填歐" });
+            isError = true;
+        }
+
+
+        return isError;
     }
 
     onInsertClick = (e) => {
@@ -50,8 +82,8 @@ class FormCs extends Component {
         //   console.log(e);
         //console.log(this.refs.title.getValue().trim())
 
-        if (this.refs.calendar.getDate() == null) {
-            return;
+        if (this.verification()) {
+            return
         }
 
         let data = {};
@@ -94,12 +126,21 @@ class FormCs extends Component {
                             <form ref="myform" id="myform">
                                 <CardTitle title="表單新增操作" subtitle="Card subtitle" />
                                 <CardText>
-                                    <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title" id="title" value={this.state.title} onChange={(event) => { this.setState({ title: event.target.value }) } } ></TextField>
+                                    <TextField fullWidth={true} hintText="活動名稱" name="title" ref="title" id="title" value={this.state.title}
+                                        errorText={this.state.titleError}
+                                        onChange={(event) => { this.setState({ title: event.target.value, titleError: "" }) } } ></TextField>
                                     <DatePicker hintText="活動日期" mode="landscape" autoOk={true} name="calendar"
-                                        ref="calendar" id="calendar" value={this.state.calendar}
-                                        onChange={(event, date) => { this.setState({ calendar: date }) } } />
-                                    <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo" ref="memo" id="memo" value={this.state.memo} onChange={(event) => { this.setState({ memo: event.target.value }) } }></TextField>
-                                    <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker" id="speaker" value={this.state.speaker} onChange={(event) => { this.setState({ speaker: event.target.value }) } }></TextField>
+                                        ref="calendar" id="calendar" value={this.state.calendar} errorText={this.state.calendarError}
+                                        onChange={(event, date) => { this.setState({ calendar: date, calendarError: "" }) } } />
+                                    <TextField rows={3} multiLine={true} fullWidth={true} hintText="活動說明" name="memo"
+                                        ref="memo" id="memo" value={this.state.memo}
+                                        errorText={this.state.memoError}
+                                        onChange={(event) => { this.setState({ memo: event.target.value, memoError: "" }) } }></TextField>
+                                    <TextField fullWidth={true} hintText="主講者" name="speaker" ref="speaker" id="speaker"
+                                        value={this.state.speaker}
+                                        errorText={this.state.speakerError}
+
+                                        onChange={(event) => { this.setState({ speaker: event.target.value, speakerError: "" }) } }></TextField>
 
                                 </CardText>
                                 <CardActions>
