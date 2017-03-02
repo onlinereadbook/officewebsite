@@ -66,3 +66,20 @@ react-flexbox-grid
 
 react-ultimate-pagination-material-ui
 https://github.com/AdeleD/react-paginate
+
+
+Crud 製作步驟
+
+建立GraphQL query 與 matation
+
+使用Jwt 保護
+
+今天的工作 規劃 Model 
+
+前端 material-ui
+
+圖片 ui
+
+Zoom 導入自動化
+
+
