@@ -1,5 +1,3 @@
-
-
 讀書會官方網站製作 v1.0
 
 目前製作項目有
@@ -61,12 +59,22 @@ http://docs.sequelizejs.com/en/v3/api/datatypes/
 
 //ORM中這邊一定要用async 
 
-
 react-flexbox-grid
 
 react-ultimate-pagination-material-ui
+
 https://github.com/AdeleD/react-paginate
 
+
+使用FB api 抓到自己管理的FB 並且設定過濾條件 把不要的block
+
+
+
+
+
+產出目前格式的JSON檔案
+
+在每一頁中加入
 
 Crud 製作步驟
 
@@ -74,12 +82,14 @@ Crud 製作步驟
 
 使用Jwt 保護
 
-今天的工作 規劃 Model 
+規劃 Model 
 
 前端 material-ui
 
 圖片 ui
 
 Zoom 導入自動化
+
+
 
 
