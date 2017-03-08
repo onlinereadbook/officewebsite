@@ -33,15 +33,30 @@ const tableheader = [{
 
 
 
+const events = [{
+    "eventTitle": "Nodejs讀書會",
+    "eventCal": "2016-12-12",
+    "eventKind": "後端",
+    "eventSpeaker": "主講者:polo",
+    "eventMemo": "好康之主題",
+}, {
+    "eventTitle": "Reactjs讀書會",
+    "eventCal": "2016-12-13",
+    "eventKind": "前端",
+    "eventSpeaker": "主講者:andy",
+    "eventMemo": "好康之主題",
+
+}]
 
 
-class EventsCo extends Component {
+
+class TableCs extends Component {
     constructor(props) {
         super(props);
 
         this.props = props;
-        // console.log('-----');
-        // console.log(this.props);
+        console.log('-----');
+        console.log(this.props);
     }
     onSelectClick = (index) => {
         //console.log('select' + onedata);
@@ -52,13 +67,11 @@ class EventsCo extends Component {
 
     render() {
         const { tablecs } = this.props;
-        const tabledata = this.props.TableRowData;
-        // console.log('===');
-        // console.log(tabledata);
+        const tabledata = tablecs.TableRowData;
+        console.log('===');
+        console.log(tablecs.TableRowData);
         //  console.log(tablecs.data);
         const { onSelectClick } = this;
-        console.log(tabledata);
-
         return (
             <div className={s.root}>
                 <div className={s.container}>
@@ -85,11 +98,11 @@ class EventsCo extends Component {
                                         return <TableHeaderColumn key={index}>{data.headerName}</TableHeaderColumn>;
                                     })}
 
-
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                     {tabledata.map(function (data, index) {
+
+                                {tabledata.map(function (data, index) {
                                     return <TableRow key={index} onTouchTap={() => onSelectClick(index)}>
                                         {data.map(function (data2, index2) {
                                             if (typeof (data2.getFullYear) == "function") {
@@ -107,7 +120,6 @@ class EventsCo extends Component {
 
                                     // </TableRow>;
                                 })}
-
 
                             </TableBody>
                         </Table>
@@ -131,4 +143,4 @@ const mapDispatch = {
 
 
 
-export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(EventsCo)));
+export default connect(mapState, mapDispatch)(injectIntl(withStyles(s)(TableCs)));

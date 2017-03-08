@@ -1,0 +1,6 @@
+{
+    "name": "EventCo",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./EventCo.js"
+}

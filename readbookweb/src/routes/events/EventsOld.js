@@ -17,7 +17,8 @@ import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import EventCo from '../../components/EventCo';
+import TableCs from '../../components/TableCs';
+import FormCs from '../../components/FormCs';
 
 import { connect } from 'react-redux';
 const styles = {
@@ -25,29 +26,12 @@ const styles = {
     Card: { marginBotton: 10 }
 }
 
-
 const TableHeaderData = ["時間", "種類", "主講者", "內容"];
 
-// const TableRowData = [
-//     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-//     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-// ];
+const TableRowData = [
+    { time: "time", kind: "kind", speaker: "speaker", content: "content" }
+];
 
-
-const TableRowData = [{
-    "eventTitle": "Nodejs讀書會",
-    "eventCal": "2016-12-12",
-    "eventKind": "後端",
-    "eventSpeaker": "主講者:polo",
-    "eventMemo": "好康之主題",
-}, {
-    "eventTitle": "Reactjs讀書會",
-    "eventCal": "2016-12-13",
-    "eventKind": "前端",
-    "eventSpeaker": "主講者:andy",
-    "eventMemo": "好康之主題",
-
-}]
 
 
 class Events extends Component {
@@ -68,16 +52,15 @@ class Events extends Component {
     }
     render() {
         const { common } = this.props;
-        const { OpenAbout } = this;
-        console.log('TableRowData');
-        console.log(TableRowData);
+        const {OpenAbout} = this;
+
         return (
             <div>
                 <Layout name="polo">
                     <div className={s.root}>
                         <div className={s.container}>
 
-                            <EventCo   >   </EventCo>
+                            <TableCs TableHeaderData={TableHeaderData} TableRowData={TableRowData} ></TableCs>
 
                         </div>
                     </div>

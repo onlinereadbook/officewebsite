@@ -34,6 +34,7 @@ const events2 = {
         //console.log(Events);   //<--有問題的是這個地方 我log出來長這樣  { default: Events } <--這個有正常嗎
         // 問題是 Events2 到底有沒有成功呢  <---
         let datas = await Events.findAll();  //這邊一定要用async
+        console.log(datas);
         return datas;
     },
 };

@@ -7,33 +7,44 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import DataType from 'sequelize';
-import Model from '../sequelize';   //這邊已經有綁Model了 所以照理說 Events應該就是一個ORM
 
-const Events = Model.define('Events', {
+
+import DataType from 'sequelize';
+import Model from '../sequelize';
+
+const YoutubeComment = Model.define('YoutubeComment', {
+
     id: {
         type: DataType.UUID,
         defaultValue: DataType.UUIDV1,
         primaryKey: true,
     },
-    title: {
-        type: DataType.STRING(255),
-    },
-    calendar: {
-        type: DataType.STRING(255),
-    },
-    memo: {
-        type: DataType.TEXT(),
-    },
-    speaker: {
-        type: DataType.STRING(255),
-    },
-    publishedDate: {
+
+    videoId: {
         type: DataType.STRING(255),
     },
 
 
-});
-//console.log("Events",Events);
-//console.log("EventsTest");
-export default Events;
+    UserId: {
+        type: DataType.STRING(255),
+
+    },
+
+    Comment: {
+        type: DataType.STRING(255),
+
+    },
+    Comment: {
+        type: DataType.STRING(255),
+
+    },
+
+}, {
+
+        indexes: [
+            { fields: ['videoId', 'UserId'] },
+        ],
+
+    });
+
+export default YoutubeComment;

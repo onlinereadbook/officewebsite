@@ -16,12 +16,12 @@ const fs = require('mz/fs');
 
 import YOUTUBEDATA from '../youtubekey';
 
-Youtubelist.truncate();
+//Youtubelist.truncate();
 //let YOUTUBEDATA = require('../youtubekey');
 //console.log(YOUTUBEDATA.YOUR_API_KEY);
 let YOUR_API_KEY = YOUTUBEDATA.YOUR_API_KEY;
 let CHANNELID = YOUTUBEDATA.CHANNELID;
-let MAXRESULTS = 10;
+let MAXRESULTS = 50;
 // console.log(YOUR_API_KEY);
 let url = `https://www.googleapis.com/youtube/v3/activities?part=contentDetails%2Csnippet&maxResults=${MAXRESULTS}&channelId=${CHANNELID}&key=${YOUR_API_KEY}`
 
@@ -32,6 +32,8 @@ request(url, function (err, res) {
     let pageToken = data.nextPageToken;
     // console.log(data.nextPageToken);
     //var arr = JSON.stringify(data.items);
+    console.log('下一頁的pageToken:' + pageToken);
+
     data.items.forEach(function (value, id) {
 
         let data2 = {};
@@ -48,6 +50,7 @@ request(url, function (err, res) {
         Youtubelist.build(data2).save();
 
     })
+
     // fs.writeFile('xx.json', arr);
     //console.log(data.pageToken);
     gonext(pageToken);
@@ -61,23 +64,27 @@ async function gonext(Token) {
         let data = JSON.parse(res.body);
 
         let Token = data.nextPageToken;
-        //console.log(data);
+
         //     //var arr = JSON.stringify(data.items);
-        data.items.forEach(function (value, id) {
-            let data2 = {};
-            data2.title = value.snippet.title;
-            data2.description = value.snippet.description;
-            console.log(typeof (value.contentDetails.upload.videoId));
-            data2.videoId = (typeof (value.contentDetails.upload.videoId) === "string") ? value.contentDetails.upload.videoId : "";
-            Youtubelist.build(data2).save();
 
-        })
+        console.log(typeof (data.items));
+        if (data.items === "Object") {
+            data.items.forEach(function (value, id) {
+                let data2 = {};
+                data2.title = value.snippet.title;
+                data2.description = value.snippet.description;
+                //console.log(isNaN(value.contentDetails.upload.videoId));
 
+                data2.videoId = (typeof (value.contentDetails.upload) == "object") ? value.contentDetails.upload.videoId : "";
+                // Youtubelist.build(data2).save();
+
+            })
+        }
         if (Token != "") {
             setTimeout(function () {
                 console.log('下一次的旅程');
                 gonext(Token);
-            }, 1000);
+            }, 5000);
         }
     })
 
