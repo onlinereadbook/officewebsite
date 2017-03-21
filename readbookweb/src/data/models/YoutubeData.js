@@ -32,7 +32,10 @@ const YoutubeData = Model.define('YoutubeData', {
         type: DataType.STRING(255),
 
     },
+    tags: {
+        type: DataType.STRING(255),
 
+    },
 }, {
 
         indexes: [

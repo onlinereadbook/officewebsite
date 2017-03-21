@@ -25,6 +25,7 @@ export default {
     require('./register').default,
     require('./admin').default,
     require('./events').default,
+    require('./youtube').default,
 
 
 

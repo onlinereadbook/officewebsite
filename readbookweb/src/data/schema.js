@@ -17,6 +17,7 @@ import content from './queries/content';
 import news from './queries/news';
 import intl from './queries/intl';
 import events2 from './queries/events2';
+import Youtube from './queries/youtube';
 
 const schema = new Schema({
   query: new ObjectType({
@@ -26,7 +27,8 @@ const schema = new Schema({
       content,
       news,
       intl,
-      events2
+      events2,
+      Youtube
     },
   }),
 });

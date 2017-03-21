@@ -9,7 +9,6 @@ import TextField from 'material-ui/TextField';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import FlatButton from 'material-ui/FlatButton';
 
-
 function EventCo() {
   return (
     <div className={s.root}>
@@ -26,7 +25,10 @@ function EventCo() {
           <Table adjustForCheckbox={false}>
             <TableHeader >
               <TableRow>
-
+                <TableHeaderColumn>活動種類</TableHeaderColumn>
+                <TableHeaderColumn>活動日期</TableHeaderColumn>
+                <TableHeaderColumn>主講者</TableHeaderColumn>
+                <TableHeaderColumn>活動簡介</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody>
