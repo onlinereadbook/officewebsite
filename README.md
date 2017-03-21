@@ -92,4 +92,4 @@ Zoom 導入自動化
 
 
 
-導入 jenkins 2
+導入 jenkins 3
