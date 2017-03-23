@@ -1,0 +1,16 @@
+before_script:
+  - node -v
+  - npm -v
+
+stages:
+  - test
+  
+test:6.10:
+  stage: test
+  image: node:6.10
+  script:
+    - npm install -g babel-cli
+    - export NODE_ENV=test
+    - cd readbookweb
+    - npm install
+    - npm test
