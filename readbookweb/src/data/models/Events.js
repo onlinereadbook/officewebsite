@@ -19,18 +19,34 @@ const Events = Model.define('Events', {
     title: {
         type: DataType.STRING(255),
     },
-    calendar: {
-        type: DataType.STRING(255),
-    },
-    memo: {
+    description: {
         type: DataType.TEXT(),
     },
     speaker: {
         type: DataType.STRING(255),
     },
-    publishedDate: {
+    startTime: {
         type: DataType.STRING(255),
     },
+    endTime: {
+        type: DataType.STRING(255),
+    },
+    parentGroupName: {
+        type: DataType.STRING(255),
+    },
+    parentGroupId: {
+        type: DataType.STRING(255),
+    },
+    privacy: {
+        type: DataType.STRING(255),
+    },
+    owner: {
+        type: DataType.STRING(255),
+    },
+    place: {
+        type: DataType.STRING(255),
+    },
+
 
 
 });

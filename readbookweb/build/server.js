@@ -1961,16 +1961,31 @@ module.exports =
       title: {
           type: _sequelize2.default.STRING(255)
       },
-      calendar: {
-          type: _sequelize2.default.STRING(255)
-      },
-      memo: {
+      description: {
           type: _sequelize2.default.TEXT()
       },
       speaker: {
           type: _sequelize2.default.STRING(255)
       },
-      publishedDate: {
+      startTime: {
+          type: _sequelize2.default.STRING(255)
+      },
+      endTime: {
+          type: _sequelize2.default.STRING(255)
+      },
+      parentGroupName: {
+          type: _sequelize2.default.STRING(255)
+      },
+      parentGroupId: {
+          type: _sequelize2.default.STRING(255)
+      },
+      privacy: {
+          type: _sequelize2.default.STRING(255)
+      },
+      owner: {
+          type: _sequelize2.default.STRING(255)
+      },
+      place: {
           type: _sequelize2.default.STRING(255)
       }
   

@@ -31,7 +31,6 @@ async function getdetail() {
     let Youtubedata = await Youtubelist.findAll({});
     //console.log(Youtubedata);
     Youtubedata.map((v) => {
-
         console.log(v.dataValues.videoId);
     })
 
