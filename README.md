@@ -90,6 +90,4 @@ Crud 製作步驟
 
 Zoom 導入自動化
 
-
-
-導入 jenkins 6
+導入 jenkins 

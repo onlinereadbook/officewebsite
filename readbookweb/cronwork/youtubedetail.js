@@ -28,11 +28,12 @@ let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=
 getdetail();
 
 async function getdetail() {
-    let Youtubedata = await Youtubelist.findAll({})
-    //  console.log(data);
-    Youtubedata.map((v => {
-        console.log(v);
+    let Youtubedata = await Youtubelist.findAll({});
+    //console.log(Youtubedata);
+    Youtubedata.map((v) => {
+
+        console.log(v.dataValues.videoId);
     })
 
-
+}
 
