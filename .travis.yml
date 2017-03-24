@@ -9,5 +9,5 @@ install:
   - npm install
 
 script:
-  - cd readbookweb
+  - pwd
   - npm run test
