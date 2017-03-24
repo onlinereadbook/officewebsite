@@ -21,7 +21,7 @@ export default {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                query: '{Youtube {title,videoId,description}}',
+                query: '{Youtube {title,videoId,description,tags}}',
             }),
             credentials: 'include',
         });

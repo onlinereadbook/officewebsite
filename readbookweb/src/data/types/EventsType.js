@@ -17,9 +17,8 @@ const EventsType = new ObjectType({
     name: 'Events',
     fields: {
         title: { type: new NonNull(StringType) },
-        calendar: { type: new NonNull(StringType) },
-        memo: { type: StringType },
-        publishedDate: { type: new NonNull(StringType) },
+        startTime: { type: new NonNull(StringType) },
+        description: { type: StringType },
         speaker: { type: StringType },
     },
 });

@@ -17,8 +17,7 @@ import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import EventCo from '../../components/EventCo';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import FlatButton from 'material-ui/FlatButton';
@@ -30,7 +29,7 @@ const styles = {
 }
 
 
-const TableHeaderData = ["時間", "種類", "主講者", "內容"];
+const TableHeaderData = ["影片名稱", "Tags", "內容"];
 
 // const TableRowData = [
 //     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
@@ -68,17 +67,28 @@ class Youtube extends Component {
                                 <Table adjustForCheckbox={false}>
                                     <TableHeader >
                                         <TableRow>
-                                            <TableHeaderColumn>活動種類</TableHeaderColumn>
-                                            <TableHeaderColumn>活動日期</TableHeaderColumn>
-                                            <TableHeaderColumn>主講者</TableHeaderColumn>
-                                            <TableHeaderColumn>活動簡介</TableHeaderColumn>
+                                            <TableHeaderColumn>影片名稱</TableHeaderColumn>
+                                            <TableHeaderColumn>內容</TableHeaderColumn>
+                                            <TableHeaderColumn>Tags</TableHeaderColumn>
+
+
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
 
                                         {youtubedata.map(function (data, index) {
-                                            return <TableRow key={index} onTouchTap={() => onSelectClick(index)}>
-                                                <TableRowColumn key={index}>{data.title}</TableRowColumn>
+
+                                            let url = 'https://www.youtube.com/watch?v=' + data.videoId;
+                                            return <TableRow key={index}  >
+                                                <TableRowColumn  >
+
+                                                    <a href={url} target="_blank">    {data.title}</a>
+
+                                                </TableRowColumn>
+
+                                                <TableRowColumn  >{data.description}</TableRowColumn>
+
+                                                <TableRowColumn  >{data.tags}</TableRowColumn>
                                             </TableRow>
                                         })}
 

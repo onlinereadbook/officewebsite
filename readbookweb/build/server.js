@@ -2994,9 +2994,8 @@ module.exports =
       name: 'Events',
       fields: {
           title: { type: new _graphql.GraphQLNonNull(_graphql.GraphQLString) },
-          calendar: { type: new _graphql.GraphQLNonNull(_graphql.GraphQLString) },
-          memo: { type: _graphql.GraphQLString },
-          publishedDate: { type: new _graphql.GraphQLNonNull(_graphql.GraphQLString) },
+          startTime: { type: new _graphql.GraphQLNonNull(_graphql.GraphQLString) },
+          description: { type: _graphql.GraphQLString },
           speaker: { type: _graphql.GraphQLString }
       }
   }); /**
@@ -7908,7 +7907,7 @@ module.exports =
           var _this = this;
   
           return (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
-              var resp, _ref, data;
+              var resp, _ref, eventdata;
   
               return _regenerator2.default.wrap(function _callee$(_context) {
                   while (1) {
@@ -7934,16 +7933,16 @@ module.exports =
   
                           case 5:
                               _ref = _context.sent;
-                              data = _ref.data;
+                              eventdata = _ref.eventdata;
   
-                              console.log(data);
+                              console.log(eventdata);
                               console.log('data');
   
                               // if (!data || !data.events) throw new Error('Failed to load the news feed.');
                               // console.log(data);
                               return _context.abrupt('return', {
                                   title: '行事曆',
-                                  component: _react2.default.createElement(_Events2.default, null)
+                                  component: _react2.default.createElement(_Events2.default, { eventdata: eventdata })
                               });
   
                           case 10:
@@ -8025,49 +8024,30 @@ module.exports =
   
   var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
   
-  var _EventCo = __webpack_require__(185);
+  var _TextField = __webpack_require__(141);
   
-  var _EventCo2 = _interopRequireDefault(_EventCo);
+  var _TextField2 = _interopRequireDefault(_TextField);
+  
+  var _Table = __webpack_require__(139);
   
   var _reactRedux = __webpack_require__(100);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  //import MenuData from './MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
   var styles = {
       button: { margin: 12 },
       Card: { marginBotton: 10 }
-  }; /**
-      * React Starter Kit (https://www.reactstarterkit.com/)
-      *
-      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-      *
-      * This source code is licensed under the MIT license found in the
-      * LICENSE.txt file in the root directory of this source tree.
-      */
-  
-  var TableHeaderData = ["時間", "種類", "主講者", "內容"];
-  
-  // const TableRowData = [
-  //     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-  //     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-  // ];
-  
-  
-  var TableRowData = [{
-      "eventTitle": "Nodejs讀書會",
-      "eventCal": "2016-12-12",
-      "eventKind": "後端",
-      "eventSpeaker": "主講者:polo",
-      "eventMemo": "好康之主題"
-  }, {
-      "eventTitle": "Reactjs讀書會",
-      "eventCal": "2016-12-13",
-      "eventKind": "前端",
-      "eventSpeaker": "主講者:andy",
-      "eventMemo": "好康之主題"
-  
-  }];
+  };
+  //import MenuData from './MenuData';
   
   var Events = function (_Component) {
       (0, _inherits3.default)(Events, _Component);
@@ -8094,11 +8074,10 @@ module.exports =
       (0, _createClass3.default)(Events, [{
           key: 'render',
           value: function render() {
-              var common = this.props.common;
-              var OpenAbout = this.OpenAbout;
+              //const { common } = this.props;
+              //const { OpenAbout } = this;
+              var eventdata = this.props.eventdata;
   
-              console.log('TableRowData');
-              console.log(TableRowData);
               return _react2.default.createElement(
                   'div',
                   null,
@@ -8112,9 +8091,63 @@ module.exports =
                               'div',
                               { className: _Events2.default.container },
                               _react2.default.createElement(
-                                  _EventCo2.default,
+                                  _Card.Card,
                                   null,
-                                  '   '
+                                  _react2.default.createElement(
+                                      _Card.CardText,
+                                      null,
+                                      _react2.default.createElement(
+                                          'div',
+                                          { className: _Events2.default.flexContainer },
+                                          _react2.default.createElement(
+                                              'div',
+                                              { className: _Events2.default.flex2 },
+                                              _react2.default.createElement(_TextField2.default, { hintText: '\u8F38\u5165\u95DC\u9375\u5B57', fullWidth: true, id: 'search' })
+                                          )
+                                      )
+                                  ),
+                                  _react2.default.createElement(
+                                      _Table.Table,
+                                      { adjustForCheckbox: false },
+                                      _react2.default.createElement(
+                                          _Table.TableHeader,
+                                          null,
+                                          _react2.default.createElement(
+                                              _Table.TableRow,
+                                              null,
+                                              _react2.default.createElement(
+                                                  _Table.TableHeaderColumn,
+                                                  null,
+                                                  '\u5F71\u7247\u540D\u7A31'
+                                              ),
+                                              _react2.default.createElement(
+                                                  _Table.TableHeaderColumn,
+                                                  null,
+                                                  '\u5167\u5BB9'
+                                              ),
+                                              _react2.default.createElement(
+                                                  _Table.TableHeaderColumn,
+                                                  null,
+                                                  'Tags'
+                                              )
+                                          )
+                                      ),
+                                      _react2.default.createElement(
+                                          _Table.TableBody,
+                                          null,
+                                          eventdata.map(function (data, index) {
+  
+                                              //let url = 'https://www.youtube.com/watch?v=' + data.videoId;
+                                              return _react2.default.createElement(
+                                                  _Table.TableRow,
+                                                  { key: index },
+                                                  _react2.default.createElement(_Table.TableRowColumn, null),
+                                                  _react2.default.createElement(_Table.TableRowColumn, null),
+                                                  _react2.default.createElement(_Table.TableRowColumn, null)
+                                              );
+                                          })
+                                      )
+                                  )
                               )
                           )
                       )
@@ -8198,166 +8231,9 @@ module.exports =
   };
 
 /***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(15);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _withStyles = __webpack_require__(40);
-  
-  var _withStyles2 = _interopRequireDefault(_withStyles);
-  
-  var _EventCo = __webpack_require__(186);
-  
-  var _EventCo2 = _interopRequireDefault(_EventCo);
-  
-  var _reactRedux = __webpack_require__(100);
-  
-  var _Table = __webpack_require__(139);
-  
-  var _tablecs = __webpack_require__(140);
-  
-  var _Card = __webpack_require__(127);
-  
-  var _TextField = __webpack_require__(141);
-  
-  var _TextField2 = _interopRequireDefault(_TextField);
-  
-  var _android = __webpack_require__(142);
-  
-  var _android2 = _interopRequireDefault(_android);
-  
-  var _FlatButton = __webpack_require__(143);
-  
-  var _FlatButton2 = _interopRequireDefault(_FlatButton);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  function EventCo() {
-    return _react2.default.createElement(
-      'div',
-      { className: _EventCo2.default.root },
-      _react2.default.createElement(
-        'div',
-        { className: _EventCo2.default.container },
-        _react2.default.createElement(
-          _Card.Card,
-          null,
-          _react2.default.createElement(
-            _Card.CardText,
-            null,
-            _react2.default.createElement(
-              'div',
-              { className: _EventCo2.default.flexContainer },
-              _react2.default.createElement(
-                'div',
-                { className: _EventCo2.default.flex2 },
-                _react2.default.createElement(_TextField2.default, { hintText: '\u8F38\u5165\u95DC\u9375\u5B57', fullWidth: true, id: 'search' })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _Table.Table,
-            { adjustForCheckbox: false },
-            _react2.default.createElement(
-              _Table.TableHeader,
-              null,
-              _react2.default.createElement(
-                _Table.TableRow,
-                null,
-                _react2.default.createElement(
-                  _Table.TableHeaderColumn,
-                  null,
-                  '\u6D3B\u52D5\u7A2E\u985E'
-                ),
-                _react2.default.createElement(
-                  _Table.TableHeaderColumn,
-                  null,
-                  '\u6D3B\u52D5\u65E5\u671F'
-                ),
-                _react2.default.createElement(
-                  _Table.TableHeaderColumn,
-                  null,
-                  '\u4E3B\u8B1B\u8005'
-                ),
-                _react2.default.createElement(
-                  _Table.TableHeaderColumn,
-                  null,
-                  '\u6D3B\u52D5\u7C21\u4ECB'
-                )
-              )
-            ),
-            _react2.default.createElement(_Table.TableBody, null)
-          )
-        )
-      )
-    );
-  }
-  
-  exports.default = (0, _withStyles2.default)(_EventCo2.default)(EventCo);
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-  
-      var content = __webpack_require__(187);
-      var insertCss = __webpack_require__(44);
-  
-      if (typeof content === 'string') {
-        content = [[module.id, content, '']];
-      }
-  
-      module.exports = content.locals || {};
-      module.exports._getCss = function() { return content.toString(); };
-      module.exports._insertCss = function(options) { return insertCss(content, options) };
-    
-      // Hot Module Replacement
-      // https://webpack.github.io/docs/hot-module-replacement
-      // Only activated in browser context
-      if (false) {
-        var removeCss = function() {};
-        module.hot.accept("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!../../../node_modules/postcss-loader/index.js?pack=default!./EventCo.css", function() {
-          content = require("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!../../../node_modules/postcss-loader/index.js?pack=default!./EventCo.css");
-  
-          if (typeof content === 'string') {
-            content = [[module.id, content, '']];
-          }
-  
-          removeCss = insertCss(content, { replace: true });
-        });
-        module.hot.dispose(function() { removeCss(); });
-      }
-    
-
-/***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(43)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  /*\n   * Layout\n   * ======================================================================== */\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  /* Extra small screen / phone */\n  /* Small screen / tablet */\n  /* Medium screen / desktop */\n  /* Large screen / wide desktop */\n}\n\n.EventCo_root_2iL {\n    background: #f5f5f5;\n    color: #333;\n}\n\n.EventCo_container_Ohu {\n    margin: 0 auto;\n    padding: 20px 8px;\n    max-width: 1000px;\n    text-align: center;\n    font-size: 1.5em;\n    /* ~24px */\n}\n\n.EventCo_link_cgG,\n.EventCo_link_cgG:active,\n.EventCo_link_cgG:hover,\n.EventCo_link_cgG:visited {\n    color: #333;\n    text-decoration: none;\n}\n\n.EventCo_link_cgG:hover {\n    text-decoration: underline;\n}\n\n.EventCo_spacer_3ni {\n    padding-right: 15px;\n    padding-left: 15px;\n}", "", {"version":3,"sources":["/./components/EventCo/EventCo.css","/./components/variables.css"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;;;;;;GAOG;;AAEH;EACE;;gFAE8E;EAE9E;;gFAE8E;EAE9E;;gFAE8E;EAE9E,gCAAgC;EAEhC,2BAA2B;EAE3B,6BAA6B;EAE7B,iCAAiC;CAClC;;ADnBD;IACI,oBAAoB;IACpB,YAAY;CACf;;AAED;IACI,eAAe;IACf,kBAAkB;IAClB,kBAAoC;IACpC,mBAAmB;IACnB,iBAAiB;IACjB,WAAW;CACd;;AAED;;;;IAII,YAAY;IACZ,sBAAsB;CACzB;;AAED;IACI,2BAA2B;CAC9B;;AAED;IACI,oBAAoB;IACpB,mBAAmB;CACtB","file":"EventCo.css","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../variables.css';\n.root {\n    background: #f5f5f5;\n    color: #333;\n}\n\n.container {\n    margin: 0 auto;\n    padding: 20px 8px;\n    max-width: var(--max-content-width);\n    text-align: center;\n    font-size: 1.5em;\n    /* ~24px */\n}\n\n.link,\n.link:active,\n.link:hover,\n.link:visited {\n    color: #333;\n    text-decoration: none;\n}\n\n.link:hover {\n    text-decoration: underline;\n}\n\n.spacer {\n    padding-right: 15px;\n    padding-left: 15px;\n}","/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n:root {\n  /*\n   * Typography\n   * ======================================================================== */\n  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  /*\n   * Layout\n   * ======================================================================== */\n  --max-content-width: 1000px;\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */\n  --screen-xs-min: 480px;\n  /* Extra small screen / phone */\n  --screen-sm-min: 768px;\n  /* Small screen / tablet */\n  --screen-md-min: 992px;\n  /* Medium screen / desktop */\n  --screen-lg-min: 1200px;\n  /* Large screen / wide desktop */\n}"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "EventCo_root_2iL",
-  	"container": "EventCo_container_Ohu",
-  	"link": "EventCo_link_cgG",
-  	"spacer": "EventCo_spacer_3ni"
-  };
-
-/***/ },
+/* 185 */,
+/* 186 */,
+/* 187 */,
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8412,7 +8288,7 @@ module.exports =
                                       'Content-Type': 'application/json'
                                   },
                                   body: (0, _stringify2.default)({
-                                      query: '{Youtube {title,videoId,description}}'
+                                      query: '{Youtube {title,videoId,description,tags}}'
                                   }),
                                   credentials: 'include'
                               });
@@ -8514,10 +8390,6 @@ module.exports =
   
   var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
   
-  var _EventCo = __webpack_require__(185);
-  
-  var _EventCo2 = _interopRequireDefault(_EventCo);
-  
   var _Table = __webpack_require__(139);
   
   var _TextField = __webpack_require__(141);
@@ -8536,20 +8408,23 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  //import MenuData from './MenuData';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
   var styles = {
       button: { margin: 12 },
       Card: { marginBotton: 10 }
-  }; /**
-      * React Starter Kit (https://www.reactstarterkit.com/)
-      *
-      * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-      *
-      * This source code is licensed under the MIT license found in the
-      * LICENSE.txt file in the root directory of this source tree.
-      */
+  };
+  //import MenuData from './MenuData';
   
-  var TableHeaderData = ["時間", "種類", "主講者", "內容"];
+  
+  var TableHeaderData = ["影片名稱", "Tags", "內容"];
   
   // const TableRowData = [
   //     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
@@ -8617,22 +8492,17 @@ module.exports =
                                               _react2.default.createElement(
                                                   _Table.TableHeaderColumn,
                                                   null,
-                                                  '\u6D3B\u52D5\u7A2E\u985E'
+                                                  '\u5F71\u7247\u540D\u7A31'
                                               ),
                                               _react2.default.createElement(
                                                   _Table.TableHeaderColumn,
                                                   null,
-                                                  '\u6D3B\u52D5\u65E5\u671F'
+                                                  '\u5167\u5BB9'
                                               ),
                                               _react2.default.createElement(
                                                   _Table.TableHeaderColumn,
                                                   null,
-                                                  '\u4E3B\u8B1B\u8005'
-                                              ),
-                                              _react2.default.createElement(
-                                                  _Table.TableHeaderColumn,
-                                                  null,
-                                                  '\u6D3B\u52D5\u7C21\u4ECB'
+                                                  'Tags'
                                               )
                                           )
                                       ),
@@ -8640,15 +8510,30 @@ module.exports =
                                           _Table.TableBody,
                                           null,
                                           youtubedata.map(function (data, index) {
+  
+                                              var url = 'https://www.youtube.com/watch?v=' + data.videoId;
                                               return _react2.default.createElement(
                                                   _Table.TableRow,
-                                                  { key: index, onTouchTap: function onTouchTap() {
-                                                          return onSelectClick(index);
-                                                      } },
+                                                  { key: index },
                                                   _react2.default.createElement(
                                                       _Table.TableRowColumn,
-                                                      { key: index },
-                                                      data.title
+                                                      null,
+                                                      _react2.default.createElement(
+                                                          'a',
+                                                          { href: url, target: '_blank' },
+                                                          '    ',
+                                                          data.title
+                                                      )
+                                                  ),
+                                                  _react2.default.createElement(
+                                                      _Table.TableRowColumn,
+                                                      null,
+                                                      data.description
+                                                  ),
+                                                  _react2.default.createElement(
+                                                      _Table.TableRowColumn,
+                                                      null,
+                                                      data.tags
                                                   )
                                               );
                                           })

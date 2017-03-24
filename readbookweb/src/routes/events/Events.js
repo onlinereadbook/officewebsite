@@ -17,37 +17,14 @@ import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import EventCo from '../../components/EventCo';
+import TextField from 'material-ui/TextField';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { connect } from 'react-redux';
 const styles = {
     button: { margin: 12 },
     Card: { marginBotton: 10 }
 }
-
-
-const TableHeaderData = ["時間", "種類", "主講者", "內容"];
-
-// const TableRowData = [
-//     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-//     { time: "time", kind: "kind", speaker: "speaker", content: "content" },
-// ];
-
-
-const TableRowData = [{
-    "eventTitle": "Nodejs讀書會",
-    "eventCal": "2016-12-12",
-    "eventKind": "後端",
-    "eventSpeaker": "主講者:polo",
-    "eventMemo": "好康之主題",
-}, {
-    "eventTitle": "Reactjs讀書會",
-    "eventCal": "2016-12-13",
-    "eventKind": "前端",
-    "eventSpeaker": "主講者:andy",
-    "eventMemo": "好康之主題",
-
-}]
 
 
 class Events extends Component {
@@ -67,18 +44,56 @@ class Events extends Component {
 
     }
     render() {
-        const { common } = this.props;
-        const { OpenAbout } = this;
-        console.log('TableRowData');
-        console.log(TableRowData);
+        //const { common } = this.props;
+        //const { OpenAbout } = this;
+        const eventdata = this.props.eventdata;
+
         return (
             <div>
                 <Layout name="polo">
                     <div className={s.root}>
                         <div className={s.container}>
 
-                            <EventCo   >   </EventCo>
+                            <Card  >
+                                <CardText>
+                                    <div className={s.flexContainer}>
+                                        <div className={s.flex2} >
+                                            <TextField hintText="輸入關鍵字" fullWidth={true} id="search"></TextField>
+                                        </div>
 
+                                    </div>
+                                </CardText>
+                                <Table adjustForCheckbox={false}>
+                                    <TableHeader >
+                                        <TableRow>
+                                            <TableHeaderColumn>影片名稱</TableHeaderColumn>
+                                            <TableHeaderColumn>內容</TableHeaderColumn>
+                                            <TableHeaderColumn>Tags</TableHeaderColumn>
+
+
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+
+                                        {eventdata.map(function (data, index) {
+
+                                            //let url = 'https://www.youtube.com/watch?v=' + data.videoId;
+                                            return <TableRow key={index}  >
+                                                <TableRowColumn  >
+
+
+
+                                                </TableRowColumn>
+
+                                                <TableRowColumn  ></TableRowColumn>
+
+                                                <TableRowColumn  ></TableRowColumn>
+                                            </TableRow>
+                                        })}
+
+                                    </TableBody>
+                                </Table>
+                            </Card>
                         </div>
                     </div>
                 </Layout>

@@ -25,15 +25,15 @@ export default {
             }),
             credentials: 'include',
         });
-        const { data } = await resp.json();
-        console.log(data);
+        const { eventdata } = await resp.json();
+        console.log(eventdata);
         console.log('data');
 
         // if (!data || !data.events) throw new Error('Failed to load the news feed.');
         // console.log(data);
         return {
             title: '行事曆',
-            component: <Events />,
+            component: <Events eventdata={eventdata} />,
         };
     },
 

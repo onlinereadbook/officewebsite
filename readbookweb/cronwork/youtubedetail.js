@@ -1,17 +1,15 @@
 import Sequelize from 'sequelize';
 import { databaseUrl } from '../src/config';
 import Youtubelist from '../src/data/models/YoutubeData';
-//console.log(databaseUrl);
+import Promise from 'promise';
 
 const sequelize = new Sequelize(databaseUrl, {
     define: {
         freezeTableName: true,
     },
 });
+const request = require('request-promise');
 
-//正準備要塞資料 有些還沒寫完歐
-
-const request = require('request');
 const fs = require('mz/fs');
 
 import YOUTUBEDATA from '../youtubekey';
@@ -30,9 +28,16 @@ getdetail();
 async function getdetail() {
     let Youtubedata = await Youtubelist.findAll({});
     //console.log(Youtubedata);
-    Youtubedata.map((v) => {
-        console.log(v.dataValues.videoId);
-    })
+    Youtubedata.forEach(async (v) => {
+        let url2 = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${v.dataValues.videoId}&key=${YOUR_API_KEY}`;
+        let temp = await request(url2);
+        temp = JSON.parse(temp);
+        let tags = temp.items[0].snippet.tags.toString();
+        v.tags = tags;
+        v.save();
+    });
+
 
 }
+
 

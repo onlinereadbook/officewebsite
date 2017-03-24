@@ -1,1 +1,1 @@
-module.exports = {"main":{"js":"/assets/main.js?7fc4ddfb4b66541f158f"},"polyfills":{"js":"/assets/polyfills.1.js?7fc4ddfb4b66541f158f"}};
+module.exports = {"main":{"js":"/assets/main.js?50c3fb6679466a195d3a"},"polyfills":{"js":"/assets/polyfills.1.js?7fc4ddfb4b66541f158f"}};
