@@ -5,4 +5,9 @@ node_js:
   - "7"
 
 install:
+  - cd readbookweb
   - npm install
+
+script:
+  - cd readbookweb
+  - npm run test
