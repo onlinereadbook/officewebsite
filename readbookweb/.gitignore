@@ -1,4 +1,8 @@
 node_modules/
+
+# production
+build/
+
 youtubekey.js
 fbkey.js
 credentials.js
