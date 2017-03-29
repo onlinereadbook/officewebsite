@@ -1,12 +1,12 @@
 var request = require('request');
 import Sequelize from 'sequelize';
 import { databaseUrl } from '../src/config';
-import Eventslist from '../src/data/models/Events';
+import GroupList from '../src/data/models/Group';
 
 
-let url = 'https://graph.facebook.com/v2.8/me?fields=id,name,events{id,start_time,description,owner,end_time,parent_group,name}'
-
-url = url + '&access_token=EAACEdEose0cBAOCR90V5uphAg0sZCbJOPxmncZBo8NfdIcKthSzaHgqrPcPau9gmkRKtqNI9ye0M0Ih2ZAtclZAhpsNFfXsTQYouxklW2lJ5Uyq5LPHZBPR9nfkZCRc0ZCanZBJqzvALFr3dCaCXXZAJyAnWn5TjnXPWZCJACNd4xV3faKa3LCCtgUZB5gp65Xt208ZD'
+let url = 'https://graph.facebook.com/v2.8/';
+url = url + 'me?fields=groups{email,name,owner,privacy,icon,cover,description}';
+url = url + '&access_token=EAACEdEose0cBALP5t5ZA3PGZAal3tUma42PTDQMzlAApzPG0FZBmEOn16IoZBbXHrhEBRSgT3nPnReGAoO0MSmYYQuAjg79lL26MqVLznkiRoI1auffhZBRceFZBPcYOaZAajKhvBX5yXKp9z54VCHieuU91VGaoBiMZBkujOpzZAEDiDXi14ZCfWsnYEvR8pstJ4ZD';
 
 go(url);
 async function go(url) {
@@ -14,26 +14,26 @@ async function go(url) {
     request(url, function (err, res, body) {
         let item = JSON.parse(body);
         // console.log(item.events.data);
-        //console.log(item.events.paging.next);
+        console.log(item.groups.paging.next);
 
-        let next = item.events.paging.next;
+        let next = item.groups.paging.next;
 
-        item.events.data.map((v) => {
-            let data = {};
-            data.start_time = v.start_time;
-            data.title = v.name;
-            data.description = v.description;
-            data.speaker = '';
-            data.startTime = v.start_time;
-            data.endTime = v.end_time;
-            if (typeof (v.parent_group) == "object") {
-                data.parentGroupName = v.parent_group.name;
-                data.parentGroupId = v.parent_group.id;
-                data.privacy = v.parent_group.privacy;
-                data.owner = v.owner.name;
-                Eventslist.build(data).save();
+        item.groups.data.map((v) => {
+            if (v.owner.name == '紀相安') {
+                let data = {};
+                data.email = v.email;
+                data.title = v.name;
+                data.description = v.description;
+                if (typeof (v.cover) === "object") {
+                    data.cover = v.cover;
+                } else {
+                    data.cover = '';
+                }
+                data.groupId = v.id;
+                GroupList.build(data).save();
+                //                console.log(data);
             }
-            //console.log(typeof (v.parent_group));
+
         })
         //console.log(item.events);
         if (next != "") {
@@ -55,20 +55,19 @@ async function go2(url) {
 
         item.data.map((v) => {
             let data = {};
-            data.start_time = v.start_time;
+            data.email = v.email;
             data.title = v.name;
             data.description = v.description;
-            data.speaker = '';
-            data.startTime = v.start_time;
-            data.endTime = v.end_time;
-            if (typeof (v.parent_group) == "object") {
-                data.parentGroupName = v.parent_group.name;
-                data.parentGroupId = v.parent_group.id;
-                data.privacy = v.parent_group.privacy;
-                data.owner = v.owner.name;
-                Eventslist.build(data).save();
+            // console.log(typeof (v.cover) === "object");
+            if (typeof (v.cover) === "object") {
+                //console.log(v.cover)
+                data.cover = v.cover;
+            } else {
+                data.cover = '';
             }
-            //console.log(typeof (v.parent_group));
+            data.groupId = v.id;
+            GroupList.build(data).save();
+
         })
 
 

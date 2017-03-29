@@ -15,7 +15,7 @@ import UserProfile from './UserProfile';
 import Events from './Events';
 import BookStudys from './BookStudys';
 import YoutubeData from './YoutubeData';
-
+import Group from './Group';
 
 
 User.hasMany(UserLogin, {

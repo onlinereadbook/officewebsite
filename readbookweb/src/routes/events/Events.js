@@ -75,21 +75,7 @@ class Events extends Component {
                                     </TableHeader>
                                     <TableBody>
 
-                                        {eventdata.map(function (data, index) {
 
-                                            //let url = 'https://www.youtube.com/watch?v=' + data.videoId;
-                                            return <TableRow key={index}  >
-                                                <TableRowColumn  >
-
-
-
-                                                </TableRowColumn>
-
-                                                <TableRowColumn  ></TableRowColumn>
-
-                                                <TableRowColumn  ></TableRowColumn>
-                                            </TableRow>
-                                        })}
 
                                     </TableBody>
                                 </Table>

@@ -11,7 +11,7 @@ import React, { PropTypes, Component } from 'react';
 import { FormattedRelative } from 'react-intl';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Layout from '../../components/Layout';
-import s from './Youtube.css';
+import s from './Speak.css';
 //import MenuData from './MenuData';
 import ActionStoreIcon from 'material-ui/svg-icons/action/store';
 import ActionSearchIcon from 'material-ui/svg-icons/action/search';
@@ -40,7 +40,7 @@ const TableHeaderData = ["影片名稱", "Tags", "內容"];
 
 
 
-class Youtube extends Component {
+class Speak extends Component {
     constructor(props) {
         super(props);
         this.props = props;
@@ -49,12 +49,8 @@ class Youtube extends Component {
 
     render() {
         const { common } = this.props;
-        const youtubedata = this.props.youtubedata.data.Youtube;
         //  console.log(youtubedata);
 
-        youtubedata.forEach((v) => {
-            console.log(v.tags);
-        });
 
 
         return (
@@ -67,13 +63,6 @@ class Youtube extends Component {
                                     <div className={s.flexContainer}>
                                         <div className={s.flex2} >
 
-                                            <AutoComplete
-                                                floatingLabelText="T輸入關鍵字"
-                                                filter={AutoComplete.fuzzyFilter}
-                                                dataSource={keyword}
-                                                maxSearchResults={5}
-                                                fullWidth={true}
-                                            />
 
                                         </div>
 
@@ -91,21 +80,7 @@ class Youtube extends Component {
                                     </TableHeader>
                                     <TableBody>
 
-                                        {youtubedata.map(function (data, index) {
 
-                                            let url = 'https://www.youtube.com/watch?v=' + data.videoId;
-                                            return <TableRow key={index}  >
-                                                <TableRowColumn  >
-
-                                                    <a href={url} target="_blank">    {data.title}</a>
-
-                                                </TableRowColumn>
-
-                                                <TableRowColumn  >{data.description}</TableRowColumn>
-
-                                                <TableRowColumn  >{data.tags}</TableRowColumn>
-                                            </TableRow>
-                                        })}
 
                                     </TableBody>
                                 </Table>
@@ -134,4 +109,4 @@ const mapDispatch = {
 
 
 
-export default connect(mapState)(withStyles(s)(Youtube));
+export default connect(mapState)(withStyles(s)(Speak));

@@ -26,6 +26,7 @@ export default {
     require('./admin').default,
     require('./events').default,
     require('./youtube').default,
+    require('./speaker').default,
 
 
 

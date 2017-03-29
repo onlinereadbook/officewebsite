@@ -44,7 +44,7 @@ class Header extends Component {
     }
     render() {
         const { common, test } = this.props;
-        const {OpenMenu, OpenMenuEvent } = this;
+        const { OpenMenu, OpenMenuEvent, OpenMenuYoutube, OpenMenuSpeaker } = this;
 
         const MenuList = (props) => (
             <IconMenu
@@ -55,10 +55,11 @@ class Header extends Component {
                 }
                 targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-                >
+            >
                 <MenuItem primaryText="探索讀書會主題" leftIcon={<ChromeIcon />} onTouchTap={OpenMenu} />
-                <MenuItem primaryText="觀看活動清單" leftIcon={<DateIcon />} onTouchTap={OpenMenuEvent} />
-                <MenuItem primaryText="主講介紹" leftIcon={<PeopleIcon />} />
+                <MenuItem primaryText="觀看活動日期" leftIcon={<DateIcon />} onTouchTap={OpenMenuEvent} />
+                <MenuItem primaryText="精彩過往影片" leftIcon={<PeopleIcon />} onTouchTap={OpenMenuYoutube} />
+                <MenuItem primaryText="主講介紹" leftIcon={<PeopleIcon />} onTouchTap={OpenMenuSpeaker} />
             </IconMenu>
         );
         return (
@@ -85,20 +86,14 @@ class Header extends Component {
     }
 
     OpenMenuEvent = () => {
-
-        //   const { setLeftmenu } = this.props;
-
-        // setLeftmenu({
-
-        //     openMenu: false,
-        //     openMenuEvent: true
-
-        // });
         history.push('/events/');
-
     }
-
-
+    OpenMenuYoutube = () => {
+        history.push('/youtube/');
+    }
+    OpenMenuSpeaker = () => {
+        history.push('/speaker/');
+    }
     handleChange() {
         const { setTest } = this.props;
         setTest({
